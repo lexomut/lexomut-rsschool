@@ -1,0 +1,59 @@
+.survival{
+
+
+  height: 780px;
+  background: url("../images/background-image.jpg") no-repeat center ;
+  background-size: cover;
+  max-width: 1440px;
+
+}
+.survival__content{
+  padding-top: 200px;
+  max-width: 274px;
+
+}
+.survival__-content-title{
+  font-size: 48px;
+  line-height: 72px;
+
+  letter-spacing: 2px;
+  margin-bottom: 51px;
+
+
+
+  color: #CD6326;
+}
+.survival__content-text{
+  font-size: 18px;
+  line-height: 28px;
+  /* or 150% */
+
+
+  /* font-light */
+
+  color: #F7F7F7;
+  margin-bottom: 47px;
+}
+.survival__content-button{
+  width: 160px;
+  height: 60px;
+
+
+  /* /orange-main */
+
+  background: #CD6326;
+  border-radius: 5px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 23px;
+  line-height: 27px;
+  border: none;
+  /* identical to box height */
+
+  text-align: center;
+
+  /* font-light */
+
+  color: #F7F7F7;
+}

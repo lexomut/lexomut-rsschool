@@ -1,11 +1,41 @@
 @import url(reset.css);
 @import url(fonts.css);
+@import url(header.css);
+@import url(survival.css);
+@import url(Latest-articles.css);
 html {
   box-sizing: border-box;
 }
 
 *, *::before, *::after {
   box-sizing: inherit;
+}
+
+body {
+  font-family: Open Sans;
+  font-style: normal;
+  font-size: 16px;
+  line-height: normal;
+  font-weight: normal;
+  color: #333333;
+}
+
+main {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.survival__content-button:hover {
+  background: #E39128;
+}
+
+.survival__content-button:active {
+  background: #8F5613;
 }
 
 /*# sourceMappingURL=main.css.map */

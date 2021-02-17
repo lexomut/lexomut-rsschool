@@ -1,0 +1,50 @@
+.latest-articles{
+  padding-top: 120px;
+  height: 1368px;
+  background: #CCCCCC;
+}
+.latest_articles__title{
+  font-size: 48px;
+  line-height: 72px;
+  /* identical to box height, or 150% */
+  text-align: center;
+
+  /* font-dark */
+  color: #333333;
+  margin-bottom: 20px;
+}
+.latest-articles__subtitle{
+  font-size: 24px;
+  line-height: 36px;
+  /* identical to box height, or 150% */
+  text-align: center;
+
+  /* font-grey */
+  color: #666666;
+margin-bottom: 97px;
+}
+
+.latest-articles__slider{
+  display: flex;
+  align-items: center;
+}
+.latest-articles__slider-box{
+  display: flex;
+  flex-wrap:wrap ;
+
+}
+.latest-articles__slider-item{
+  width: 300px;
+  height: 360px;
+  margin-left: 63px;
+  background:url("../images/deer.jpg") no-repeat center ;
+
+}
+
+.latest-articles__slider :last-child{
+  margin-left: 59px;
+}
+.latest-articles__text{
+margin-top: 239px;
+}
+
