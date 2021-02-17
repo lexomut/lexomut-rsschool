@@ -3,6 +3,7 @@
 @import url(header.css);
 @import url(survival.css);
 @import url(Latest-articles.css);
+@import url(footer.css);
 html {
   box-sizing: border-box;
 }
@@ -30,11 +31,26 @@ main {
   margin: 0 auto;
 }
 
-.survival__content-button:hover {
+.button {
+  background: #CD6326;
+  border-radius: 5px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 23px;
+  line-height: 27px;
+  border: none;
+  /* identical to box height */
+  text-align: center;
+  /* font-light */
+  color: #F7F7F7;
+}
+
+.button:hover {
   background: #E39128;
 }
 
-.survival__content-button:active {
+.button:active {
   background: #8F5613;
 }
 
