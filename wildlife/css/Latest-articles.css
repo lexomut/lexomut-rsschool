@@ -1,6 +1,6 @@
 .latest-articles {
   padding-top: 120px;
-  height: 1368px;
+  padding-bottom: 238px;
   background: #CCCCCC;
 }
 
@@ -21,12 +21,15 @@
   text-align: center;
   /* font-grey */
   color: #666666;
-  margin-bottom: 97px;
+  margin-bottom: 87px;
 }
 
 .latest-articles__slider {
   display: flex;
   align-items: center;
+}
+.latest-articles__slider svg:hover {
+  opacity: 0.3;
 }
 
 .latest-articles__slider-box {
@@ -37,16 +40,38 @@
 .latest-articles__slider-item {
   width: 300px;
   height: 360px;
-  margin-left: 63px;
-  background: url("../images/deer.jpg") no-repeat center;
+  margin: 10px 0 10px 62px;
+  position: relative;
 }
 
-.latest-articles__slider :last-child {
-  margin-left: 59px;
+.latest-articles__slider-item-text {
+  display: block;
+  position: absolute;
+  bottom: 40px;
+  width: 100%;
+}
+
+.latest-articles__slider-item-title {
+  /* Deer */
+  font-size: 22px;
+  line-height: 58px;
+  text-align: center;
+  color: #F7F7F7;
+}
+
+.latest-articles__slider-item-subtitle {
+  font-size: 17px;
+  line-height: 27px;
+  text-align: center;
+  color: #F7F7F7;
+}
+
+.latest-articles__slider-right {
+  margin-left: 58px;
 }
 
 .latest-articles__text {
-  margin-top: 239px;
+  margin-top: 229px;
 }
 
 .latest-articles__text {

@@ -68,8 +68,16 @@
   opacity: 0.4;
 }
 
-.header__nav-logo :hover {
+.header__nav-logo:hover {
   opacity: 0.3;
+}
+
+.header__nav-button:hover {
+  border: 4px solid #E39128;
+}
+
+.header__nav-button:active {
+  background: #8F5613;
 }
 
 /*# sourceMappingURL=header.css.map */
