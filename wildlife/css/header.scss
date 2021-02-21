@@ -44,7 +44,7 @@
   //line-height: 60px;
 }
 .header__item{
-  margin-right: 65px;
+  margin-right: 66px;
 }
 .header__item:last-child{
   margin-right: 0;
@@ -52,10 +52,10 @@
 }
 .header__nav-button{
   background: none;
-  border: 4px solid #CD6326;
+  border: 2px solid #CD6326;
   box-sizing: border-box;
   border-radius: 5px;
-  padding: 6px 22px;
+  padding: 9px 22px;
 
 
 }
@@ -76,11 +76,13 @@
 .header__nav-button:hover{
 
 
-    border: 4px solid #E39128;
+    border: 2px solid #E39128;
 
 
 }
+
 .header__nav-button:active{
 
   background:  #8F5613
 }
+

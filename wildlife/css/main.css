@@ -21,11 +21,6 @@ body {
   color: #333333;
 }
 
-main {
-  max-width: 1440px;
-  margin: 0 auto;
-}
-
 .wrapper {
   max-width: 1200px;
   margin: 0 auto;
@@ -52,6 +47,14 @@ main {
 
 .button:active {
   background: #8F5613;
+}
+
+.background-top {
+  background-color: #02160b;
+}
+
+.background-bottom {
+  background-color: #cccccc;
 }
 
 /*# sourceMappingURL=main.css.map */

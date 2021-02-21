@@ -1,6 +1,7 @@
 .latest-articles {
   padding-top: 120px;
-  padding-bottom: 238px;
+  max-width: 1440px;
+  margin: 0 auto;
   background: #CCCCCC;
 }
 
@@ -21,7 +22,7 @@
   text-align: center;
   /* font-grey */
   color: #666666;
-  margin-bottom: 87px;
+  margin-bottom: 111px;
 }
 
 .latest-articles__slider {
@@ -54,7 +55,7 @@
 .latest-articles__slider-item-title {
   /* Deer */
   font-size: 22px;
-  line-height: 58px;
+  line-height: 57px;
   text-align: center;
   color: #F7F7F7;
 }
@@ -110,6 +111,10 @@
   width: 120px;
   height: 65px;
   margin-left: -1px;
+}
+
+.get-notified {
+  padding-bottom: 238px;
 }
 
 /*# sourceMappingURL=Latest-articles.css.map */
