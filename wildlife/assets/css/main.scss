@@ -1,32 +1,27 @@
-@import url(reset.css);
-@import url(fonts.css);
-@import url(header.css);
-@import url(survival.css);
-@import url(Latest-articles.css);
-@import url(footer.css);
+@import "reset.css";
+@import "fonts.css";
 html {
   box-sizing: border-box;
 }
-
-*, *::before, *::after {
+*,*::before,*::after{
   box-sizing: inherit;
 }
-
-body {
+body{
+  position: relative;
   font-family: Open Sans;
   font-style: normal;
   font-size: 16px;
   line-height: normal;
   font-weight: normal;
   color: #333333;
+
 }
 
-.wrapper {
+.wrapper{
   max-width: 1200px;
   margin: 0 auto;
 }
-
-.button {
+.button{
   background: #CD6326;
   border-radius: 5px;
   font-family: Roboto;
@@ -36,25 +31,28 @@ body {
   line-height: 27px;
   border: none;
   /* identical to box height */
+
   text-align: center;
+
   /* font-light */
+
   color: #F7F7F7;
 }
-
 .button:hover {
-  background: #E39128;
+  background:  #E39128
 }
 
 .button:active {
-  background: #8F5613;
+  background:  #8F5613
+}
+.background-top{
+background-color:  #02160b}
+.background-bottom{
+  background-color:  #cccccc;
+
 }
 
-.background-top {
-  background-color: #02160b;
-}
-
-.background-bottom {
-  background-color: #cccccc;
-}
-
-/*# sourceMappingURL=main.css.map */
+@import "header.css";
+@import "survival";
+@import "Latest-articles.css";
+@import "footer.css";
