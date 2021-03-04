@@ -12,13 +12,17 @@ piano.addEventListener('mouseover', (event) => {
 });
 window.addEventListener('keydown', (event) => keypress(event))
 
+
+
 piano.addEventListener('mouseup', (event) => releaseKey(event));
 piano.addEventListener('mouseout', (event) => {
     if (event.buttons == 1 || event.buttons == 2) releaseKey(event)
 });
 window.addEventListener('keyup', (event) => releaseKey(event))
 
-notesBtn.onclick = function f() {
+
+
+notesBtn.onclick = function activateNotes () {
 
     notesBtn.classList.add('btn-active')
     lettersBtn.classList.remove('btn-active')
@@ -26,7 +30,7 @@ notesBtn.onclick = function f() {
         elem.classList.remove('letter')
 
 }
-lettersBtn.onclick = function f() {
+lettersBtn.onclick = function activateLetters() {
 
     lettersBtn.classList.add('btn-active')
     notesBtn.classList.remove('btn-active')
