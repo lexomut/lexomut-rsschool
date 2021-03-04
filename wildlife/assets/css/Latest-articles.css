@@ -1,0 +1,120 @@
+.latest-articles {
+  padding-top: 120px;
+  max-width: 1440px;
+  margin: 0 auto;
+  background: #CCCCCC;
+}
+
+.latest_articles__title {
+  font-size: 48px;
+  line-height: 72px;
+  /* identical to box height, or 150% */
+  text-align: center;
+  /* font-dark */
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+.latest-articles__subtitle {
+  font-size: 24px;
+  line-height: 36px;
+  /* identical to box height, or 150% */
+  text-align: center;
+  /* font-grey */
+  color: #666666;
+  margin-bottom: 111px;
+}
+
+.latest-articles__slider {
+  display: flex;
+  align-items: center;
+}
+.latest-articles__slider svg:hover {
+  opacity: 0.3;
+}
+
+.latest-articles__slider-box {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.latest-articles__slider-item {
+  width: 300px;
+  height: 360px;
+  margin: 10px 0 10px 62px;
+  position: relative;
+}
+
+.latest-articles__slider-item-text {
+  display: block;
+  position: absolute;
+  bottom: 40px;
+  width: 100%;
+}
+
+.latest-articles__slider-item-title {
+  /* Deer */
+  font-size: 22px;
+  line-height: 57px;
+  text-align: center;
+  color: #F7F7F7;
+}
+
+.latest-articles__slider-item-subtitle {
+  font-size: 17px;
+  line-height: 27px;
+  text-align: center;
+  color: #F7F7F7;
+}
+
+.latest-articles__slider-right {
+  margin-left: 58px;
+}
+
+.latest-articles__text {
+  margin-top: 229px;
+}
+
+.latest-articles__text {
+  font-size: 27px;
+  line-height: 40px;
+  /* identical to box height, or 150% */
+  text-align: center;
+  /* font-dark */
+  color: #333333;
+  margin-bottom: 59px;
+}
+
+.latest-articles__form {
+  width: 660px;
+  height: 65px;
+  margin: 0 auto;
+}
+
+.latest-articles__input {
+  width: 540px;
+  height: 65px;
+  /* regular-UI */
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 23px;
+  line-height: 27px;
+  align-items: center;
+  /* font-grey */
+  color: #666666;
+  border: 1px solid #666666;
+  background: #CCCCCC;
+}
+
+.latest-articles__button {
+  width: 120px;
+  height: 65px;
+  margin-left: -1px;
+}
+
+.get-notified {
+  padding-bottom: 238px;
+}
+
+/*# sourceMappingURL=Latest-articles.css.map */
