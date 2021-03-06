@@ -1,0 +1,97 @@
+@import "normalize.css";
+@import "icon-fonts";
+
+html{
+  font-size: 10px;
+}
+a{
+  text-decoration: none;
+}
+li{
+  list-style-type: none;
+}
+*{
+  padding-inline-start: 0;
+}
+
+
+@mixin Subheader($color: #000000) {
+  font: {
+    family: Montserrat, sans-serif;
+    style: normal;
+    weight: 500;
+    size: 2.6rem;
+
+  };
+  text-align: center;
+  color: $color;
+  line-height: 130%;
+
+}
+
+@mixin body($color: #000000) {
+  font: {
+    family: Montserrat, sans-serif;
+    style: normal;
+    weight: normal;
+    size: 1.8rem;
+  };
+  text-align: center;
+  color: $color;
+  line-height: 150%;
+}
+
+@mixin btn-text($color: #F58021) {
+  font: {
+    family: Montserrat, sans-serif;
+    style: normal;
+    weight: 600;
+    size: 1.8rem;
+  };
+  color: $color;
+  line-height: 122%;
+  text-transform: uppercase;
+}
+
+$maxWidth:1920 ;
+$md1:$maxWidth;
+$md2:1200;
+$md3:640;
+$md4:320;
+$orange:#F58021;
+
+.wrapper{
+  max-width:$maxWidth+px;
+  margin: 0 auto;
+  overflow: hidden;
+
+
+  @media screen and (max-width: $md2+px) {
+    max-width: $md2+px
+  };
+  @media  screen and (max-width: $md3+px) {
+    max-width: $md3+px
+  };
+  @media  screen and (max-width: $md4+px) {
+    max-width: $md4+px
+  };
+};
+
+.wrapper-content{
+    margin: 0 auto;
+    max-width: 140rem;
+    @media screen and  (max-width: $md2+px) {
+      max-width: 100rem
+    };
+}
+.nav, .social{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.social >li>a>img:hover{
+  transform:scale(1.2) ;
+}
+
+@import "header";
+
