@@ -1,5 +1,10 @@
 @import "normalize.css";
+@import "reset.css";
 @import "icon-fonts";
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
 html{
   font-size: 10px;
@@ -12,6 +17,10 @@ li{
 }
 *{
   padding-inline-start: 0;
+}
+h1{
+  position: absolute;
+  left: -100vh;
 }
 
 
@@ -78,11 +87,18 @@ $orange:#F58021;
 };
 
 .wrapper-content{
-    margin: 0 auto;
+  width: 100%;
+  margin: 0 8.4%;
+    //margin: 0 auto;
     max-width: 140rem;
     @media screen and  (max-width: $md2+px) {
       max-width: 100rem
     };
+  @media screen and  (max-width: $md3+px) {
+    margin-left: 2rem;
+      margin-right: 2rem;
+    max-width: 60rem
+  };
 }
 .nav, .social{
   display: flex;
@@ -92,6 +108,26 @@ $orange:#F58021;
 .social >li>a>img:hover{
   transform:scale(1.2) ;
 }
+.button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 7.4rem;
+  @include btn-text();
+  text-transform: uppercase;
+  border-radius: .5rem;
+  border: none;
+  @media screen and  (max-width: $md4+px) {
+    width: 30rem;
+    height: 4.5rem;
+  }
+
+}
+.icon-space{
+  display: flex;
+  margin-left: 1.3rem;
+}
 
 @import "header";
+@import "watch-your";
 

@@ -64,7 +64,10 @@
 .icon-Union-left:before {
   content: "\e90c";
 }
-.icon-Union-rigth:before {
+.icon-Union-right:before {
+  content: "\e90d";
+}
+.icon-Union-right1:after {
   content: "\e90d";
 }
 .icon-Vector:before {

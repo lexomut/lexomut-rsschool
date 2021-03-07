@@ -9,17 +9,12 @@
 
   &__container {
     width: 100%;
-    margin: auto 8.4%;
+    //margin: auto 8.4%;
     display: flex;
     position: relative;
     align-items: center;
     justify-content: space-between;
 
-    @media screen and (max-width: $md3+px) {
-      margin-left: 2rem;
-      margin-right: 2rem;
-
-    }
 
 
   }
@@ -32,7 +27,7 @@
   }
 
   &__nav {
-    flex-basis: 48.3rem;
+    flex-basis: 62rem; //48.3rem;
     margin-left: auto;
     padding-right: 10%;
 
@@ -53,7 +48,7 @@
     @media screen and (max-width: $md2+px) {
 
       //width: 100%;
-      flex-basis: 43.2rem;
+      flex-basis: 50rem; //43.2rem;
       padding-right: 7%;
 
     }
