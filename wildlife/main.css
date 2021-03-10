@@ -1,0 +1,97 @@
+@import "assets/css/reset.css";
+@import "assets/css/fonts.css";
+@import "assets/css/header.css";
+@import "assets/css/Latest-articles.css";
+@import "assets/css/footer.css";
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  font-family: Open Sans;
+  font-style: normal;
+  font-size: 16px;
+  line-height: normal;
+  font-weight: normal;
+  color: #333333;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.button {
+  background: #CD6326;
+  border-radius: 5px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 23px;
+  line-height: 27px;
+  border: none;
+  /* identical to box height */
+  text-align: center;
+  /* font-light */
+  color: #F7F7F7;
+}
+
+.button:hover {
+  background: #E39128;
+}
+
+.button:active {
+  background: #8F5613;
+}
+
+.background-top {
+  background-color: #02160b;
+}
+
+.background-bottom {
+  background-color: #cccccc;
+}
+
+.survival {
+  margin: 0 auto;
+  height: 780px;
+  background-color: #02160b;
+  background: url("assets/images/background-image.jpg") no-repeat center;
+  background-size: cover;
+  max-width: 1440px;
+}
+
+.survival__content {
+  padding-top: 200px;
+  max-width: 274px;
+}
+
+.survival__-content-title {
+  font-size: 48px;
+  line-height: 72px;
+  letter-spacing: 2px;
+  margin-bottom: 51px;
+  color: #CD6326;
+}
+
+.survival__content-text {
+  font-size: 18px;
+  line-height: 28px;
+  /* or 150% */
+  /* font-light */
+  color: #F7F7F7;
+  margin-bottom: 47px;
+}
+
+.survival__content-button {
+  width: 160px;
+  height: 60px;
+  /* /orange-main */
+}
+
+/*# sourceMappingURL=main.css.map */
