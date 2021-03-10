@@ -23,6 +23,20 @@ h1{
   left: -100vh;
 }
 
+@mixin title ($color: #00A092) {
+  font: {
+    family: Montserrat, sans-serif;
+    style: normal;
+    weight: 600;
+    size: 5.4rem;
+
+  };
+  text-align: center;
+  color: $color;
+  line-height: 122%;
+  text-transform: uppercase;
+
+}
 
 @mixin Subheader($color: #000000) {
   font: {
@@ -121,7 +135,12 @@ $orange:#F58021;
     width: 30rem;
     height: 4.5rem;
   }
-
+}
+.orange-btn{
+  background-color: $orange;
+}
+.orange-btn:hover{
+  background-color: #D26004;
 }
 .icon-space{
   display: flex;
@@ -130,4 +149,5 @@ $orange:#F58021;
 
 @import "header";
 @import "watch-your";
+@import "welcome";
 

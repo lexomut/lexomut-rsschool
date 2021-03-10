@@ -2,7 +2,7 @@
   justify-content: center;
   display: flex;
   height: 79rem;
-  margin-bottom: 10rem;
+  //margin-bottom: 10rem;
   padding-top: 12.9rem;
 
   * {
@@ -92,7 +92,7 @@
 .watch-your__button {
   width: 24rem;
   color: #FFFFFF;
-  background-color: $orange;
+
   @media screen and (max-width: $md3+px) {
     width: 28.5rem;
   }

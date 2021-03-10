@@ -196,6 +196,14 @@ h1 {
   }
 }
 
+.orange-btn {
+  background-color: #F58021;
+}
+
+.orange-btn:hover {
+  background-color: #D26004;
+}
+
 .icon-space {
   display: flex;
   margin-left: 1.3rem;
@@ -281,7 +289,6 @@ h1 {
   justify-content: center;
   display: flex;
   height: 79rem;
-  margin-bottom: 10rem;
   padding-top: 12.9rem;
   background-image: url("../../assets/images/main-background.png");
   background-repeat: no-repeat;
@@ -380,7 +387,6 @@ h1 {
 .watch-your__button {
   width: 24rem;
   color: #FFFFFF;
-  background-color: #F58021;
 }
 @media screen and (max-width: 640px) {
   .watch-your__button {
@@ -391,6 +397,103 @@ h1 {
   .watch-your__button {
     width: 30rem;
   }
+}
+
+.welcome {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15rem;
+  padding-top: 15rem;
+}
+@media screen and (max-width: 1200px) {
+  .welcome {
+    padding-top: 10rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.welcome__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 1200px) {
+  .welcome__item:last-child {
+    align-self: flex-end;
+  }
+}
+@media screen and (max-width: 640px) {
+  .welcome__item:last-child {
+    align-self: normal;
+  }
+}
+
+.welcome__item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10rem;
+}
+@media screen and (max-width: 1200px) {
+  .welcome__item {
+    display: block;
+    margin-bottom: 8rem;
+    max-width: 66rem;
+  }
+  .welcome__item .welcome__image, .welcome__item .welcome__title {
+    margin-bottom: 3rem;
+  }
+  .welcome__item div :last-child {
+    margin-bottom: 0;
+  }
+}
+.welcome__item:first-child {
+  flex-direction: row-reverse;
+}
+
+@media screen and (max-width: 1200px) {
+  .welcome__image {
+    width: 100%;
+  }
+  .welcome__image img {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 640px) {
+  .welcome__image img {
+    width: 103.2vw;
+    position: relative;
+    left: calc(-51.6vw + 50%);
+  }
+}
+
+.welcome__content {
+  max-width: 56rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.welcome__title {
+  font-family: Montserrat, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 5.4rem;
+  text-align: center;
+  color: #00A092;
+  line-height: 122%;
+  text-transform: uppercase;
+  text-align: start;
+}
+
+.welcome__text {
+  font-family: Montserrat, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.8rem;
+  text-align: center;
+  color: #000000;
+  line-height: 150%;
+  text-align: start;
 }
 
 /*# sourceMappingURL=main.css.map */
