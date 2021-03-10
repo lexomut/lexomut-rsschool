@@ -259,7 +259,7 @@ h1 {
     position: absolute;
     display: flex;
     flex-direction: column;
-    left: 100vh;
+    left: 200vh;
   }
 }
 .header__social {
@@ -402,13 +402,22 @@ h1 {
 .welcome {
   display: flex;
   justify-content: center;
-  margin-bottom: 15rem;
   padding-top: 15rem;
 }
 @media screen and (max-width: 1200px) {
   .welcome {
     padding-top: 10rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.6rem;
+  }
+}
+@media screen and (max-width: 640px) {
+  .welcome {
+    margin-bottom: 5.3rem;
+  }
+}
+@media screen and (max-width: 320px) {
+  .welcome {
+    padding-top: 5rem;
   }
 }
 
@@ -431,7 +440,7 @@ h1 {
 .welcome__item {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10rem;
+  margin-bottom: 15rem;
 }
 @media screen and (max-width: 1200px) {
   .welcome__item {
@@ -444,6 +453,11 @@ h1 {
   }
   .welcome__item div :last-child {
     margin-bottom: 0;
+  }
+}
+@media screen and (max-width: 640px) {
+  .welcome__item {
+    margin-bottom: 4.7rem;
   }
 }
 .welcome__item:first-child {
@@ -466,11 +480,27 @@ h1 {
   }
 }
 
+@media screen and (max-width: 640px) {
+  article:nth-child(2) > div.welcome__image {
+    margin-bottom: 1.95rem;
+  }
+}
 .welcome__content {
   max-width: 56rem;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+}
+@media screen and (max-width: 640px) {
+  .welcome__content {
+    max-width: 60rem;
+  }
+}
+@media screen and (max-width: 320px) {
+  .welcome__content {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
 }
 
 .welcome__title {
@@ -483,6 +513,11 @@ h1 {
   line-height: 122%;
   text-transform: uppercase;
   text-align: start;
+}
+@media screen and (max-width: 320px) {
+  .welcome__title {
+    font-size: 2.6rem;
+  }
 }
 
 .welcome__text {
