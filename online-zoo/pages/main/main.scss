@@ -29,12 +29,16 @@ h1{
     style: normal;
     weight: 600;
     size: 5.4rem;
-
   };
   text-align: center;
   color: $color;
   line-height: 122%;
   text-transform: uppercase;
+  @media screen and (max-width: $md4+px) {
+    font-size: 2.6rem;
+  }
+
+
 
 }
 
@@ -49,6 +53,9 @@ h1{
   text-align: center;
   color: $color;
   line-height: 130%;
+  @media screen and (max-width: $md4+px) {
+    font-size: 2.6rem;
+  }
 
 }
 
@@ -63,6 +70,22 @@ h1{
   color: $color;
   line-height: 150%;
 }
+
+@mixin h3($color: #FFFFFF) {
+  font: {
+    family: Montserrat, sans-serif;
+    style: normal;
+    weight: 500;
+    size: 4.2rem;
+  };
+  line-height: 121.4%;
+  text-transform: uppercase;
+  color: $color;
+  @media screen and (max-width: $md4+px) {
+    font-size: 2.6rem;
+  }
+}
+
 
 @mixin btn-text($color: #F58021) {
   font: {
@@ -123,6 +146,7 @@ $orange:#F58021;
   transform:scale(1.2) ;
 }
 .button{
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -147,7 +171,48 @@ $orange:#F58021;
   margin-left: 1.3rem;
 }
 
+
+ .button-arrow{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 8rem;
+   height: 7.1rem;
+   background-color: $orange;
+   border-radius: .5rem;
+   @media screen and  (max-width: $md3+px) {
+   width: 7.2rem;
+   }
+   @media screen and  (max-width: $md4+px) {
+     height: 4.1rem;
+     width: 5.8rem;
+     font-size: 19px;
+   }
+
+
+ }
+
+ .double-button{
+   padding: inherit;
+   display: flex;
+   justify-content: space-between;
+   width: 32rem;
+   color: #FFFFFF;
+   background: none;
+   border: .2rem solid #FFFFFF;
+   @media screen and  (max-width: $md3+px) {
+     width: 36.3rem;
+   }
+   @media screen and  (max-width: $md4+px) {
+     width: 30rem;
+     font-size: 1.6rem;
+   }
+
+ }
+
+
 @import "header";
 @import "watch-your";
 @import "welcome";
+@import "Donation";
 

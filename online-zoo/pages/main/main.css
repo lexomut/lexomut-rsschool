@@ -174,6 +174,7 @@ h1 {
 }
 
 .button {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -207,6 +208,49 @@ h1 {
 .icon-space {
   display: flex;
   margin-left: 1.3rem;
+}
+
+.button-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 8rem;
+  height: 7.1rem;
+  background-color: #F58021;
+  border-radius: 0.5rem;
+}
+@media screen and (max-width: 640px) {
+  .button-arrow {
+    width: 7.2rem;
+  }
+}
+@media screen and (max-width: 320px) {
+  .button-arrow {
+    height: 4.1rem;
+    width: 5.8rem;
+    font-size: 19px;
+  }
+}
+
+.double-button {
+  padding: inherit;
+  display: flex;
+  justify-content: space-between;
+  width: 32rem;
+  color: #FFFFFF;
+  background: none;
+  border: 0.2rem solid #FFFFFF;
+}
+@media screen and (max-width: 640px) {
+  .double-button {
+    width: 36.3rem;
+  }
+}
+@media screen and (max-width: 320px) {
+  .double-button {
+    width: 30rem;
+    font-size: 1.6rem;
+  }
 }
 
 .header {
@@ -519,6 +563,11 @@ h1 {
     font-size: 2.6rem;
   }
 }
+@media screen and (max-width: 320px) {
+  .welcome__title {
+    font-size: 2.6rem;
+  }
+}
 
 .welcome__text {
   font-family: Montserrat, sans-serif;
@@ -529,6 +578,115 @@ h1 {
   color: #000000;
   line-height: 150%;
   text-align: start;
+}
+
+.donation {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background: #20113D;
+  padding-bottom: 4.6rem;
+  padding-top: 5.2rem;
+}
+@media screen and (max-width: 1200px) {
+  .donation {
+    padding-bottom: 4.9rem;
+    padding-top: 5.3rem;
+  }
+}
+@media screen and (max-width: 320px) {
+  .donation {
+    padding-top: 3.2rem;
+    padding-bottom: 3.9rem;
+  }
+}
+
+.donation__wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+@media screen and (max-width: 640px) {
+  .donation__wrapper {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .donation__content {
+    max-width: 57.7rem;
+  }
+}
+
+.donation__title {
+  font-family: Montserrat, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 4.2rem;
+  line-height: 121.4%;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin-bottom: 2rem;
+}
+@media screen and (max-width: 320px) {
+  .donation__title {
+    font-size: 2.6rem;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .donation__title {
+    margin-bottom: 3rem;
+  }
+}
+@media screen and (max-width: 640px) {
+  .donation__title {
+    text-align: center;
+  }
+}
+
+.donation__text {
+  max-width: 60.9rem;
+  font-family: Montserrat, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.8rem;
+  text-align: center;
+  color: #FFFFFF;
+  line-height: 150%;
+  text-align: start;
+}
+@media screen and (max-width: 640px) {
+  .donation__text {
+    text-align: center;
+    margin-bottom: 2.8rem;
+    margin-right: -0.1rem;
+  }
+}
+
+.donation__quick-donate {
+  font-family: Montserrat, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 2.6rem;
+  text-align: center;
+  color: #FFFFFF;
+  line-height: 130%;
+  margin-bottom: 1rem;
+  text-align: start;
+}
+@media screen and (max-width: 320px) {
+  .donation__quick-donate {
+    font-size: 2.6rem;
+  }
+}
+@media screen and (max-width: 640px) {
+  .donation__quick-donate {
+    text-align: center;
+  }
+}
+
+.donation__button {
+  color: #FFFFFF;
 }
 
 /*# sourceMappingURL=main.css.map */
