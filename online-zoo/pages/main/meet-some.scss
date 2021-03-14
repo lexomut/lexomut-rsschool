@@ -1,0 +1,245 @@
+.meet-some{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-top: 13.8rem;
+  margin-bottom: 15rem;
+  @media screen and  (max-width: $md2+px) {
+    padding-top: 10.3rem;
+  }
+  @media screen and  (max-width: $md3+px) {
+  margin-bottom: 10rem;
+  }
+  @media screen and  (max-width: $md4+px) {
+    padding-top: 5.2rem;
+    margin-bottom: 5.8rem;
+  }
+
+}
+.meet-some__wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  //justify-content: center;
+}
+
+.meet-some__title{
+  @include title();
+  margin-bottom: 5rem;
+  margin-left: 2rem;
+
+  @media screen and  (max-width: $md2+px) {
+    margin-bottom: 3.2rem;
+    margin-left: 10rem;
+  }
+
+  @media screen and  (max-width: $md3+px) {
+    max-width: 48rem;
+    margin-left: 0
+
+
+  }
+
+  }
+
+.meet-some__subtitle{
+  @include Subheader();
+  margin-bottom: 10rem;
+  max-width: 92rem;
+  line-height: 3.4rem;
+  @media screen and  (max-width: $md2+px) {
+    max-width: 83rem;
+  }
+  @media screen and  (max-width: $md3+px) {
+  margin-bottom: 5.1rem;
+  }
+
+  @media screen and  (max-width: $md4+px) {
+    padding: 0 .7rem;
+    font-size: 1.8rem;
+    line-height: 2.7rem;
+    margin-bottom: 2.1rem;
+  }
+}
+
+.meet-some__arrow{
+  display: flex;
+  justify-content: space-between;
+  width: 17.5rem;
+  font-size: 2.5rem;
+  margin-bottom: 5rem;
+  @media screen and  (max-width: $md2+px) {
+  width: 17.3rem;}
+  @media screen and  (max-width: $md3+px) {
+    display: none;
+  }
+
+
+    &>*{
+  display: flex;
+  width: 6rem;
+  height: 6rem;
+  justify-content: center;
+  align-items: center;
+  color:$purple;
+  border-radius: .5rem;
+ border: 1px solid $purple;
+}
+  @media screen and  (max-width: $md2+px) {
+   margin-bottom: 3.1rem;
+  }
+}
+
+
+.meet-some__slider{
+
+display: grid;
+
+  align-self: baseline;
+
+  grid-template-columns: repeat(4,max-content);
+  grid-template-rows: repeat(2,max-content);
+  grid-column-gap   :4rem;
+  grid-row-gap:4rem;
+
+
+  @media screen and  (max-width: $md2+px) {
+    margin-left: -5.8rem;
+
+    grid-column-gap: 2.3rem;
+    grid-row-gap: 2.2rem;
+  }
+  @media screen and  (max-width: $md3+px) {
+    margin-left:0;
+    grid-template-columns: repeat(8,max-content);
+    grid-row-gap:0.6rem;
+  }
+  @media screen and  (max-width: $md4+px) {
+    margin-left: 1rem;
+  }
+}
+
+
+
+
+.meet-some__item{
+  position: relative;
+  max-width: 43.9rem;
+ height: 74.7rem;
+  border-radius: .5rem;
+  overflow: hidden;
+  img{
+    width: 100%;
+    height: auto;
+    @media screen and  (max-width: $md2+px) {
+    height: 43.9rem;
+    }
+    @media screen and  (max-width: $md3+px) {
+    height: 33.8rem;
+    }
+  }
+  @media screen and  (max-width: $md2+px) {
+      max-width: 45.2rem;
+    height: 71.6rem;
+  }
+  @media screen and  (max-width: $md3+px) {
+    max-width: 29rem;
+    height: 60rem;
+  }
+
+  @media screen and  (max-width: $md4+px) {
+    max-width: 30rem;
+
+  }
+
+}
+
+
+
+
+
+.meet-some__item-name{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.7rem;
+  height: 6rem;
+  background: $purple;
+
+  @include Subheader(#FFFFFF)
+}
+
+
+.meet-some__item-content{
+  width: 100%;
+  height: 31rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: $purple;
+  padding-top: 3.2rem;
+  padding-bottom: 4.8rem;
+  justify-content: space-between;
+  @media screen and  (max-width: $md2+px) {
+  padding-top: 1.2rem;
+  padding-bottom: 6.5rem;
+  }
+  @media screen and  (max-width: $md3+px) {
+    padding-bottom: 5.6rem;
+  }
+  @media screen and  (max-width: $md4+px) {
+  padding-bottom: 7.2rem;
+  }
+}
+
+.meet-some__item-content-text{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 5rem;
+  @media screen and  (max-width: $md3+px){
+    padding: 0 2.7rem;
+  }
+}
+
+
+
+
+
+
+
+.meet-some__item-title{
+
+  margin-bottom:1.4rem ;
+  @include Subheader(#FFFFFF) ;
+  @media screen and  (max-width: $md3+px) {
+  margin-bottom: 1.5rem ;
+}
+}
+.meet-some__item-subtitle{
+  @include body(#FFFFFF);
+  @media screen and  (max-width: $md2+px) {
+    letter-spacing: -0.074rem
+  }
+
+
+}
+
+.meet-some__item-button{
+
+}
+
+
+
+.meet-some__button {
+  margin-top: 10.2rem;
+  @media screen and  (max-width: $md2+px) {
+
+  margin-top: 4.7rem;}
+
+  @media screen and  (max-width: $md4+px) {
+display: none;
+  }
+
+  }
