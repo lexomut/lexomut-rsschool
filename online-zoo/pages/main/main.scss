@@ -147,13 +147,19 @@ $purple:#20113D;
 .social >li>a>img:hover{
   transform:scale(1.2) ;
 }
+.orange-btn{
+  background-color: $orange;
+  width: 24rem;
+
+}
+
 .button{
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 7.4rem;
-  @include btn-text();
+  @include btn-text(#FFFFFF);
   text-transform: uppercase;
   border-radius: .5rem;
   border: none;
@@ -162,9 +168,7 @@ $purple:#20113D;
     height: 4.5rem;
   }
 }
-.orange-btn{
-  background-color: $orange;
-}
+
 .orange-btn:hover{
   background-color: #D26004;
 }
@@ -223,6 +227,7 @@ $purple:#20113D;
   padding: 0 3rem;
 background: none;
   letter-spacing: 1.2px;
+  color: $orange;
   span{
     padding-left: 1rem;
     font-size: 120%;
@@ -276,4 +281,5 @@ background: none;
 @import "welcome";
 @import "Donation";
 @import "meet-some";
+@import "pay-and-feed";
 

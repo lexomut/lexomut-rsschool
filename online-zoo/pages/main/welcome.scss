@@ -1,24 +1,21 @@
-.welcome{
+.welcome {
   display: flex;
   justify-content: center;
   //margin-bottom: 15rem;
   padding-top: 15rem;
 
-  @media screen and (max-width: $md2+px){
+  @media screen and (max-width: $md2+px) {
     padding-top: 10rem;
     margin-bottom: 1.6rem;
   }
-  @media screen and (max-width: $md3+px){
+  @media screen and (max-width: $md3+px) {
     margin-bottom: 5.3rem;
   }
-  @media screen and (max-width: $md4+px){
+  @media screen and (max-width: $md4+px) {
     padding-top: 5rem;
+    margin-bottom: 0;
   }
 }
-
-
-
-
 
 
 .welcome__wrapper {
@@ -28,20 +25,18 @@
 }
 
 
-
-
-.welcome__item:last-child{
+.welcome__item:last-child {
 
   @media screen and (max-width: $md2+px) {
-      align-self: flex-end;
+    align-self: flex-end;
   }
-      @media screen and (max-width: $md3+px) {
-        align-self: normal;
-      }
+  @media screen and (max-width: $md3+px) {
+    align-self: normal;
+  }
 }
 
 
-.welcome__item{
+.welcome__item {
 
 
   display: flex;
@@ -57,25 +52,29 @@
     max-width: 66rem;
 
 
-    .welcome__image, .welcome__title{
- margin-bottom: 3rem;
+    .welcome__image, .welcome__title {
+      margin-bottom: 3rem;
     }
-    div :last-child{
+    div :last-child {
       margin-bottom: 0;
     }
 
   };
-  @media  screen and (max-width: $md3+px) {
+  @media screen and (max-width: $md3+px) {
     margin-bottom: 4.7rem;
 
   };
-  @media  screen and (max-width: $md4+px) {
-
+  @media screen and (max-width: $md4+px) {
+    .welcome__image, .welcome__title {
+      margin-bottom: 2.8rem;
+    }
   };
 
 
+
 }
-.welcome__item:first-child{
+
+.welcome__item:first-child {
   flex-direction: row-reverse;
 
 }
@@ -105,8 +104,9 @@
     margin-bottom: 1.95rem;
   }
 
-  }
-.welcome__content{
+}
+
+.welcome__content {
   max-width: 56rem;
   display: flex;
   flex-direction: column;
@@ -115,11 +115,12 @@
     max-width: 60rem;
   }
   @media screen and (max-width: $md4+px) {
-  margin-left: 1rem;
-  margin-right: 1rem;}
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
 }
 
-.welcome__title{
+.welcome__title {
   @include title();
   text-align: start;
   @media screen and (max-width: $md4+px) {
@@ -128,7 +129,8 @@
 
 
 }
-.welcome__text{
+
+.welcome__text {
   @include body;
   text-align: start;
 

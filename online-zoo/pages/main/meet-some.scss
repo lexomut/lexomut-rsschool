@@ -48,10 +48,11 @@
   max-width: 92rem;
   line-height: 3.4rem;
   @media screen and  (max-width: $md2+px) {
+    margin-bottom: 9.7rem;
     max-width: 83rem;
   }
   @media screen and  (max-width: $md3+px) {
-  margin-bottom: 5.1rem;
+  margin-bottom: 4.9rem;
   }
 
   @media screen and  (max-width: $md4+px) {
@@ -104,10 +105,9 @@ display: grid;
 
 
   @media screen and  (max-width: $md2+px) {
-    margin-left: -5.8rem;
-
-    grid-column-gap: 2.3rem;
-    grid-row-gap: 2.2rem;
+    margin-left: -6.1rem;
+    grid-column-gap: 2rem;
+    grid-row-gap: 2rem;
   }
   @media screen and  (max-width: $md3+px) {
     margin-left:0;
@@ -237,6 +237,11 @@ display: grid;
   @media screen and  (max-width: $md2+px) {
 
   margin-top: 4.7rem;}
+  @media screen and  (max-width: $md3+px) {
+
+    margin-top: 4.4rem;}
+
+
 
   @media screen and  (max-width: $md4+px) {
 display: none;
