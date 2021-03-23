@@ -2,20 +2,28 @@ const piano = document.querySelector('.piano');
 const notesBtn = document.querySelector('.btn-notes')
 const lettersBtn = document.querySelector('.btn-letters')
 const fullscreenBtn = document.querySelector('.fullscreen')
+const body = document.querySelector('body')
+let switchOut=false
 
 
-
-
-piano.addEventListener('mousedown', (event) => keypress(event));
-piano.addEventListener('mouseover', (event) => {
-    if (event.buttons == 1 || event.buttons == 2) keypress(event)
+piano.addEventListener('mousedown', (event) => {
+    if (event.target.className.includes('piano-key')&& !(event.clientY<240||event .clientY>510)) switchOut=true
+    keypress(event)
+});
+const type = 'mouseover';
+piano.addEventListener(type, (event) => {
+    if ((event.buttons == 1 || event.buttons == 2)&& switchOut) keypress(event)
 });
 window.addEventListener('keydown', (event) => keypress(event))
 
 
 
-piano.addEventListener('mouseup', (event) => releaseKey(event));
+body.addEventListener('mouseup', (event) =>{
+    switchOut=false
+    releaseKey(event)
+});
 piano.addEventListener('mouseout', (event) => {
+
     if (event.buttons == 1 || event.buttons == 2) releaseKey(event)
 });
 window.addEventListener('keyup', (event) => releaseKey(event))
@@ -41,7 +49,11 @@ lettersBtn.onclick = function activateLetters() {
 
 
 function keypress(e) {
+
+
     if (e.repeat) return
+    // console.log(e)
+    if(e.clientY<240||e .clientY>510) return;
     const key = piano.querySelector(`.piano-key[data-letter="${(e.code + "")[3]}"]`) || e.target
     if (!key.getAttribute('data-note')) return
     const src = `./assets/audio/${key.getAttribute('data-note')}.mp3`
