@@ -96,7 +96,7 @@
 
 
 .pay-and-feed__content {
-  flex-wrap: wrap;
+
   width: 100%;
   display: flex;
   padding-top: 8.3rem;
@@ -109,6 +109,7 @@
   }
   @media screen and (max-width: $md3+px) {
     padding-top: 5.2rem;
+    flex-wrap: wrap;
   }
   @media screen and (max-width: $md4+px) {
     padding-top: 3rem;
@@ -256,8 +257,11 @@
     width: 29rem;
   }
   @media screen and (max-width: $md3+px) {
-  margin-top: 4rem;
+    margin-top: 5.5rem;
   width: 30.1rem;}
+  @media screen and (max-width: $md4+px) {
+    margin-top: 4.2rem;
+  }
 
 }
   .hidden{

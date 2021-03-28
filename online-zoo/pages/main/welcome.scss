@@ -133,5 +133,6 @@
 .welcome__text {
   @include body;
   text-align: start;
+  line-height: 1.5;
 
 }

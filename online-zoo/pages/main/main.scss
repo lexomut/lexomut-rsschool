@@ -109,9 +109,15 @@ $orange:#F58021;
 $purple:#20113D;
 
 .wrapper{
-  max-width:$maxWidth+px;
+
+
+  width: 100%;
   margin: 0 auto;
+
   overflow: hidden;
+  @media screen and (max-width: $md1+px) {
+    max-width:$maxWidth+px;
+  }
 
 
   @media screen and (max-width: $md2+px) {
@@ -223,7 +229,7 @@ $purple:#20113D;
  }
 
 
-.button-none-background, .button-none-background-with-border{
+  .button-none-background, .button-none-background-with-border{
   padding: 0 3rem;
 background: none;
   letter-spacing: 1.2px;
@@ -282,4 +288,6 @@ background: none;
 @import "Donation";
 @import "meet-some";
 @import "pay-and-feed";
+@import "what-our-users";
+
 
