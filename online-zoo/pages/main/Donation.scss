@@ -1,0 +1,72 @@
+.donation{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+ background: #20113D;
+  padding-bottom: 4.6rem;
+  padding-top: 5.2rem;
+  @media screen and  (max-width: $md2+px) {
+  padding-bottom: 4.9rem;
+  padding-top: 5.3rem
+  }
+  @media screen and  (max-width: $md4+px) {
+
+    padding-top: 3.2rem;
+    padding-bottom: 3.9rem;
+
+  }
+}
+
+.donation__wrapper{
+
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  @media screen and  (max-width: $md3+px) {
+    justify-content: center;
+  }
+
+
+
+}
+
+.donation__content{
+  @media screen and  (max-width: $md2+px) {
+    max-width: 57.7rem;}
+}
+.donation__title {
+  @include h3;
+  margin-bottom: 2rem;
+  @media screen and  (max-width: $md2+px) {
+
+    margin-bottom: 3rem;}
+    @media screen and  (max-width: $md3+px) {
+      text-align: center;
+  }
+
+}
+.donation__text{
+  max-width: 60.9rem;
+  @include body(#FFFFFF);
+  text-align: start;
+  @media screen and  (max-width: $md3+px) {
+  text-align: center;
+    margin-bottom: 2.8rem;
+    margin-right: -0.1rem;
+  }
+
+}
+.donation__quick-donate{
+  @include Subheader(#FFFFFF);
+  margin-bottom: 1rem;
+  text-align: start;
+  @media screen and  (max-width: $md3+px) {
+    text-align: center;
+  }
+}
+
+.donation__button{
+  color: #FFFFFF;
+
+}
+

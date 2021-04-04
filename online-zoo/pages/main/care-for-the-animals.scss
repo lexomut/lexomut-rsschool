@@ -1,0 +1,267 @@
+.care-for-the-animals{
+  display: flex;
+  justify-content: center;
+  padding-top: 13.5rem;
+  padding-bottom: 15rem;
+
+  @media screen and  (max-width: $md2+px) {
+    padding-top: 15.2rem;
+  }
+  @media screen and  (max-width: $md3+px) {
+    padding-top: 8rem;
+  }
+  @media screen and  (max-width: $md4+px) {
+  padding-top: 5.3rem;
+  }
+
+}
+.care-for-the-animals__wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.care-for-the-animals__title{
+  @include title();
+  margin-bottom: 5rem;
+  max-width: 65rem;
+  @media screen and  (max-width: $md2+px) {
+    margin-left: 5rem;
+    margin-bottom: 3rem;
+  }
+  @media screen and  (max-width: $md3+px) {
+    margin-left: 0;
+    margin-bottom: 3rem;
+  }
+  @media screen and  (max-width: $md4+px) {
+
+    margin-bottom: 2.6rem;
+
+  }
+
+
+}
+
+.care-for-the-animals__subtitle{
+  @include Subheader();
+  margin-bottom: 10rem;
+  max-width: 55rem;
+  @media screen and  (max-width: $md2+px) {
+    margin-left: 12rem;
+    margin-bottom: 5rem;
+  }
+  @media screen and  (max-width: $md3+px) {
+    margin-left: 0rem;
+    line-height: 138%;
+  margin-bottom: 6.6rem;
+    max-width: 100%;
+  }
+  @media screen and  (max-width: $md4+px) {
+
+    font-size: 1.8rem;
+    line-height: 145%;
+    margin-bottom: 2.5rem;
+    max-width:87%
+
+  }
+}
+.care-for-the-animals__cart-container{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 65.8rem 65.8rem;
+  grid-gap: 4rem;
+  @media screen and  (max-width: $md2+px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 47rem 63.9rem  63.9rem;
+    grid-gap: 2rem;
+    padding: 0 3.5rem;
+  }
+  @media screen and  (max-width: $md3+px) {
+    grid-template-columns: repeat(4, 93.75vw);
+    grid-template-rows: 29.75rem;
+    padding: 0;
+  }
+  @media screen and  (max-width: $md4+px) {
+    grid-template-columns: repeat(4, 93.75vw);
+    grid-template-rows: 57.2rem;
+    padding: 0 1rem;
+  }
+
+}
+.cart-animal_big-img{
+  background: url("../../assets/images/care/coala.png") left center  no-repeat;
+  grid-column: 1/ 3;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transform: scale(-1, 1);
+
+  @media screen and  (max-width: $md2+px) {
+    grid-column: 1/ 3;
+    transform: scale(1, 1);
+    background-position: left;
+    background-size: 150%;
+
+  }
+  @media screen and  (max-width: $md3+px) {
+display: none;
+
+  }
+}
+.cart-animal{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: $purple;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  @media screen and  (max-width: $md3+px) {
+    flex-direction:row;
+  }
+  @media screen and  (max-width: $md4+px) {
+    flex-direction: column;
+  }
+
+
+}
+.cart-animal__link{
+  height: 100%;
+}
+.cart-animal__img{
+
+  @media screen and  (max-width: $md2+px) {
+    height: 37.3rem;
+  }
+  @media screen and  (max-width: $md3+px) {
+    width: 30rem;
+    height: auto;
+  }
+  @media screen and  (max-width: $md4+px) {
+    width: 30rem;
+    height: 35.4rem;
+  }
+}
+
+@media screen and  (max-width: $md2+px) {
+  .cart-animal__link:nth-child(2) {
+    order: 1;
+  }
+  .cart-animal__link:nth-child(3) {
+    order: 3;
+  }
+  .cart-animal__link:nth-child(4) {
+    order: 2;
+  }
+  .cart-animal__link:nth-child(5) {
+    order: 4;
+  }
+
+
+}
+
+.cart-animal__content{
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+
+
+}
+
+.cart-animal__text{
+  @include body (#FFFFFF);
+  margin-top: 3rem;
+  padding: 0 2.3rem;
+  @media screen and  (max-width: $md3+px) {
+    margin-top: 6.7rem;
+  }
+  @media screen and  (max-width: $md4+px) {
+    margin-top: 1.7rem;
+    padding: 0 3.3rem;
+  }
+
+}
+.cart-animal__btn{
+  margin-bottom: 5rem;
+  @media screen and  (max-width: $md2+px) {
+    margin-bottom: 4rem;
+  }
+  @media screen and  (max-width: $md3+px) {
+  margin-bottom: 3.4rem;
+  }
+
+}
+
+.care-for-the-animals__btn{
+  margin: 10rem auto 15rem auto;
+
+  @media screen and  (max-width: $md3+px) {
+    margin-top: 5rem;
+    margin-bottom: 10rem;
+  }
+  @media screen and  (max-width: $md4+px) {
+  padding-left: 2rem;
+  padding-right: 2rem;
+    p{
+      text-transform: capitalize;
+    }
+    margin-bottom: 8rem;
+  }
+}
+
+.care-for-the-animals__img{
+  max-width: 192rem;
+  width: 100vw;
+  height: 65.2rem;
+  background: url("../../assets/images/care/tablet.jpg") left center no-repeat;
+  @media screen and  (max-width: $md2+px) {
+    height: 66.8rem;
+    background-size:  118% auto;
+    background-position:  left top 62% ;
+  }
+  @media screen and  (max-width: $md3+px) {
+  height: 37.9rem;
+  background-size: 126% auto;
+  background-position: left top 65%;
+  }
+  @media screen and  (max-width: $md4+px) {
+    height: 18.9rem;
+    background-size: 126% auto;
+    background-position: left top 65%;
+  }
+}
+
+.cart-animal__switcher{
+  display: none;
+  width: 9.2rem;
+
+
+  @media screen and (max-width: $md3+px) {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-top: 5rem;
+  }
+
+  @media screen and (max-width: $md4+px) {
+    margin-top: 3.2rem;
+  }
+
+}
+
+
+.cart-animal__switcher-item{
+  width: 0.8rem;
+  height: 0.8rem;
+  border: 1px solid $purple;
+  border-radius: 50%;
+}
+.cart-animal__switcher-item:first-child{
+  background-color: $purple;
+}
+
+
+
+
+
