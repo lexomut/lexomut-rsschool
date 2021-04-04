@@ -65,6 +65,25 @@
   }
 }
 
+.donation__input{
+  background: $purple;
+  color: #FFFFFF;
+  @include Subheader(#FFFFFF);
+  border: none;
+  max-width: 71%;
+  font-size: 2.4rem;
+}
+
+.donation__input::-webkit-outer-spin-button,
+.donation__input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+donation__input::-webkit-input-placeholder {color:#c0392b;}
+donation__input::-moz-placeholder {
+  color: #FFFFFF;
+}
+
 .donation__button{
   color: #FFFFFF;
 

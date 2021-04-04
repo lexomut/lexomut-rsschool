@@ -36,7 +36,11 @@
   a{
     @include btn-text(#FFFFFF);
     text-transform: uppercase;
+  }
+  li > a:hover {
+    border-color: inherit;
 
+    border-bottom: 0.2rem solid;
   }
 }
 .footer__button{

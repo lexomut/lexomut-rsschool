@@ -317,6 +317,20 @@ h1 {
   }
 }
 
+.slider-arrow_lite:hover,
+.what-our-users__button:hover,
+.footer__button:hover {
+  background: #00A092;
+}
+
+.slider-arrow_dark:hover,
+.care-for-the-animals__btn:hover,
+.meet-some__button:hover {
+  background: #20113D;
+  color: #FFFFFF;
+  border: #FFFFFF;
+}
+
 .header {
   max-width: 100%;
   display: flex;
@@ -759,6 +773,40 @@ h1 {
   .donation__quick-donate {
     text-align: center;
   }
+}
+
+.donation__input {
+  background: #20113D;
+  color: #FFFFFF;
+  font-family: Montserrat, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 2.6rem;
+  text-align: center;
+  color: #FFFFFF;
+  line-height: 130%;
+  border: none;
+  max-width: 71%;
+  font-size: 2.4rem;
+}
+@media screen and (max-width: 320px) {
+  .donation__input {
+    font-size: 2.6rem;
+  }
+}
+
+.donation__input::-webkit-outer-spin-button,
+.donation__input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+donation__input::-webkit-input-placeholder {
+  color: #c0392b;
+}
+
+donation__input::-moz-placeholder {
+  color: #FFFFFF;
 }
 
 .donation__button {
@@ -1929,6 +1977,7 @@ h1 {
   background-color: #20113D;
   border-radius: 0.5rem;
   overflow: hidden;
+  transition: all 0.3s;
 }
 @media screen and (max-width: 640px) {
   .cart-animal {
@@ -1939,6 +1988,10 @@ h1 {
   .cart-animal {
     flex-direction: column;
   }
+}
+
+.cart-animal:hover {
+  transform: scale(1.3);
 }
 
 .cart-animal__link {
@@ -2147,6 +2200,10 @@ h1 {
   line-height: 122%;
   text-transform: uppercase;
   text-transform: uppercase;
+}
+.footer__nav li > a:hover {
+  border-color: inherit;
+  border-bottom: 0.2rem solid;
 }
 
 .footer__button {
