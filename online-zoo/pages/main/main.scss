@@ -260,6 +260,7 @@ background: none;
   border: 1px solid $purple;
   color: $purple;
   padding: 0 3.3rem;
+  height: 7.4rem;
 
   @media screen and  (max-width: $md2+px) {
 
@@ -275,6 +276,9 @@ background: none;
       font-size: 120%;
     }
   }
+  @media screen and  (max-width: $md4+px) {
+height: 4.4rem;
+  }
 
 
 
@@ -289,5 +293,5 @@ background: none;
 @import "meet-some";
 @import "pay-and-feed";
 @import "what-our-users";
-
+@import "care-for-the-animals";
 
