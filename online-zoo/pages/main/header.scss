@@ -29,7 +29,7 @@
   &__nav {
     flex-basis: 62rem; //48.3rem;
     margin-left: auto;
-    padding-right: 10%;
+    padding-right: 5%;
 
     li > a {
       @include btn-text(#000000);
