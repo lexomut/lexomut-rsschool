@@ -1,0 +1,383 @@
+@import "../main/normalize.css";
+@import "../main/reset.css";
+@import "../main/icon-fonts";
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 10px;
+}
+a{
+  text-decoration: none;
+}
+li{
+  list-style-type: none;
+}
+*{
+  padding-inline-start: 0;
+}
+h1{
+  position: absolute;
+  left: -100vh;
+}
+
+@mixin title ($color: #00A092) {
+  font: {
+    family: Montserrat, sans-serif;
+    style: normal;
+    weight: 600;
+    size: 5.4rem;
+  };
+  text-align: center;
+  color: $color;
+  line-height: 122%;
+  text-transform: uppercase;
+  @media screen and (max-width: $md4+px) {
+    font-size: 2.6rem;
+  }
+
+
+
+}
+
+@mixin Subheader($color: #000000) {
+  font: {
+    family: Montserrat, sans-serif;
+    style: normal;
+    weight: 500;
+    size: 2.6rem;
+
+  };
+  text-align: center;
+  color: $color;
+  line-height: 130%;
+  @media screen and (max-width: $md4+px) {
+    font-size: 2.6rem;
+  }
+
+}
+
+@mixin body($color: #000000) {
+  font: {
+    family: Montserrat, sans-serif;
+    style: normal;
+    weight: normal;
+    size: 1.8rem;
+  };
+  text-align: center;
+  color: $color;
+  line-height: 150%;
+}
+
+@mixin h3($color: #FFFFFF) {
+  font: {
+    family: Montserrat, sans-serif;
+    style: normal;
+    weight: 500;
+    size: 4.2rem;
+  };
+  line-height: 121.4%;
+  text-transform: uppercase;
+  color: $color;
+  @media screen and (max-width: $md4+px) {
+    font-size: 2.6rem;
+  }
+}
+
+
+@mixin btn-text($color: #F58021) {
+  font: {
+    family: Montserrat, sans-serif;
+    style: normal;
+    weight: 600;
+    size: 1.8rem;
+  };
+  color: $color;
+  line-height: 122%;
+  text-transform: uppercase;
+}
+
+$maxWidth:1920 ;
+$md1:$maxWidth;
+$md2:1200;
+$md3:640;
+$md4:320;
+
+$orange:#F58021;
+$purple:#20113D;
+
+.wrapper{
+
+
+  width: 100%;
+  margin: 0 auto;
+
+  overflow: hidden;
+  @media screen and (max-width: $md1+px) {
+    max-width:$maxWidth+px;
+  }
+
+
+  @media screen and (max-width: $md2+px) {
+    max-width: $md2+px
+  };
+  @media  screen and (max-width: $md3+px) {
+    max-width: $md3+px
+  };
+  @media  screen and (max-width: $md4+px) {
+    max-width: $md4+px
+  };
+};
+
+.wrapper-content{
+  width: 100%;
+  margin: 0 8.4%;
+  //margin: 0 auto;
+  max-width: 140rem;
+  @media screen and  (max-width: $md2+px) {
+    max-width: 100rem
+  };
+  @media screen and  (max-width: $md3+px) {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    max-width: 60rem
+  };
+}
+.nav, .social{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.social >li>a>img:hover{
+  transform:scale(1.2) ;
+}
+.orange-btn{
+  background-color: $orange;
+  width: 24rem;
+
+}
+
+.button{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 7.4rem;
+  @include btn-text(#FFFFFF);
+  text-transform: uppercase;
+  border-radius: .5rem;
+  border: none;
+  @media screen and  (max-width: $md4+px) {
+    width: 30rem;
+    height: 4.5rem;
+  }
+}
+
+.orange-btn:hover{
+  background-color: #D26004;
+}
+.icon-space{
+  display: flex;
+  margin-left: 1.3rem;
+}
+
+
+.button-arrow{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 8rem;
+  height: 7.1rem;
+  background-color: $orange;
+  border-radius: .5rem;
+  @media screen and  (max-width: $md3+px) {
+    width: 7.2rem;
+  }
+  @media screen and  (max-width: $md4+px) {
+    height: 4.1rem;
+    width: 5.8rem;
+    font-size: 19px;
+  }
+
+
+}
+
+.double-button{
+  padding: inherit;
+  display: flex;
+  justify-content: space-between;
+  width: 32rem;
+  color: #FFFFFF;
+  background: none;
+  border: .2rem solid #FFFFFF;
+  @media screen and  (max-width: $md3+px) {
+    width: 36.3rem;
+  }
+  @media screen and  (max-width: $md4+px) {
+    width: 30rem;
+    font-size: 1.6rem;
+  }
+
+}
+.double-button:hover{
+  .button-arrow{
+    background: #D26004;
+
+  }
+}
+
+
+.button-none-background, .button-none-background-with-border{
+  padding: 0 3rem;
+  background: none;
+  letter-spacing: 1.2px;
+  color: $orange;
+  span{
+    padding-left: 1rem;
+    font-size: 120%;
+  }
+  @media screen and  (max-width: $md2+px) {
+    font-size: 2.1rem;
+  }
+
+  @media screen and  (max-width: $md3+px) {
+    letter-spacing: 0.12rem;
+    font-size: 1.8rem;
+    span{
+      padding-left: 1.4rem;
+      font-size: 120%;
+    }
+  }
+
+}
+
+
+.button-none-background-with-border{
+
+  letter-spacing: 0px;
+  border: 1px solid $purple;
+  color: $purple;
+  padding: 0 3.3rem;
+  height: 7.4rem;
+
+  @media screen and  (max-width: $md2+px) {
+
+    letter-spacing: -.2rem;
+  }
+
+  @media screen and  (max-width: $md3+px) {
+
+    font-size: 1.8rem;
+    letter-spacing: -0.1px;
+    span{
+      padding-left: 1rem;
+      font-size: 120%;
+    }
+  }
+  @media screen and  (max-width: $md4+px) {
+    height: 4.4rem;
+  }
+
+
+
+}
+.slider-arrow_lite:hover,
+.what-our-users__button:hover,
+.footer__button:hover{
+  background: #00A092;
+
+
+}
+.slider-arrow_dark:hover,
+.care-for-the-animals__btn:hover,
+.meet-some__button:hover{
+  background: #20113D;
+  color: #FFFFFF;
+  border: #FFFFFF;
+
+}
+
+.contact-us{
+  display: flex;
+  justify-content: center;
+}
+.contact-us__wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contact-us__image{
+  margin-bottom: 15rem;
+}
+
+.contact-us__content{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.contact-us__header{
+  @include title(#00A092);
+  margin-bottom: 5rem;
+  text-align: start;
+}
+.contact-us__subheader{
+  @include body();
+  max-width: 54.5rem;
+  text-align: start;
+}
+.form__name-input{
+  @include body();
+
+  text-align: start;
+  margin-bottom: 1rem;
+}
+.form__name-input:before{
+  content: "*";
+  color:  #00A092;
+
+}
+.form__name-input:before:required{
+  color:  red;
+}
+
+
+.contact-us__form{
+  width: 68rem;
+  margin-bottom: 15rem;
+}
+.form__input{
+
+
+  width: 100%;
+  height: 6rem;
+  @include body();
+
+  text-align: start;
+margin-bottom: 3.1rem;
+}
+.text-aria{
+  height: 20rem;
+
+
+}
+.form__btm{
+  width: 35.9rem;
+  background: #00A092;
+  margin-top: 3.7rem;
+  span{
+    margin-left: 1rem;
+  }
+
+}
+.form__btm:hover{
+  background: #05786E;
+
+}
+
+
+@import "../main/header";
+
+@import "../main/footer";
+
