@@ -39,7 +39,7 @@
     }
 
 
-    li > a:hover {
+   .nav-item > a:hover {
       border-color: inherit;
 
       border-bottom: 0.2rem solid;
@@ -86,6 +86,9 @@
 
 .active {
   color: #00A092;
-
+  a{
+    pointer-events:none;
+  }
 }
+
 
