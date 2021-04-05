@@ -1,0 +1,11 @@
+.footer {
+  background-color: purple;
+  display: flex;
+}
+
+.footer__wrapper {
+  display: flex;
+  align-items: center;
+}
+
+/*# sourceMappingURL=footer.css.map */

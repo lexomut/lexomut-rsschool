@@ -10,16 +10,17 @@
 <div class="wrapper">
     <header class="header">
         <div class="header__container wrapper-content">
-            <a href="#" class="header__logo icon-Logo" ></a>
+            <a href="../main/main.html" class="header__logo icon-Logo" ></a>
             <h1>Online Zoo</h1>
-<!--            <div class="space"></div>-->
+            <!--            <div class="space"></div>-->
 
-                <ul class="header__nav nav">
-                    <li class="nav-item active"><a href="#">About</a></li>
-                    <li class="nav-item"><a href="#">map</a></li>
-                    <li class="nav-item"><a href="#">Zoos</a></li>
-                    <li class="nav-item"><a href="#">Contact us</a></li>
-                </ul>
+            <ul class="header__nav nav">
+                <li class="nav-item  active"><a href="../main/main.html">About</a></li>
+                <li class="nav-item"><a href="../map/map.html">Map</a></li>
+                <li class="nav-item"><a href="../zoos/panda.html">Zoos</a></li>
+                <li class="nav-item"><a href="../contact_us/contact-us.html">Contact us</a></li>
+                <li class="nav-item"><a href="https://www.figma.com/file/lnK11foY8Aoa6oOlDXovVN/Online-ZOO-Project  ">Design</a></li>
+            </ul>
 
             <ul class="social header__social ">
                 <li><a href=""><img src="../../assets/icons/YouTube.svg" alt="YouTube-icon"></a></li>
@@ -65,7 +66,8 @@
                 </div>
                 <div class="donation__button-block">
                     <div class="donation__quick-donate">Quick Donate</div>
-                    <button class="donation__button double-button button "><span class="button__text"></span>$ Donation Amount
+                    <button class="donation__button double-button button "><span class="button__text">$</span>
+                        <input class="donation__input" type="number" onKeyDown="if(this.value.length==4) return false;" placeholder="Donation Amount"></input>
                         <div class="icon-Union-right button-arrow"></div
                     ></button>
                 </div>
@@ -77,8 +79,8 @@
                 <p class="meet-some__title">meet some our Pets</p>
                 <p class="meet-some__subtitle">Do you have a special place in your heart for animals? Who are your favorites? Perhaps you'd like to donate to special ones or all our pets? We think it's important for you to choose how your donation is used. </p>
                 <div class="meet-some__arrow">
-                    <div class="icon-Union-left"></div>
-                    <div class="icon-Union-right"></div>
+                    <div class="icon-Union-left slider-arrow_dark" ></div>
+                    <div class="icon-Union-right slider-arrow_dark "></div>
                 </div>
 <!--                <div class="meet-some__slider-wrapper">-->
                 <div class="meet-some__slider">
@@ -215,9 +217,9 @@
 
                 </div>
 <!--                </div>-->
-                <button class="meet-some__button button button-none-background-with-border">
+              <a href="../map/map.html"> <button class="meet-some__button button button-none-background-with-border">
                     <p>choose your favourite</p> <span class="icon-Union-right"></span>
-                </button>
+                </button></a>
             </div>
         </section>
         <section  class="pay-and-feed">
@@ -319,8 +321,8 @@
                     <div class="what-our-users__switch"></div>
                     <div class="what-our-users__switch"></div>
                     <div class="what-our-users__switch"></div>
-                    <button class="what-our-users__arrow-left button button-none-background-with-border icon-Union-left"></button>
-                    <button class="what-our-users__arrow-right button button-none-background-with-border icon-Union-right"></button>
+                    <button class="what-our-users__arrow-left button button-none-background-with-border icon-Union-left  slider-arrow_lite "></button>
+                    <button class="what-our-users__arrow-right button button-none-background-with-border icon-Union-right slider-arrow_lite"></button>
                 </div>
                 <button class="what-our-users__button button button-none-background-with-border">leave feedback<span class="icon-Union-right"></span></button>
 
@@ -341,7 +343,7 @@
                                     with our secret recipe.
                                 </div>
                                 <div class="cart-animal__btn button button-none-background"> feed <span
-                                        class="icon-Union-left"></span></div>
+                                        class="icon-Union-right"></span></div>
                             </div>
 
                         </div>
@@ -351,7 +353,7 @@
                             <img src="../../assets/images/care/tiger.jpg" alt="tiger" class="cart-animal__img">
                          <div class="cart-animal__content">
                              <div class="cart-animal__text"> Your $150 will help to care for Senja,  a Sumatran tiger, for three weeks.</div>
-                             <div class="cart-animal__btn button button-none-background"> feed <span class="icon-Union-left"></span> </div>
+                             <div class="cart-animal__btn button button-none-background"> feed <span class="icon-Union-right"></span> </div>
                          </div>
 
                         </div>
@@ -361,7 +363,7 @@
                             <img src="../../assets/images/care/andy.jpg" alt="andy" class="cart-animal__img">
                            <div class="cart-animal__content">
                                <div class="cart-animal__text">With your support, we can give Andy his favorite fruits. Especially when it's not fruit season in its natural habitat.</div>
-                               <div class="cart-animal__btn button button-none-background"> feed <span class="icon-Union-left"></span> </div>
+                               <div class="cart-animal__btn button button-none-background"> feed <span class="icon-Union-right"></span> </div>
                            </div>
                              </div>
                     </a>
@@ -370,7 +372,7 @@
                             <img src="../../assets/images/care/eagle.jpg" alt="eagle" class="cart-animal__img">
                             <div class="cart-animal__content">
                                 <div class="cart-animal__text">Sam & Lora have hatched and raised numerous young and will be happy with your help. </div>
-                                <div class="cart-animal__btn button button-none-background"> feed <span class="icon-Union-left"></span> </div>
+                                <div class="cart-animal__btn button button-none-background"> feed <span class="icon-Union-right"></span> </div>
                             </div>
                         </div>
                     </a>
@@ -390,6 +392,41 @@
         </section>
 
     </main>
+    <footer class="footer">
+        <div class="footer__wrapper wrapper-content ">
+            <div class="footer__bar">
+                <div class="footer__logo">
+                    <a href="../main/main.html" class="icon-Logo footer__logo-item "></a>
+                    <div title="Yem Digital" class="icon-Yem footer__logo-item"></div>
+                    <div title="Rolling Scopes School" class="icon-rs footer__logo-item"></div>
+                </div>
+                <ul class="footer__nav nav">
+                    <li class="nav-item active"><a href="../main/main.html">About</a></li>
+                    <li class="nav-item"><a href="../map/map.html">map</a></li>
+                    <li class="nav-item"><a href="../zoos/panda.html">Zoos</a></li>
+                    <li class="nav-item"><a href="../contact_us/contact-us.html">Contact us</a></li>
+                </ul>
+                <button class="button button-none-background-with-border footer__button">donate for volunteers <span class="icon-Union-right"></span></button>
+            </div>
+            <div class="footer__line"></div>
+
+            <div class="footer__last">
+                <div class="footer__copyright">
+                    <div class="copyright-item">© 2021 DinaK</div>
+                    <div class="copyright-item">© Yem Digital</div>
+                    <div class="copyright-item">© RSSchool</div>
+                </div>
+                <ul class="social footer__social ">
+                    <li><a href="https://www.youtube.com/"><img src="../../assets/icons/YouTube.svg" alt="YouTube-icon"></a></li>
+                    <li><a  href="https://www.instagram.com/"><img src="../../assets/icons/Instagram.svg" alt="Instagram-icon"></a></li>
+                    <li><a  href="https://www.facebook.com/"><img src="../../assets/icons/Facebook.svg" alt="Facebook-icon"></a></li>
+                </ul>
+            </div>
+
+
+
+        </div>
+    </footer>
 
 
 

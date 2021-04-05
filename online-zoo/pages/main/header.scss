@@ -29,7 +29,7 @@
   &__nav {
     flex-basis: 62rem; //48.3rem;
     margin-left: auto;
-    padding-right: 10%;
+    padding-right: 5%;
 
     li > a {
       @include btn-text(#000000);
@@ -39,7 +39,7 @@
     }
 
 
-    li > a:hover {
+   .nav-item > a:hover {
       border-color: inherit;
 
       border-bottom: 0.2rem solid;
@@ -86,6 +86,9 @@
 
 .active {
   color: #00A092;
-
+  a{
+    pointer-events:none;
+  }
 }
+
 

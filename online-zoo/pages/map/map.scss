@@ -1,6 +1,6 @@
-@import "normalize.css";
-@import "reset.css";
-@import "icon-fonts";
+@import "../main/normalize.css";
+@import "../main/reset.css";
+@import "../main/icon-fonts";
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -134,14 +134,14 @@ $purple:#20113D;
 .wrapper-content{
   width: 100%;
   margin: 0 8.4%;
-    //margin: 0 auto;
-    max-width: 140rem;
-    @media screen and  (max-width: $md2+px) {
-      max-width: 100rem
-    };
+  //margin: 0 auto;
+  max-width: 140rem;
+  @media screen and  (max-width: $md2+px) {
+    max-width: 100rem
+  };
   @media screen and  (max-width: $md3+px) {
     margin-left: 2rem;
-      margin-right: 2rem;
+    margin-right: 2rem;
     max-width: 60rem
   };
 }
@@ -184,54 +184,54 @@ $purple:#20113D;
 }
 
 
- .button-arrow{
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   width: 8rem;
-   height: 7.1rem;
-   background-color: $orange;
-   border-radius: .5rem;
-   @media screen and  (max-width: $md3+px) {
-   width: 7.2rem;
-   }
-   @media screen and  (max-width: $md4+px) {
-     height: 4.1rem;
-     width: 5.8rem;
-     font-size: 19px;
-   }
+.button-arrow{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 8rem;
+  height: 7.1rem;
+  background-color: $orange;
+  border-radius: .5rem;
+  @media screen and  (max-width: $md3+px) {
+    width: 7.2rem;
+  }
+  @media screen and  (max-width: $md4+px) {
+    height: 4.1rem;
+    width: 5.8rem;
+    font-size: 19px;
+  }
 
 
- }
+}
 
- .double-button{
-   padding: inherit;
-   display: flex;
-   justify-content: space-between;
-   width: 32rem;
-   color: #FFFFFF;
-   background: none;
-   border: .2rem solid #FFFFFF;
-   @media screen and  (max-width: $md3+px) {
-     width: 36.3rem;
-   }
-   @media screen and  (max-width: $md4+px) {
-     width: 30rem;
-     font-size: 1.6rem;
-   }
+.double-button{
+  padding: inherit;
+  display: flex;
+  justify-content: space-between;
+  width: 32rem;
+  color: #FFFFFF;
+  background: none;
+  border: .2rem solid #FFFFFF;
+  @media screen and  (max-width: $md3+px) {
+    width: 36.3rem;
+  }
+  @media screen and  (max-width: $md4+px) {
+    width: 30rem;
+    font-size: 1.6rem;
+  }
 
- }
- .double-button:hover{
-   .button-arrow{
-     background: #D26004;
+}
+.double-button:hover{
+  .button-arrow{
+    background: #D26004;
 
-   }
- }
+  }
+}
 
 
-  .button-none-background, .button-none-background-with-border{
+.button-none-background, .button-none-background-with-border{
   padding: 0 3rem;
-background: none;
+  background: none;
   letter-spacing: 1.2px;
   color: $orange;
   span{
@@ -239,7 +239,7 @@ background: none;
     font-size: 120%;
   }
   @media screen and  (max-width: $md2+px) {
-  font-size: 2.1rem;
+    font-size: 2.1rem;
   }
 
   @media screen and  (max-width: $md3+px) {
@@ -264,7 +264,7 @@ background: none;
 
   @media screen and  (max-width: $md2+px) {
 
-  letter-spacing: -.2rem;
+    letter-spacing: -.2rem;
   }
 
   @media screen and  (max-width: $md3+px) {
@@ -277,7 +277,7 @@ background: none;
     }
   }
   @media screen and  (max-width: $md4+px) {
-height: 4.4rem;
+    height: 4.4rem;
   }
 
 
@@ -301,13 +301,53 @@ height: 4.4rem;
 
 
 
-@import "header";
-@import "watch-your";
-@import "welcome";
-@import "Donation";
-@import "meet-some";
-@import "pay-and-feed";
-@import "what-our-users";
-@import "care-for-the-animals";
-@import "footer";
+@import "../main/header";
 
+
+
+@import "../main/footer";
+
+
+
+.map{
+margin-top: 3.9rem;
+  margin-bottom: 15rem;
+  display: flex;
+  justify-content: center;
+}
+.map__title{
+  margin-bottom: 6.8rem;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 54px;
+  line-height: 66px;
+  text-align: center;
+  text-transform: uppercase;
+
+  color: #20113D;
+}
+.map__image{
+  width: 100%;
+  position: relative;
+}
+.chip{
+  position: absolute;
+  background: url("../../assets/images/Animal Location.png") center no-repeat;
+  width: 14rem;
+  height: 17.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.chip_active:hover{
+  background: url("../../assets/images/Animal Location-lite.png") center no-repeat;
+}
+
+
+.chip__animal{
+  position: relative;
+  font-size: 5rem;
+  margin-top: -5.6rem;
+  //padding: 2rem 2rem;
+}
