@@ -689,6 +689,10 @@ h1 {
   text-align: start;
 }
 
+.forhov:hover {
+  opacity: 50%;
+}
+
 .footer {
   background-color: #20113D;
   display: flex;
