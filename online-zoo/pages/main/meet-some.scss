@@ -123,6 +123,7 @@ display: grid;
 
 
 .meet-some__item{
+  transition: 0.2s;
   position: relative;
   max-width: 43.9rem;
  height: 74.7rem;
@@ -153,6 +154,10 @@ display: grid;
   }
 
 }
+.meet-some__item:hover{
+  transform: scale(1.2);
+}
+
 
 
 

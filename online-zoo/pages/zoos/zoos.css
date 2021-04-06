@@ -646,6 +646,11 @@ h1 {
   margin-left: 4rem;
 }
 
+.did-you-know__dossier-button:hover {
+  background: #F58021;
+  color: #FFFFFF;
+}
+
 .did-you-know__text {
   font-family: Montserrat, sans-serif;
   font-style: normal;
