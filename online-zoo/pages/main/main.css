@@ -1027,7 +1027,7 @@ donation__input::-moz-placeholder {
 }
 
 .meet-some__item:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 .meet-some__item-name {
@@ -2011,7 +2011,7 @@ donation__input::-moz-placeholder {
 }
 
 .cart-animal:hover {
-  transform: scale(1.3);
+  transform: scale(1.1);
 }
 
 .cart-animal__link {
