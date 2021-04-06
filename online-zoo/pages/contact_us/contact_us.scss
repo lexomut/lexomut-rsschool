@@ -338,9 +338,9 @@ $purple:#20113D;
   color:  #00A092;
 
 }
-.form__name-input:before:required{
-  color:  red;
-}
+//.form__input:required{
+//  background: #d83e33;
+//}
 
 
 .contact-us__form{
@@ -349,7 +349,7 @@ $purple:#20113D;
 }
 .form__input{
 
-
+  padding-left: 1rem;
   width: 100%;
   height: 6rem;
   @include body();

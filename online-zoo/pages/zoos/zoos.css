@@ -560,12 +560,32 @@ h1 {
   position: relative;
 }
 
+.cam-slider__cart:after {
+  content: " ";
+  background: url("../../assets/icons/play button.svg") center center no-repeat;
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.cam-slider__cart:hover:after {
+  background: url("../../assets/icons/play button-hover.svg") center center no-repeat;
+}
+
 .live_cart {
   border: 1px solid #FFFFFF;
 }
 
 .cam-slider__arrow {
   font-size: 1.9rem;
+}
+
+.cam-slider__arrow:hover {
+  transform: scale(2);
 }
 
 .donation__text_zoos {
