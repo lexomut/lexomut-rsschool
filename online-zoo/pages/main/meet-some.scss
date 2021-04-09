@@ -231,7 +231,9 @@ display: grid;
 
 }
 
-.meet-some__item-button{
+.meet-some__item-button:hover{
+  background: $orange;
+  color: #FFFFFF;
 
 }
 
