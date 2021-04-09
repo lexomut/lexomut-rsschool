@@ -1128,6 +1128,11 @@ donation__input::-moz-placeholder {
   }
 }
 
+.meet-some__item-button:hover {
+  background: #F58021;
+  color: #FFFFFF;
+}
+
 .meet-some__button {
   margin-top: 10.2rem;
 }
