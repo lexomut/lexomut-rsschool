@@ -396,6 +396,12 @@ h1 {
     left: 200vh;
   }
 }
+@media screen and (max-width: 1200px) {
+  .header__nav {
+    flex-basis: 56rem;
+    padding-right: 8%;
+  }
+}
 .header__social {
   padding: 0;
   width: 18rem;
@@ -504,7 +510,7 @@ h1 {
   font-size: 1.8rem;
   text-align: center;
   color: #000000;
-  line-height: 150%;
+  line-height: 151%;
   text-align: left;
   max-width: 43rem;
   margin-bottom: 4.7rem;
@@ -544,18 +550,18 @@ h1 {
 @media screen and (max-width: 1200px) {
   .welcome {
     padding-top: 10rem;
-    margin-bottom: 1.6rem;
+    margin-bottom: 4.2rem;
   }
 }
 @media screen and (max-width: 640px) {
   .welcome {
-    margin-bottom: 5.3rem;
+    margin-bottom: 7.3rem;
   }
 }
 @media screen and (max-width: 320px) {
   .welcome {
     padding-top: 5rem;
-    margin-bottom: 0;
+    margin-bottom: 2.3rem;
   }
 }
 
@@ -583,7 +589,7 @@ h1 {
 @media screen and (max-width: 1200px) {
   .welcome__item {
     display: block;
-    margin-bottom: 8rem;
+    margin-bottom: 5.7rem;
     max-width: 66rem;
   }
   .welcome__item .welcome__image, .welcome__item .welcome__title {
@@ -595,7 +601,7 @@ h1 {
 }
 @media screen and (max-width: 640px) {
   .welcome__item {
-    margin-bottom: 4.7rem;
+    margin-bottom: 2.6rem;
   }
 }
 @media screen and (max-width: 320px) {
@@ -680,7 +686,7 @@ h1 {
   font-size: 1.8rem;
   text-align: center;
   color: #000000;
-  line-height: 150%;
+  line-height: 151%;
   text-align: start;
   line-height: 1.5;
 }
@@ -757,7 +763,7 @@ h1 {
   font-size: 1.8rem;
   text-align: center;
   color: #FFFFFF;
-  line-height: 150%;
+  line-height: 151%;
   text-align: start;
 }
 @media screen and (max-width: 640px) {
@@ -1120,7 +1126,7 @@ donation__input::-moz-placeholder {
   font-size: 1.8rem;
   text-align: center;
   color: #FFFFFF;
-  line-height: 150%;
+  line-height: 151%;
 }
 @media screen and (max-width: 1200px) {
   .meet-some__item-subtitle {
@@ -1396,7 +1402,7 @@ donation__input::-moz-placeholder {
   font-size: 1.8rem;
   text-align: center;
   color: #FFFFFF;
-  line-height: 150%;
+  line-height: 151%;
   text-align: start;
   padding-top: 5rem;
   margin-bottom: 10rem;
@@ -1716,7 +1722,7 @@ donation__input::-moz-placeholder {
   font-size: 1.8rem;
   text-align: center;
   color: #000000;
-  line-height: 150%;
+  line-height: 151%;
   text-align: start;
 }
 @media screen and (max-width: 640px) {
@@ -1849,17 +1855,19 @@ donation__input::-moz-placeholder {
 }
 @media screen and (max-width: 1200px) {
   .care-for-the-animals {
-    padding-top: 15.2rem;
+    padding-top: 14.8rem;
   }
 }
 @media screen and (max-width: 640px) {
   .care-for-the-animals {
+    padding-bottom: 10rem;
     padding-top: 8rem;
   }
 }
 @media screen and (max-width: 320px) {
   .care-for-the-animals {
     padding-top: 5.3rem;
+    padding-bottom: 8rem;
   }
 }
 
@@ -2073,7 +2081,7 @@ donation__input::-moz-placeholder {
   font-size: 1.8rem;
   text-align: center;
   color: #FFFFFF;
-  line-height: 150%;
+  line-height: 151%;
   margin-top: 3rem;
   padding: 0 2.3rem;
 }
@@ -2191,6 +2199,35 @@ donation__input::-moz-placeholder {
   padding-top: 7rem;
   padding-bottom: 3.6rem;
 }
+@media screen and (max-width: 640px) {
+  .footer {
+    padding-top: 5rem;
+    padding-bottom: 4.7rem;
+  }
+}
+@media screen and (max-width: 320px) {
+  .footer {
+    padding-top: 4.8rem;
+    padding-bottom: 4.3rem;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .footer__wrapper {
+    margin: 0 auto;
+    max-width: 112rem;
+  }
+}
+@media screen and (max-width: 640px) {
+  .footer__wrapper {
+    max-width: 44.6rem;
+  }
+}
+@media screen and (max-width: 320px) {
+  .footer__wrapper {
+    padding: 0 1rem;
+  }
+}
 
 .footer__bar {
   width: 100%;
@@ -2199,11 +2236,40 @@ donation__input::-moz-placeholder {
   align-items: center;
   margin-bottom: 7rem;
 }
+@media screen and (max-width: 640px) {
+  .footer__bar {
+    flex-direction: column;
+    margin-bottom: 5rem;
+    align-items: center;
+  }
+}
 
 .footer__logo {
   display: flex;
   flex-basis: 41.4rem;
   justify-content: space-between;
+}
+@media screen and (max-width: 1200px) {
+  .footer__logo {
+    flex-basis: 34.4rem;
+  }
+}
+@media screen and (max-width: 640px) {
+  .footer__logo {
+    width: 100%;
+    flex-basis: auto;
+    margin-bottom: 5rem;
+  }
+}
+@media screen and (max-width: 320px) {
+  .footer__logo {
+    flex-direction: column;
+    width: 100%;
+    flex-basis: auto;
+    align-items: center;
+    height: 21.7rem;
+    margin-bottom: 2.5rem;
+  }
 }
 
 .footer__logo-item {
@@ -2230,10 +2296,46 @@ donation__input::-moz-placeholder {
   border-color: inherit;
   border-bottom: 0.2rem solid;
 }
+@media screen and (max-width: 1200px) {
+  .footer__nav {
+    flex-basis: 33.6rem;
+  }
+}
+@media screen and (max-width: 640px) {
+  .footer__nav {
+    width: 100%;
+    flex-basis: auto;
+    margin-bottom: 4.7rem;
+  }
+}
+@media screen and (max-width: 320px) {
+  .footer__nav {
+    font-size: 1.6rem;
+    margin-bottom: 3.3rem;
+  }
+}
+
+.nav-item a {
+  font-size: 1.6rem;
+}
 
 .footer__button {
   color: #FFFFFF;
   border-color: #FFFFFF;
+}
+@media screen and (max-width: 1200px) {
+  .footer__button {
+    width: 36rem;
+    padding: 0;
+    font-size: 1.8rem;
+    letter-spacing: 0;
+  }
+}
+@media screen and (max-width: 320px) {
+  .footer__button {
+    width: 99%;
+    text-transform: none;
+  }
 }
 
 .footer__line {
@@ -2241,17 +2343,55 @@ donation__input::-moz-placeholder {
   width: 100%;
   margin-bottom: 3.7rem;
 }
+@media screen and (max-width: 1200px) {
+  .footer__line {
+    width: 150vw;
+    margin-left: -50%;
+  }
+}
+@media screen and (max-width: 640px) {
+  .footer__line {
+    margin-bottom: 5rem;
+  }
+}
+@media screen and (max-width: 320px) {
+  .footer__line {
+    position: relative;
+    top: 5.1rem;
+    margin-bottom: -2rem;
+  }
+}
 
 .footer__last {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
+@media screen and (max-width: 640px) {
+  .footer__last {
+    flex-direction: column-reverse;
+    flex-basis: auto;
+    align-items: center;
+  }
+}
 
 .footer__copyright {
   display: flex;
   flex-basis: 44.8rem;
   justify-content: space-between;
+}
+@media screen and (max-width: 640px) {
+  .footer__copyright {
+    flex-basis: auto;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 320px) {
+  .footer__copyright {
+    flex-direction: column;
+    height: 15.4rem;
+    align-items: center;
+  }
 }
 
 .copyright-item {
@@ -2261,13 +2401,25 @@ donation__input::-moz-placeholder {
   font-size: 1.8rem;
   text-align: center;
   color: #FFFFFF;
-  line-height: 150%;
+  line-height: 151%;
   line-height: 222%;
 }
 
 .footer__social {
   flex-basis: 20rem;
   justify-content: space-between;
+}
+@media screen and (max-width: 640px) {
+  .footer__social {
+    flex-basis: auto;
+    width: 22rem;
+    margin-bottom: 2.5rem;
+  }
+}
+@media screen and (max-width: 320px) {
+  .footer__social {
+    margin-bottom: 5.5rem;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

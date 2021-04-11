@@ -5,13 +5,15 @@
   padding-bottom: 15rem;
 
   @media screen and  (max-width: $md2+px) {
-    padding-top: 15.2rem;
+    padding-top: 14.8rem;
   }
   @media screen and  (max-width: $md3+px) {
+    padding-bottom: 10rem;
     padding-top: 8rem;
   }
   @media screen and  (max-width: $md4+px) {
   padding-top: 5.3rem;
+    padding-bottom: 8rem;
   }
 
 }
