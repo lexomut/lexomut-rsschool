@@ -764,6 +764,7 @@ h1 {
   text-align: center;
   color: #FFFFFF;
   line-height: 151%;
+  line-height: 2.7rem;
   text-align: start;
 }
 @media screen and (max-width: 640px) {

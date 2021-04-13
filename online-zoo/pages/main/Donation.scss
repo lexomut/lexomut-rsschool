@@ -48,6 +48,8 @@
 .donation__text{
   max-width: 60.9rem;
   @include body(#FFFFFF);
+line-height:  2.7rem;
+
   text-align: start;
   @media screen and  (max-width: $md3+px) {
   text-align: center;
