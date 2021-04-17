@@ -367,7 +367,9 @@ margin-top: 1.2rem;
     margin-left:  auto;
     align-self: normal;
 
-
+    .cam-slider__cart:nth-child(3){
+      display: none;
+    }
   }
 
 }
