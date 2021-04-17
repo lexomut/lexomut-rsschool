@@ -386,15 +386,25 @@ margin-top: 1.2rem;
   top: 0;
   left: 0;
   z-index: 1;
+  background-size: 25%;
 
 }
 .cam-slider__cart:hover:after{
   background: url("../../assets/icons/play button-hover.svg") center center no-repeat;
+  background-size: 25%;
+
 }
 
 
 .live_cart{
+  width: 59.06%;
+  height: 21.05%;
   border:1px solid #FFFFFF;
+  padding: 0;
+  justify-content: center;
+  @media screen and  (max-width: $md3+px) {
+ font-size: 1rem;
+  }
 }
 .cam-slider__arrow{
   font-size: 1.9rem ;
