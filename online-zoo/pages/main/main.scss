@@ -1,3 +1,4 @@
+
 @import "normalize.css";
 @import "reset.css";
 @import "icon-fonts";
@@ -68,7 +69,7 @@ h1{
   };
   text-align: center;
   color: $color;
-  line-height: 150%;
+  line-height : 151%;
 }
 
 @mixin h3($color: #FFFFFF) {
@@ -95,15 +96,19 @@ h1{
     size: 1.8rem;
   };
   color: $color;
-  line-height: 122%;
   text-transform: uppercase;
+  line-height: 122%;
+
+
 }
 
 $maxWidth:1920 ;
 $md1:$maxWidth;
-$md2:1200;
-$md3:640;
-$md4:320;
+$md2:1600;
+$md3:1050;
+$md4:500;
+
+
 
 $orange:#F58021;
 $purple:#20113D;
@@ -134,14 +139,14 @@ $purple:#20113D;
 .wrapper-content{
   width: 100%;
   margin: 0 8.4%;
-    //margin: 0 auto;
-    max-width: 140rem;
-    @media screen and  (max-width: $md2+px) {
-      max-width: 100rem
-    };
+  //margin: 0 auto;
+  max-width: 140rem;
+  @media screen and  (max-width: $md2+px) {
+    max-width: 100rem
+  };
   @media screen and  (max-width: $md3+px) {
     margin-left: 2rem;
-      margin-right: 2rem;
+    margin-right: 2rem;
     max-width: 60rem
   };
 }
@@ -184,54 +189,54 @@ $purple:#20113D;
 }
 
 
- .button-arrow{
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   width: 8rem;
-   height: 7.1rem;
-   background-color: $orange;
-   border-radius: .5rem;
-   @media screen and  (max-width: $md3+px) {
-   width: 7.2rem;
-   }
-   @media screen and  (max-width: $md4+px) {
-     height: 4.1rem;
-     width: 5.8rem;
-     font-size: 19px;
-   }
+.button-arrow{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 8rem;
+  height: 7.1rem;
+  background-color: $orange;
+  border-radius: .5rem;
+  @media screen and  (max-width: $md3+px) {
+    width: 7.2rem;
+  }
+  @media screen and  (max-width: $md4+px) {
+    height: 4.1rem;
+    width: 5.8rem;
+    font-size: 19px;
+  }
 
 
- }
+}
 
- .double-button{
-   padding: inherit;
-   display: flex;
-   justify-content: space-between;
-   width: 32rem;
-   color: #FFFFFF;
-   background: none;
-   border: .2rem solid #FFFFFF;
-   @media screen and  (max-width: $md3+px) {
-     width: 36.3rem;
-   }
-   @media screen and  (max-width: $md4+px) {
-     width: 30rem;
-     font-size: 1.6rem;
-   }
+.double-button{
+  padding: inherit;
+  display: flex;
+  justify-content: space-between;
+  width: 32rem;
+  color: #FFFFFF;
+  background: none;
+  border: .2rem solid #FFFFFF;
+  @media screen and  (max-width: $md3+px) {
+    width: 36.3rem;
+  }
+  @media screen and  (max-width: $md4+px) {
+    width: 30rem;
+    font-size: 1.6rem;
+  }
 
- }
- .double-button:hover{
-   .button-arrow{
-     background: #D26004;
+}
+.double-button:hover{
+  .button-arrow{
+    background: #D26004;
 
-   }
- }
+  }
+}
 
 
-  .button-none-background, .button-none-background-with-border{
+.button-none-background, .button-none-background-with-border{
   padding: 0 3rem;
-background: none;
+  background: none;
   letter-spacing: 1.2px;
   color: $orange;
   span{
@@ -239,7 +244,7 @@ background: none;
     font-size: 120%;
   }
   @media screen and  (max-width: $md2+px) {
-  font-size: 2.1rem;
+    font-size: 2.1rem;
   }
 
   @media screen and  (max-width: $md3+px) {
@@ -264,7 +269,7 @@ background: none;
 
   @media screen and  (max-width: $md2+px) {
 
-  letter-spacing: -.2rem;
+    letter-spacing: -.2rem;
   }
 
   @media screen and  (max-width: $md3+px) {
@@ -277,7 +282,7 @@ background: none;
     }
   }
   @media screen and  (max-width: $md4+px) {
-height: 4.4rem;
+    height: 4.4rem;
   }
 
 

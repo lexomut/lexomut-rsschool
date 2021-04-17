@@ -20,7 +20,8 @@
   @media screen and (max-width: $md2+px) {
     height: 69rem;
     padding-top: 9.9rem;
-    background-image: url("../../assets/images/Main page-1200.png");
+    background: linear-gradient(106.13deg, #FFFFFF 18.05%, rgba(255, 255, 255, 0.64684) 35.48%, rgba(255, 255, 255, 0) 45.95%), linear-gradient(180.96deg, #FFFFFF 0.2%, rgba(255, 255, 255, 0) 5.62%), linear-gradient(219.86deg, #FFFFFF 0.49%, rgba(255, 255, 255, 0) 6.78%), linear-gradient(141.69deg, #FFFFFF 13.5%, rgba(247, 247, 247, 0) 22.24%), url(../../assets/images/Main_page-640.png) 34% 30% no-repeat;
+    background-size: 112vw;
     .watch-your__title, .watch-your__text, .watch-your__button {
 
       margin-left: -6rem;
@@ -33,7 +34,9 @@
 
       margin-left: 0;
     }
-    background-image: url("../../assets/images/Main page-640.png");
+    background: linear-gradient(90.7deg, #FFFFFF 23.04%, rgba(255, 255, 255, 0) 62.81%), linear-gradient(180.96deg, #FFFFFF 0.2%, rgba(255, 255, 255, 0) 5.62%), linear-gradient(219.86deg, #FFFFFF 0.49%, rgba(255, 255, 255, 0) 6.78%), linear-gradient(141.69deg, #FFFFFF 13.5%, rgba(247, 247, 247, 0) 22.24%),url(../../assets/images/Main_page-640.png) 84% 100% no-repeat;
+    background-size: 106vw;
+
   }
   @media screen and (max-width: $md4+px) {
     height: 68.5rem;
@@ -43,8 +46,8 @@
       margin-left: -1rem;
     }
 
-    background-image: url("../../assets/images/Main page-320.jpg");
-    background-position: bottom;
+    background: linear-gradient(180.96deg, #FFFFFF 0.2%, rgba(255, 255, 255, 0) 5.62%), linear-gradient(219.86deg, #FFFFFF 0.49%, rgba(255, 255, 255, 0) 6.78%), linear-gradient(141.69deg, #FFFFFF 13.5%, rgba(247, 247, 247, 0) 22.24%), url(../../assets/images/Main_page-640.png) 84% 100% no-repeat;
+    background-size: 155vw;
   }
 }
 

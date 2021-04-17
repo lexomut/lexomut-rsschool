@@ -59,6 +59,12 @@
       left: 200vh;
       //display: none;
     }
+    @media screen and (max-width: $md2+px) {
+
+      //width: 100%;
+      flex-basis: 56rem;
+      padding-right: 8%;
+  }
   }
 
 
@@ -70,6 +76,7 @@
     @media screen and (max-width: $md3+px) {
       display: none;
     }
+
   }
 
 
