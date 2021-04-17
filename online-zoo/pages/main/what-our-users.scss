@@ -14,14 +14,17 @@
                     144.77deg
             , #20113D 18.53%, rgba(32, 17, 61, 0) 46.43%),
     url(../../assets/images/panda-background.png) right 92.8% top 21rem no-repeat;
+
   }
   @media screen and (max-width: $md3+px) {
-    background: #20113D url(../../assets/images/panda-background-640.jpg) center top 64.7rem no-repeat;
+    background: #20113D url(../../assets/images/panda-background-640.jpg) center bottom  no-repeat;
     padding-top: 6.5rem;
+    background-size: 100vw;
   }
   @media screen and (max-width: $md4+px) {
     background: #20113D url(../../assets/images/panda-background-320.jpg) center bottom no-repeat;
     padding-top: 1rem;
+    background-size: 100vw;
   }
 
 }

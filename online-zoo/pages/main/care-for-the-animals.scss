@@ -80,12 +80,18 @@
     padding: 0 3.5rem;
   }
   @media screen and  (max-width: $md3+px) {
-    grid-template-columns: repeat(4, 100%);
+    //grid-template-columns: repeat(4, 100%);
+    grid-template-columns: minmax(100px, max-content);
     grid-template-rows: 29.75rem;
     padding: 0;
+    a:not(:nth-child(2)){
+      display: none;
+    }
   }
   @media screen and  (max-width: $md4+px) {
-    grid-template-columns: repeat(4, 100%);
+    width: auto;
+    grid-template-columns: 30rem;
+    //grid-template-columns:max-content;
     grid-template-rows: 57.2rem;
     padding: 0 1rem;
   }
