@@ -1,310 +1,23 @@
+
+
 @import "../main/normalize.css";
 @import "../main/reset.css";
-@import "../main/icon-fonts";
-
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-html{
-  font-size: 10px;
-}
-a{
-  text-decoration: none;
-}
-li{
-  list-style-type: none;
-}
-*{
-  padding-inline-start: 0;
-}
-h1{
-  position: absolute;
-  left: -100vh;
-}
-
-@mixin title ($color: #00A092) {
-  font: {
-    family: Montserrat, sans-serif;
-    style: normal;
-    weight: 600;
-    size: 5.4rem;
-  };
-  text-align: center;
-  color: $color;
-  line-height: 122%;
-  text-transform: uppercase;
-  @media screen and (max-width: $md4+px) {
-    font-size: 2.6rem;
-  }
-
-
-
-}
-
-@mixin Subheader($color: #000000) {
-  font: {
-    family: Montserrat, sans-serif;
-    style: normal;
-    weight: 500;
-    size: 2.6rem;
-
-  };
-  text-align: center;
-  color: $color;
-  line-height: 130%;
-  @media screen and (max-width: $md4+px) {
-    font-size: 2.6rem;
-  }
-
-}
-
-@mixin body($color: #000000) {
-  font: {
-    family: Montserrat, sans-serif;
-    style: normal;
-    weight: normal;
-    size: 1.8rem;
-  };
-  text-align: center;
-  color: $color;
-  line-height: 150%;
-}
-
-@mixin h3($color: #FFFFFF) {
-  font: {
-    family: Montserrat, sans-serif;
-    style: normal;
-    weight: 500;
-    size: 4.2rem;
-  };
-  line-height: 121.4%;
-  text-transform: uppercase;
-  color: $color;
-  @media screen and (max-width: $md4+px) {
-    font-size: 2.6rem;
-  }
-}
-
-
-@mixin btn-text($color: #F58021) {
-  font: {
-    family: Montserrat, sans-serif;
-    style: normal;
-    weight: 600;
-    size: 1.8rem;
-  };
-  color: $color;
-  line-height: 122%;
-  text-transform: uppercase;
-}
-
-$maxWidth:1920 ;
-$md1:$maxWidth;
-$md2:1200;
-$md3:640;
-$md4:320;
-
-$orange:#F58021;
-$purple:#20113D;
-
+@import "../main/main";
 .wrapper{
-
-
-  width: 100%;
-  margin: 0 auto;
-
-  overflow: hidden;
-  @media screen and (max-width: $md1+px) {
-    max-width:$maxWidth+px;
-  }
-
-
-  @media screen and (max-width: $md2+px) {
-    max-width: $md2+px
-  };
-  @media  screen and (max-width: $md3+px) {
-    max-width: $md3+px
-  };
-  @media  screen and (max-width: $md4+px) {
-    max-width: $md4+px
-  };
-};
-
-.wrapper-content{
-  width: 100%;
-  margin: 0 8.4%;
-  //margin: 0 auto;
-  max-width: 140rem;
-  @media screen and  (max-width: $md2+px) {
-    max-width: 100rem
-  };
-  @media screen and  (max-width: $md3+px) {
-    margin-left: 2rem;
-    margin-right: 2rem;
-    max-width: 60rem
-  };
+  height: 100%;
 }
-.nav, .social{
+.sidebar__wrapper{
   display: flex;
   justify-content: space-between;
-  align-items: center;
-}
-.social >li>a>img:hover{
-  transform:scale(1.2) ;
-}
-.orange-btn{
-  background-color: $orange;
-  width: 24rem;
-
-}
-
-.button{
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 7.4rem;
-  @include btn-text(#FFFFFF);
-  text-transform: uppercase;
-  border-radius: .5rem;
-  border: none;
-  @media screen and  (max-width: $md4+px) {
-    width: 30rem;
-    height: 4.5rem;
-  }
-}
-
-.orange-btn:hover{
-  background-color: #D26004;
-}
-.icon-space{
-  display: flex;
-  margin-left: 1.3rem;
-}
-
-
-.button-arrow{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 8rem;
-  height: 7.1rem;
-  background-color: $orange;
-  border-radius: .5rem;
   @media screen and  (max-width: $md3+px) {
-    width: 7.2rem;
+    justify-content: start;
   }
   @media screen and  (max-width: $md4+px) {
-    height: 4.1rem;
-    width: 5.8rem;
-    font-size: 19px;
+    overflow: hidden;
   }
 
 
 }
-
-.double-button{
-  padding: inherit;
-  display: flex;
-  justify-content: space-between;
-  width: 32rem;
-  color: #FFFFFF;
-  background: none;
-  border: .2rem solid #FFFFFF;
-  @media screen and  (max-width: $md3+px) {
-    width: 36.3rem;
-  }
-  @media screen and  (max-width: $md4+px) {
-    width: 30rem;
-    font-size: 1.6rem;
-  }
-
-}
-.double-button:hover{
-  .button-arrow{
-    background: #D26004;
-
-  }
-}
-
-
-.button-none-background, .button-none-background-with-border{
-  padding: 0 3rem;
-  background: none;
-  letter-spacing: 1.2px;
-  color: $orange;
-  span{
-    padding-left: 1rem;
-    font-size: 120%;
-  }
-  @media screen and  (max-width: $md2+px) {
-    font-size: 2.1rem;
-  }
-
-  @media screen and  (max-width: $md3+px) {
-    letter-spacing: 0.12rem;
-    font-size: 1.8rem;
-    span{
-      padding-left: 1.4rem;
-      font-size: 120%;
-    }
-  }
-
-}
-
-
-.button-none-background-with-border{
-
-  letter-spacing: 0px;
-  border: 1px solid $purple;
-  color: $purple;
-  padding: 0 3.3rem;
-  height: 7.4rem;
-
-  @media screen and  (max-width: $md2+px) {
-
-    letter-spacing: -.2rem;
-  }
-
-  @media screen and  (max-width: $md3+px) {
-
-    font-size: 1.8rem;
-    letter-spacing: -0.1px;
-    span{
-      padding-left: 1rem;
-      font-size: 120%;
-    }
-  }
-  @media screen and  (max-width: $md4+px) {
-    height: 4.4rem;
-  }
-
-
-
-}
-.slider-arrow_lite:hover,
-.what-our-users__button:hover,
-.footer__button:hover{
-  background: #00A092;
-
-
-}
-.slider-arrow_dark:hover,
-.care-for-the-animals__btn:hover,
-.meet-some__button:hover{
-  background: #20113D;
-  color: #FFFFFF;
-  border: #FFFFFF;
-
-}
-
-
-
-
-@import "../main/footer";
-@import "../main/Donation.scss";
-@import "../main/header";
 
 .live{
   position: absolute;
@@ -338,20 +51,24 @@ display: none;
   position: sticky;
   top: 0;
   width: 22rem;
+  height: 86.4rem;
   background: $purple;
   @media screen and  (max-width: $md2+px) {
     width: 11.5rem;
+    height: 84.6rem;
   }
   @media screen and  (max-width: $md3+px) {
     width: 7.8rem;
+    height: 50rem;
   }
   @media screen and  (max-width: $md4+px) {
     width:5rem;
+    height: 30rem;
   }
 
 }
 .sidebar__extreme{
-  height: 100%;
+  //height: 100%;
   height: 8rem;
   display: flex;
   justify-content: center;
@@ -376,7 +93,6 @@ height: 5rem;
     height: 10rem;
   }
   @media screen and  (max-width: $md4+px) {
-
     height: 5rem;
   }
 }
@@ -431,15 +147,22 @@ margin-right: 0;
 .cams{
   display: flex;
   justify-content: center;
-  margin-top: -79.2rem;
+  margin-top: 5rem;
+  width:72.91vw ;
+  max-width: 140rem;
+  margin-left: -22rem;
   @media screen and  (max-width: $md2+px) {
-    margin-top: -81rem;
+    width: 85.42vw;
+    margin-left: -1.6%;
+    margin-top: 3rem;
   }
   @media screen and  (max-width: $md3+px) {
-    margin-top: -48rem;
+    margin-top: 2rem;
+    width: 84.68vw;
+    margin-left: 0;
   }
   @media screen and  (max-width: $md4+px) {
-    margin-top: -29.7rem;
+    margin-top: 0.4rem;
   }
 
 
@@ -448,23 +171,24 @@ margin-right: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0;
 
     @media screen and  (max-width: $md2+px) {
-max-width: 102.5rem;
-      margin: 0;
-      margin-left: 9.5rem ;
+      max-width:85.42vw ;
+
+
     }
   @media screen and  (max-width: $md3+px) {
 
-    margin-left: 0;
-
-    padding-left: 12.1vw ;
-    padding-right: 3.1vw;
+    //margin-left: 0;
+    //
+    //padding-left: 12.1vw ;
+    //padding-right: 3.1vw;
 
 
   }
   @media screen and  (max-width: $md4+px) {
-  padding-left: 15.7vw;
+  //padding-left: 15.7vw;
   padding-right: 0;
   }
 
@@ -472,23 +196,27 @@ max-width: 102.5rem;
 
 .cams__title{
   display: flex;
-justify-content: flex-end;
+  flex-wrap: wrap;
+justify-content: space-between;
   width: 100%;
-  margin-bottom: 4.5rem;
+
   @media screen and  (max-width: $md2+px) {
     align-items: center;
-    margin-bottom: 3.5rem;
+    justify-content: center;
   }
   @media screen and  (max-width: $md3+px) {
 
     margin-bottom:1.2rem;
   }
   @media screen and  (max-width: $md4+px) {
-  margin-bottom: -0.3rem;}
+    margin-bottom: 0;
+  }
+
+
 }
 .cams__title-text{
-  position: absolute;
-  left:36.4%;
+  margin-left: 17%;
+
   font-family: Montserrat;
   font-style: normal;
   font-weight: 600;
@@ -497,53 +225,64 @@ justify-content: flex-end;
   text-transform: uppercase;
   color: #00A092;
   @media screen and  (max-width: $md2+px) {
-    left: 32.4rem;}
+    margin-left: 11%;
+ }
     @media screen and  (max-width: $md3+px) {
      position: static;
       font-size: 4.2rem;
-      margin: 0 auto;
+      margin: 0 auto;}
       @media screen and  (max-width: $md4+px) {
 font-size: 2.6rem;
       }
-  }
+
 }
 .cams__title-button{
+  span{
+    margin-left: 1rem;
+  }
+
   @media screen and  (max-width: $md2+px) {
     height: 5.4rem;
+    order: 2;
+    margin-left: auto;
 
   }
   @media screen and  (max-width: $md3+px) {
-    position: absolute;
 
-    top: 63rem;
     height: 4.9rem;
     width: 21rem;
   }
   @media screen and  (max-width: $md4+px) {
-  top: 60rem;
-  height: 4.3rem;
-  width: 94%;
-  left: 1rem;
+position: absolute;
+
+    left: 2.8%;
+    max-width: 30rem;
+    height: 4.6rem;
+    width: 94.4%;
+    top: 59.7rem
+
   }
 }
 .cams__main-video{
   width: 100%;
   height: 78.7rem;
+  margin-top: 4.7rem;
   margin-bottom: 10rem;
   @media screen and  (max-width: $md2+px) {
-
+    margin-top: 2.8rem;
     max-height: 76rem;
-    height: 50vw;
-    margin-bottom: 1rem;
+    height: 64vw;
+    margin-bottom: 1.3rem;
   }
   @media screen and  (max-width: $md3+px) {
-
+margin-top: 1.2rem;
 
     height: 40.2rem; //62.7vw;
-    margin-bottom: 8rem;
+    margin-bottom: 2rem;
   }
   @media screen and  (max-width: $md4+px) {
   height: 20rem;
+    margin-top: -0.4rem;
     margin-bottom: 0.6rem;
   }
 
@@ -668,7 +407,7 @@ font-size: 2.6rem;
 }
 .donation{
   @media screen and  (max-width: $md2+px) {
-  padding-bottom: 5rem;
+  padding-bottom: 3rem;
   padding-top: 3.1rem;
   }
   @media screen and  (max-width: $md3+px) {
@@ -745,7 +484,7 @@ margin-bottom: 2rem;
 }
 
 .did-you-know__banner{
-  width: 54.16vw;
+  width:74.28%;
   padding: 5.5rem;
   box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.25);
   border-radius: 5px;

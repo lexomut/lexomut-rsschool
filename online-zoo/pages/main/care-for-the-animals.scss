@@ -80,12 +80,12 @@
     padding: 0 3.5rem;
   }
   @media screen and  (max-width: $md3+px) {
-    grid-template-columns: repeat(4, 93.75vw);
+    grid-template-columns: repeat(4, 100%);
     grid-template-rows: 29.75rem;
     padding: 0;
   }
   @media screen and  (max-width: $md4+px) {
-    grid-template-columns: repeat(4, 93.75vw);
+    grid-template-columns: repeat(4, 100%);
     grid-template-rows: 57.2rem;
     padding: 0 1rem;
   }
@@ -132,21 +132,31 @@ display: none;
   transform: scale(1.1);
 }
 
-.cart-animal__link{
+.cart-animal__link {
   height: 100%;
 }
-.cart-animal__img{
+.cart-animal__img-container{
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   @media screen and  (max-width: $md2+px) {
     height: 37.3rem;
   }
   @media screen and  (max-width: $md3+px) {
-    width: 30rem;
-    height: auto;
+    //width: 30rem;
+    //height: auto;
   }
   @media screen and  (max-width: $md4+px) {
-    width: 30rem;
+    //width: 30rem;
     height: 35.4rem;
+  }
+  .cart-animal__img{
+    width: auto;
+    height: 100%;
+
   }
 }
 

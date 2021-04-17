@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"  name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <title>online-zoo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Montserrat+Alternates:wght@800&family=Montserrat:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Montserrat+Alternates:wght@800&family=Montserrat:wght@400;500;600;800&display=swap"
+          rel="stylesheet">
     <link rel="stylesheet" href="zoos.css">
 </head>
 </head>
@@ -11,7 +12,7 @@
 <div class="wrapper">
     <header class="header">
         <div class="header__container wrapper-content">
-            <a href="../main/main.html" class="header__logo icon-Logo" ></a>
+            <a href="../main/main.html" class="header__logo icon-Logo"></a>
             <h1>Online Zoo</h1>
             <!--            <div class="space"></div>-->
 
@@ -20,21 +21,24 @@
                 <li class="nav-item"><a href="../map/map.html">Map</a></li>
                 <li class="nav-item active"><a href="../zoos/panda.html">Zoos</a></li>
                 <li class="nav-item"><a href="../contact_us/contact-us.html">Contact us</a></li>
-                <li class="nav-item"><a href="https://www.figma.com/file/lnK11foY8Aoa6oOlDXovVN/Online-ZOO-Project  ">Design</a></li>
+                <li class="nav-item"><a href="https://www.figma.com/file/lnK11foY8Aoa6oOlDXovVN/Online-ZOO-Project  ">Design</a>
+                </li>
             </ul>
 
             <ul class="social header__social ">
                 <li><a href=""><img src="../../assets/icons/YouTube.svg" alt="YouTube-icon"></a></li>
-                <li><a  href=""><img src="../../assets/icons/Instagram.svg" alt="Instagram-icon"></a></li>
-                <li><a  href=""><img src="../../assets/icons/Facebook.svg" alt="Facebook-icon"></a></li>
+                <li><a href=""><img src="../../assets/icons/Instagram.svg" alt="Instagram-icon"></a></li>
+                <li><a href=""><img src="../../assets/icons/Facebook.svg" alt="Facebook-icon"></a></li>
             </ul>
             <div class="header__hamburger"><img src="../../assets/icons/hamburger.svg" alt="hamburger"></div>
         </div>
     </header>
-    <main>
+</div>
+<main>
+    <div class="sidebar__wrapper">
         <div class="sidebar">
             <div class="sidebar__extreme sidebar__extreme_top">
-                <div class="live live_sidebar"> LIVE<span class="icon-webcam"></span> </div>
+                <div class="live live_sidebar"> LIVE<span class="icon-webcam"></span></div>
                 <div class="sidebar__arrow-top">
                     <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M7 13.6591L8.36504 15L16 7.5L8.36504 0L7 1.34091L13.2699 7.5L7 13.6591Z" fill="white"/>
@@ -80,20 +84,20 @@
                 </div>
             </div>
         </div>
-
-
         <section class="cams">
             <div class="cams__wrapper wrapper-content">
                 <div class="cams__title">
+                    <div></div>
                     <div class="cams__title-text">live panda cams</div>
                     <div class="cams__title-button button orange-btn">donate now <span class="icon-Union-right"></span>
                     </div>
-                </div>
-                <div class="cams__main-video">
-                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/OObOQ2GElhA"
-                            title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
+
+                    <div class="cams__main-video">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/OObOQ2GElhA"
+                                title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
                         clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
+                                allowfullscreen></iframe>
+                    </div>
                 </div>
                 <div class="cam-slider__title">More live views</div>
                 <div class="cam-slider">
@@ -118,13 +122,20 @@
                 </div>
             </div>
         </section>
+        <div>        </div>
+
+    </div>
+    <div class="wrapper">
         <section class="donation">
 
 
             <div class="donation__wrapper wrapper-content">
                 <div class="donation__content ">
                     <div class="donation__title">make the Bamboo Donation!</div>
-                    <div class="donation__text donation__text_zoos" style="max-width: 87.2rem;">Our process for bamboo donations first starts with a site evaluation. It is important that our team sees where the bamboo is growing, then determining if the bamboo is a species that our animals are currently eating. Thank you for your interest in donating bamboo for our pandas.
+                    <div class="donation__text donation__text_zoos" style="max-width: 87.2rem;">Our process for bamboo
+                        donations first starts with a site evaluation. It is important that our team sees where the
+                        bamboo is growing, then determining if the bamboo is a species that our animals are currently
+                        eating. Thank you for your interest in donating bamboo for our pandas.
                     </div>
                 </div>
                 <div class="donation__button-block">
@@ -143,14 +154,17 @@
             <div class="id-you-know__wrapper wrapper-content">
                 <div class="did-you-know__banner">
                     <div class="did-you-know__title">did you know?</div>
-                    <div class="did-you-know__subtitle">Pandas are often seen eating in a relaxed sitting posture, with their hind legs stretched out before them. They may appear sedentary, but they are skilled tree-climbers and efficient swimmers.
+                    <div class="did-you-know__subtitle">Pandas are often seen eating in a relaxed sitting posture, with
+                        their hind legs stretched out before them. They may appear sedentary, but they are skilled
+                        tree-climbers and efficient swimmers.
                     </div>
                 </div>
 
                 <div class="did-you-know__content">
                     <div class="did-you-know__dossier">
                         <ul class="did-you-know__dossier-text">
-                            <li class="did-you-know__dossier-item">Common name: <span class="did-you-know__dossier-definition">Giant Panda
+                            <li class="did-you-know__dossier-item">Common name: <span
+                                    class="did-you-know__dossier-definition">Giant Panda
 
 </span>
                             </li>
@@ -160,7 +174,8 @@
                             <li class="did-you-know__dossier-item">Type: <span class="did-you-know__dossier-definition">Herbivore
 </span>
                             </li>
-                            <li class="did-you-know__dossier-item"> Size: <span class="did-you-know__dossier-definition">4 to 5 feet
+                            <li class="did-you-know__dossier-item"> Size: <span
+                                    class="did-you-know__dossier-definition">4 to 5 feet
 
 </span>
                             </li>
@@ -168,30 +183,41 @@
                                     class="did-you-know__dossier-definition">Omnivore
 
 </span></li>
-                            <li class="did-you-know__dossier-item"> Habitat: <span class="did-you-know__dossier-definition">Forests</span>
+                            <li class="did-you-know__dossier-item"> Habitat: <span
+                                    class="did-you-know__dossier-definition">Forests</span>
                             </li>
-                            <li class="did-you-know__dossier-item"> Range: <span class="did-you-know__dossier-definition">Eastern Asia</span>
+                            <li class="did-you-know__dossier-item"> Range: <span
+                                    class="did-you-know__dossier-definition">Eastern Asia</span>
                                 <a href="../map/map.html">
-                                    <button class="did-you-know__dossier-button button button-none-background">VIEW map <span
-                                            class="icon-Union-right"></span></button>
+                                    <button class="did-you-know__dossier-button button button-none-background">VIEW map
+                                        <span
+                                                class="icon-Union-right"></span></button>
                                 </a>
                             </li>
 
                         </ul>
-                        <img class="did-you-know__img" src="../../assets/images/zoos/litle-panda.jpg" alt="little-panda">
+                        <img class="did-you-know__img" src="../../assets/images/zoos/litle-panda.jpg"
+                             alt="little-panda">
                     </div>
-                    <div class="did-you-know__text">Giant pandas are very unusual animals that eat almost exclusively bamboo, which is very low in nutrients. Because of this, they have many unique adaptations for their low-energy lifestyle. Giant pandas are solitary. They have a highly developed sense of smell that males use to avoid each other and to find females for mating in the spring. After a five-month pregnancy, females give birth to a cub or two, though they cannot care for both twins. The blind infants weigh only 5 ounces at birth and cannot crawl until they reach three months of age. They are born white, and develop their much loved coloring later. Habitat loss is the primary threat to this species. Its popularity around the world has helped the giant panda become the focus of successful conservation programs.
+                    <div class="did-you-know__text">Giant pandas are very unusual animals that eat almost exclusively
+                        bamboo, which is very low in nutrients. Because of this, they have many unique adaptations for
+                        their low-energy lifestyle. Giant pandas are solitary. They have a highly developed sense of
+                        smell that males use to avoid each other and to find females for mating in the spring. After a
+                        five-month pregnancy, females give birth to a cub or two, though they cannot care for both
+                        twins. The blind infants weigh only 5 ounces at birth and cannot crawl until they reach three
+                        months of age. They are born white, and develop their much loved coloring later. Habitat loss is
+                        the primary threat to this species. Its popularity around the world has helped the giant panda
+                        become the focus of successful conservation programs.
                     </div>
                 </div>
-
 
 
             </div>
 
         </section>
-
-
-    </main>
+    </div>
+</main>
+<div class="wrapper">
     <footer class="footer">
         <div class="footer__wrapper wrapper-content ">
             <div class="footer__bar">
@@ -206,7 +232,8 @@
                     <li class="nav-item  active"><a href="../zoos/panda.html">Zoos</a></li>
                     <li class="nav-item"><a href="../contact_us/contact-us.html">Contact us</a></li>
                 </ul>
-                <button class="button button-none-background-with-border footer__button">donate for volunteers <span class="icon-Union-right"></span></button>
+                <button class="button button-none-background-with-border footer__button">donate for volunteers <span
+                        class="icon-Union-right"></span></button>
             </div>
             <div class="footer__line"></div>
 
@@ -217,17 +244,18 @@
                     <div class="copyright-item">© RSSchool</div>
                 </div>
                 <ul class="social footer__social ">
-                    <li><a href="https://www.youtube.com/"><img src="../../assets/icons/YouTube.svg" alt="YouTube-icon"></a></li>
-                    <li><a  href="https://www.instagram.com/"><img src="../../assets/icons/Instagram.svg" alt="Instagram-icon"></a></li>
-                    <li><a  href="https://www.facebook.com/"><img src="../../assets/icons/Facebook.svg" alt="Facebook-icon"></a></li>
+                    <li><a href="https://www.youtube.com/"><img src="../../assets/icons/YouTube.svg" alt="YouTube-icon"></a>
+                    </li>
+                    <li><a href="https://www.instagram.com/"><img src="../../assets/icons/Instagram.svg"
+                                                                  alt="Instagram-icon"></a></li>
+                    <li><a href="https://www.facebook.com/"><img src="../../assets/icons/Facebook.svg"
+                                                                 alt="Facebook-icon"></a></li>
                 </ul>
             </div>
 
 
-
         </div>
     </footer>
-
 </div>
 
 
