@@ -11,9 +11,10 @@
   justify-content: space-between;
   @media screen and  (max-width: $md3+px) {
     justify-content: start;
+      margin-top: 11rem;
   }
   @media screen and  (max-width: $md4+px) {
-    overflow: hidden;
+
   }
 
 
@@ -48,6 +49,7 @@ display: none;
 
 
 .sidebar{
+z-index: 50;
   position: sticky;
   top: 0;
   width: 22rem;
@@ -58,6 +60,8 @@ display: none;
     height: 84.6rem;
   }
   @media screen and  (max-width: $md3+px) {
+    top: 11rem;
+
     width: 7.8rem;
     height: 50rem;
   }
@@ -163,6 +167,7 @@ margin-right: 0;
   }
   @media screen and  (max-width: $md4+px) {
     margin-top: 0.4rem;
+
   }
 
 
@@ -225,7 +230,7 @@ justify-content: space-between;
   text-transform: uppercase;
   color: #00A092;
   @media screen and  (max-width: $md2+px) {
-    margin-left: 11%;
+    margin-left: 18.6%;
  }
     @media screen and  (max-width: $md3+px) {
      position: static;
@@ -243,12 +248,11 @@ font-size: 2.6rem;
 
   @media screen and  (max-width: $md2+px) {
     height: 5.4rem;
-    order: 2;
     margin-left: auto;
 
   }
   @media screen and  (max-width: $md3+px) {
-
+order: 2;
     height: 4.9rem;
     width: 21rem;
   }
@@ -346,6 +350,7 @@ margin-top: 1.2rem;
   grid-gap: 4rem;
   margin: 0 4rem;
   @media screen and  (max-width: $md2+px) {
+    margin: 0px calc(20vw - 19.8rem);
     grid-template-columns: 26.5rem 26.5rem 26.5rem;
 
     grid-gap: 2rem;
@@ -361,11 +366,12 @@ margin-top: 1.2rem;
 
   }
   @media screen and  (max-width: $md4+px) {
-    grid-template-rows: 11rem;
-    width: 44.5rem;
-    min-width: 46rem;
+    grid-template-columns: 14rem 14rem ;
+
     margin-left:  auto;
     align-self: normal;
+    width: 93.75vw;
+    min-width: 0;
 
     .cam-slider__cart:nth-child(3){
       display: none;
