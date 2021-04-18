@@ -5,10 +5,6 @@
   //margin-bottom: 10rem;
   padding-top: 12.9rem;
 
-  * {
-
-  }
-
   *:last-child {
     margin-bottom: 0;
   }
@@ -28,6 +24,7 @@
     }
   };
   @media screen and (max-width: $md3+px) {
+    margin-top: 11rem;
     height: 64.4rem;
     padding-top: 5rem;
     .watch-your__title, .watch-your__text, .watch-your__button {
@@ -39,6 +36,7 @@
 
   }
   @media screen and (max-width: $md4+px) {
+
     height: 68.5rem;
     padding-top: 2rem;
     .watch-your__title, .watch-your__text, .watch-your__button {

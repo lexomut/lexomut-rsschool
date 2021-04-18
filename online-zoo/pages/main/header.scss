@@ -5,6 +5,12 @@
   height: 11rem;
   justify-content: center;
   background-color: $orange;
+   @media screen and (max-width: $md3+px){
+
+position: fixed;
+     width: 100vw;
+     z-index: 100;
+    }
 
 
   &__container {
