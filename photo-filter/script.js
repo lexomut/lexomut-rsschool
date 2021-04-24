@@ -125,7 +125,7 @@ function drawImage() {
         for (let i = 0; i < filterInputs.length; i++) {
             filter = filter + `${filterInputs[i].name}(${currentFilter[i] + '' + filterInputs[i].dataset.sizing})`
         }
-        console.log(filter)
+
         ctx.filter = filter
         ctx.drawImage(img, 0, 0);
 
