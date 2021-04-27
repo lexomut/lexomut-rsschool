@@ -2447,4 +2447,118 @@ h1 {
   }
 }
 
+.shadow {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: #000000;
+  opacity: 50%;
+  z-index: 50;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.together-we-care {
+  width: 58.58vw;
+  max-width: 116rem;
+  height: 81.5rem;
+  z-index: 51;
+  background: #FFFFFF;
+  padding-bottom: 5rem;
+}
+
+.together-we-care__background {
+  width: 100%;
+  height: 55.2%;
+  background: url("../../assets/images/popup-background.png") center top no-repeat;
+}
+
+.together-we-care__title {
+  margin: 0 auto;
+  width: 67.8rem;
+  font-family: Montserrat, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 5.4rem;
+  text-align: center;
+  color: #F58021;
+  line-height: 122%;
+  text-transform: uppercase;
+  margin-bottom: 5rem;
+}
+@media screen and (max-width: 500px) {
+  .together-we-care__title {
+    font-size: 2.6rem;
+  }
+}
+
+.together-we-care__subtitle {
+  margin: 0 auto;
+  width: 57rem;
+  font-family: Montserrat, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.8rem;
+  text-align: center;
+  color: #000000;
+  line-height: 151%;
+  margin-bottom: 5rem;
+}
+
+.together-we-care__button-container {
+  margin: 0 auto;
+  width: 86.2%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.together-we-care__button {
+  font-family: Montserrat, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.8rem;
+  color: #ffffff;
+  text-transform: uppercase;
+  line-height: 122%;
+  height: 6.5rem;
+  flex-basis: 12rem;
+  background-color: #00A092;
+  border-radius: 0.5rem;
+  border: none;
+  margin: 0 1rem;
+}
+
+.together-we-care__button:hover {
+  background: #80CFC8;
+}
+
+.together-we-care__button:last-child {
+  flex-basis: 20rem;
+}
+
+.together-we-care__background {
+  font-size: 3rem;
+  display: flex;
+  justify-content: right;
+  color: #FFFFFF;
+}
+
+.together-we-care__close {
+  margin: 3rem 3rem auto auto;
+}
+
+.together-we-care__close:hover {
+  font-size: 4rem;
+  margin: 2.5rem 2.5rem auto auto;
+}
+
 /*# sourceMappingURL=main.css.map */
