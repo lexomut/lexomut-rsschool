@@ -111,6 +111,8 @@ document.addEventListener('click',function f(e){
     }
     if(e.target.className.includes('complete-btn')) {
         popup.style.display='none'
+        document.body.style.overflowY = '';
+
         alert("Thank you for your donation")
         document.querySelector(".form-1").style.display = 'block';
     }

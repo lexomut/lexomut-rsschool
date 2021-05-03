@@ -978,10 +978,17 @@ h1 {
   }
 }
 
-.meet-some__slider {
-  display: grid;
+.meet-some__slider-wrapper {
   align-self: baseline;
-  grid-template-columns: repeat(4, max-content);
+  max-width: 1870px;
+  overflow: hidden;
+}
+
+.meet-some__slider {
+  transition: all 0.5s ease 0s;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(8, max-content);
   grid-template-rows: repeat(2, max-content);
   grid-column-gap: 4rem;
   grid-row-gap: 4rem;
@@ -1634,6 +1641,8 @@ h1 {
 }
 
 .what-our-users__feed-back-box {
+  transform-style: preserve-3d;
+  perspective: 150rem;
   position: relative;
   display: grid;
   width: 80rem;
@@ -1664,6 +1673,7 @@ h1 {
 }
 
 .feed-back-cart {
+  transition: 1.1s;
   position: relative;
   background: #FFFFFF;
   padding: 5rem;
