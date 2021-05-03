@@ -2980,6 +2980,7 @@ h1 {
   height: 17.2rem;
   background: url("../../assets/icons/circle.png") center center no-repeat;
   border-bottom: 0.5px solid #FFFFFF;
+  padding: 0 1rem;
 }
 @media screen and (max-width: 1600px) {
   .sidebar__item {
@@ -3050,6 +3051,19 @@ h1 {
   .sidebar_active .sidebar__icon {
     color: #FFFFFF;
   }
+}
+
+.sidebar__description {
+  font-family: Montserrat, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.8rem;
+  text-align: center;
+  color: #ffffff;
+  line-height: 151%;
+  width: 18rem;
+  text-align: left;
+  display: none;
 }
 
 .cams {
