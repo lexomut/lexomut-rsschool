@@ -20,7 +20,7 @@ document.addEventListener('click',function f(e){
     }
 
     // console.dir(e.target)
-    if (e.target.className.includes('pay-and-feed__button') ||e.target.className.includes('footer__button')){
+    if (e.target.className.includes('pay-and-feed__button') ||e.target.className.includes('footer__button')||e.target.className.includes('cams__title-button')){
         popup.style.display = 'flex';
         document.body.style.overflowY = 'hidden';}
     if(e.target.className.includes('popup__close') || e.target.className=='shadow'){

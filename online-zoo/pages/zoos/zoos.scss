@@ -388,7 +388,9 @@ margin-top: 1.2rem;
 
 .cam-slider__cart{
   position: relative;
-
+  overflow: hidden;
+  display: flex;
+  align-items: center
 }
 .cam-slider__cart:after{
   content: ' ';

@@ -2469,6 +2469,7 @@ h1 {
 }
 
 .popup {
+  z-index: 100;
   position: fixed;
   top: 0;
   left: 0;
@@ -3311,6 +3312,9 @@ h1 {
 
 .cam-slider__cart {
   position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
 }
 
 .cam-slider__cart:after {
