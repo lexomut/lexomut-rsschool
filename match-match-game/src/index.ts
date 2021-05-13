@@ -1,5 +1,9 @@
 import './style.scss';
+import { App } from './app';
 
-const img = require('./assets/images/map.jpg');
 
-document.body.innerHTML = `<img src="${img}" alt="map">`;
+window.onload = () => {
+  const appElement = document.getElementById('app');
+  if (!appElement) throw Error('App root element not found');
+  new App(appElement).start();
+};
