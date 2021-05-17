@@ -4,18 +4,22 @@ import { Registration } from './components/registration/registration';
 
 export class App {
   private readonly game: Game;
+
   private readonly registration: Registration;
+
   constructor(private readonly rootElement: HTMLElement) {
     this.game = new Game();
     this.registration = new Registration();
-   this.rootElement = rootElement;
+    this.rootElement = rootElement;
   }
 
-   reg() {
+  reg() {
     this.rootElement.appendChild(this.registration.element);
-    setTimeout(() => {
-      this.start();
-    }, 2000);
+    this.registration.reg();
+
+    // setTimeout(() => {
+    //   this.start();
+    // }, 2000);
   }
 
   async start() {
