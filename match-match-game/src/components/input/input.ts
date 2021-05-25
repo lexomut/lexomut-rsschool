@@ -14,6 +14,8 @@ export class Input extends BaseComponent {
 
   status: boolean;
 
+  value = '';
+
   constructor(labelName:string, regulExp:string, message:string) {
     super('div', ['input']);
     this.message = message;
@@ -26,11 +28,12 @@ export class Input extends BaseComponent {
     this.element.appendChild(this.label);
     this.element.appendChild(this.inputField);
     this.element.appendChild(this.error);
-    this.inputField.addEventListener('blur',() => this.check());
+    this.inputField.addEventListener('blur', () => this.check());
     this.status = false;
   }
 
   check() {
+    this.value = this.inputField.value;
     this.status = false;
     this.error.innerText = '';
     this.error.classList.remove('input__error_active');

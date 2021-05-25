@@ -2,6 +2,7 @@ import { Game } from './components/game/game';
 import { ImageCategoryModel } from './models/image-category-model';
 import { Registration } from './components/registration/registration';
 
+
 export class App {
   private readonly game: Game;
 
@@ -21,6 +22,8 @@ export class App {
     //   this.start();
     // }, 2000);
   }
+
+
 
   async start() {
     this.rootElement.innerHTML = '';
