@@ -1,3 +1,5 @@
+import appState from '../appState/appState';
+
 const baseName = 'playersBase';
 
 const storeName = 'playersStore';
@@ -7,27 +9,36 @@ function logerr(err:Event) {
 }
 
 function connectDB(f:CallableFunction) {
-  const request = indexedDB.open(baseName, 1);
+  const request = indexedDB.open(baseName, 9);
   request.onerror = logerr;
   request.onsuccess = function () {
     f(request.result);
   };
 
   request.onupgradeneeded = function () {
+    console.log('onupgradeneeded сработал');
     const db = request.result;
-    if (!db.objectStoreNames.contains(storeName)) { // если хранилище "books" не существует
-      db.createObjectStore(storeName, { keyPath: 'id' }); // создаем хранилище
+    console.log('проверяем существует ли хранилище с этим именем ');
+    if (db.objectStoreNames.contains(storeName)) {
+      console.log('существует  ', db.objectStoreNames);
+      db.deleteObjectStore(storeName);
+      console.log('удалили');
+      console.log('создаем хранилище');
+      db.createObjectStore(storeName, { keyPath: 'email' }); // создаем хранилище
+      console.log('создали');
+    } else {
+      console.log('не существует');// если хранилище "books" не существует
+      console.log('создаем хранилище');
+      db.createObjectStore(storeName, { keyPath: 'email' }); // создаем хранилище
+      console.log('создали');
     }
-
-    // const result = e.currentTarget;
-    // result.createObjectStore(storeName, { keyPath: "path" });
     connectDB(f);
   };
 }
 
 function getplayer(player:IDBKeyPath, f:CallableFunction) {
   connectDB((db:IDBDatabase) => {
-    const request = db.transaction([storeName], 'readonly').objectStore(storeName).get(+player);
+    const request = db.transaction([storeName], 'readonly').objectStore(storeName).get(player);
     request.onerror = logerr;
     request.onsuccess = function () {
       f(request.result ? request.result : -1);
@@ -39,14 +50,7 @@ function getStorage(f:CallableFunction) {
   connectDB((db:IDBDatabase) => {
     const rows:unknown[] = [];
     const store = db.transaction([storeName], 'readonly').objectStore(storeName);
-
-    // if(store.mozGetAll)
-    //   store.mozGetAll().onsuccess = function(e){
-    //     f(e.target.result);
-    //   };
-    // else
     const request = store.openCursor();
-
     request.onsuccess = function () {
       const cursor = request.result;
       if (cursor) {
@@ -84,15 +88,15 @@ function delplayer(player:IDBKeyPath) {
 export class IDB {
   private player: unknown;
 
-  constructor(player:unknown) {
-    this.player = player;
-  }
+  save = (playerObj:unknown) => {
+    setplayer(playerObj);
+  };
 
-  save() {
-    setplayer(this.player);
-  }
+  load = (email:string, func = console.log) => {
+    getplayer(email, func);
+  };
 
-  load() {
-    getplayer('1', console.log);
-  }
+  loadAll = (func = console.log) => {
+    getStorage(func);
+  };
 }

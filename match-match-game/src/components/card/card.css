@@ -1,6 +1,6 @@
 .card-container {
   margin: 1%;
-  flex: 1 0 20%;
+  flex: 1 0 13%;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -37,13 +37,22 @@
   background-position: center;
   background-size: cover;
 }
-.card__front {
-  background-color: crimson;
-}
 .card__back {
   background-color: gray;
   background-image: url("../../assets/images/image.png");
   transform: rotateY(180deg);
+}
+
+.card_shadow card:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99;
 }
 
 /*# sourceMappingURL=card.css.map */

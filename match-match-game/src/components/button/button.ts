@@ -1,4 +1,5 @@
 import { BaseComponent } from '../base-component';
+import './button.scss';
 import { Input } from '../input/input';
 
 interface ConstructorParams {

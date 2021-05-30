@@ -28,7 +28,7 @@ export class Input extends BaseComponent {
     this.element.appendChild(this.label);
     this.element.appendChild(this.inputField);
     this.element.appendChild(this.error);
-    this.inputField.addEventListener('blur', () => this.check());
+    this.inputField.addEventListener('change', () => this.check());
     this.status = false;
   }
 

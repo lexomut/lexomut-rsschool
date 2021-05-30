@@ -1,4 +1,8 @@
 .registration-page {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   justify-content: space-between;
   width: 640px;
   height: 460px;
@@ -12,6 +16,7 @@
   line-height: 30px;
   letter-spacing: 0.15px;
   color: rgba(0, 0, 0, 0.87);
+  z-index: 100;
 }
 
 .registration__img {
@@ -22,6 +27,14 @@
 
 .registration__field {
   display: flex;
+}
+
+.registration__submit {
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-top: 30px;
 }
 
 /*# sourceMappingURL=registration.css.map */

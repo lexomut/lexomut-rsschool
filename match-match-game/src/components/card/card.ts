@@ -8,8 +8,25 @@ export class Card extends BaseComponent {
 
   constructor(readonly image: string) {
     super('div', ['card-container']);
+    this.image = image;
     this.element.innerHTML = `<div class="card">
         <div class="card__front" style = "background-image: url('images/${image}')"></div>
+        <div class="card__back"></div>
+       </div>`;
+  }
+
+  error() {
+    const img = this.image;
+    this.element.innerHTML = `<div class="card">
+        <div class="card__front" style = " background: linear-gradient( rgba(255, 0, 0, 0.3), rgba(255, 0, 0, 0.3)) , url('images/${img}')center no-repeat"></div>
+        <div class="card__back"></div>
+       </div>`;
+  }
+
+  noError() {
+    const img = this.image;
+    this.element.innerHTML = `<div class="card">
+        <div class="card__front" style = "background: url('images/${img}')center no-repeat"></div>
         <div class="card__back"></div>
        </div>`;
   }

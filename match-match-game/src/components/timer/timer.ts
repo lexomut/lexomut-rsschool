@@ -1,5 +1,6 @@
 import { BaseComponent } from '../base-component';
 import './timer.css';
+import appState from '../appState/appState';
 
 export class Timer extends BaseComponent {
   private startTime = 0;
@@ -8,9 +9,12 @@ export class Timer extends BaseComponent {
 
   private differentTime = '00:00';
 
+  second:number;
+
   constructor() {
     super('div', ['timer']);
     this.element.innerText = this.differentTime;
+    this.second = 0;
   }
 
   startTimer() :void {
@@ -24,6 +28,9 @@ export class Timer extends BaseComponent {
       seconds = (seconds < 10) ? `0${seconds}` : seconds;
       this.differentTime = `${minutes}:${seconds}`;
       this.element.innerText = this.differentTime;
+      this.second = different / 1000;
+
+      if (appState.stopGame) this.stopTimer();
     }, 1000);
   }
 
