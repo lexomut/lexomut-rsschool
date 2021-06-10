@@ -1,5 +1,5 @@
 {
-  "name": "match-match-game",
+  "name": "async-race",
   "scripts": {
     "build": "webpack",
     "dev": "webpack serve --env development",

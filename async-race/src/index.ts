@@ -1,5 +1,8 @@
-import './style.scss';
+import { boot } from './core/boot';
+import { appModule } from './app/app.module';
+import { util } from './tools/util';
+import {router} from "./tools/router";
 
-const img = require('./assets/images/map.jpg');
-
-document.body.innerHTML = `<img src="${img}" alt="map">`;
+util.delay(1000).then(() => {
+  boot(appModule);
+});
