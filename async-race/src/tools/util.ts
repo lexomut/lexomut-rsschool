@@ -1,5 +1,4 @@
 const util = {
-
   delay(ms = 1000) {
     return new Promise<void>((resolve) => {
       setTimeout(() => {
@@ -8,9 +7,11 @@ const util = {
     });
   },
 
-  // isUndefined(d:unknown) {
-  //   return typeof d === 'undefined';
-  // },
+  
+
+  isUndefined(d:unknown) {
+    return typeof d === 'undefined';
+  },
 
 };
 export { util };

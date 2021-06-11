@@ -1,5 +1,7 @@
 import { Component, Events } from '../../core/component';
 import { ComponentConfig, ComponentInt } from '../../core/componentConfig';
+import { Car } from '../cars/car';
+import {Garage} from "../cars/garage";
 
 class HomePageComponent extends Component {
   constructor(private config: ComponentConfig) {
@@ -10,10 +12,19 @@ class HomePageComponent extends Component {
 
   onTabClick = () => {
     console.log('кнопка нажата');
+    const garage = new Garage();
+    garage.getCoutOfCars();
   };
 
   onTabClick1 = () => {
     console.log('кнопка 2');
+    const car1 = new Car({
+      name: 'mers',
+      color: 'blue',
+      id: 1,
+
+    });
+    car1.startEngine();
   };
 }
 export const homePageComponent:ComponentInt = new HomePageComponent({
