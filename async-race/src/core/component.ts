@@ -16,6 +16,7 @@ export class Component {
     this.template = config.template;
     this.selector = config.selector;
     this.el = null;
+    console.log('8');
   }
 
   render() {
@@ -23,6 +24,7 @@ export class Component {
     if (!this.el) throw new Error(`КОМПОНЕНТ С СЕЛЕКТОРОМ ${this.selector} НЕ НАЙДЕН`);
     else this.el.innerHTML = this.template;
     this.initEvents();
+    console.log('6');
   }
 
   initEvents() {

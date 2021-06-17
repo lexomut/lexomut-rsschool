@@ -1,18 +1,23 @@
 interface UrlConfig {
   path: string;
-  options: {}[]
+  method:string;
+  options: {}[];
 
 }
 
 export const api = {
   url: 'http://',
+
   config: {
+    method: 'GET',
     path: '',
     options: [{}, {}],
   },
 
-  getFetch(resolve: (arg: string) => void, reject: (arg: number) => void) {
-    const request = fetch(api.url);
+  getFetch(resolve: (arg: []) => void, reject: (arg: number) => void) {
+
+
+    const request = fetch(api.url, { method: api.config.method});
     request.then((response) => {
       if (!response.ok) {
         reject(response.status); // return
@@ -28,7 +33,10 @@ export const api = {
 
   getApi(config: UrlConfig) {
     this.config = config;
+    this.config.method = config.method;
+
     this.makeUrl();
+
     return new Promise(this.getFetch);
   },
 
@@ -38,7 +46,8 @@ export const api = {
       const key: string = Object.keys(item)[0];
       return `${key}=${Object.values(item)[0]}`;
     }).join('&');
-    this.url = `http://localhost:3000/${urlPath}?${urlOptions}`;
+    this.url = `http://localhost:3000/${this.config.method === 'DELETE' ? (`:${this.config.options[0]}`) : `${urlPath}?${urlOptions}`}`;
+    console.log('прошло'+`${urlPath}?${urlOptions}`);
   },
 
 };

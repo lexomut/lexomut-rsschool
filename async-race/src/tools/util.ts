@@ -7,8 +7,6 @@ const util = {
     });
   },
 
-  
-
   isUndefined(d:unknown) {
     return typeof d === 'undefined';
   },
