@@ -1,0 +1,234 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/black.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+<!--        slide 1-->
+        <section>
+            <H1 class="red">&lt Canvas &gt </H1>
+        </section>
+        <section>
+            <h5> browser supported </h5>
+            <img src="pulicupport.png" alt="support">
+        </section>
+        <!--        slide 2-->
+        <section>
+
+            <h2>The canvas element</h2>
+            <p>The markup looks like this:</p>
+            <pre><code  data-trim data-noescape>
+						&ltcanvas id="tutorial" width="150" height="150"&gt&lt/canvas&gt
+					</code></pre>
+
+            <pre ><code class="fragment" data-line data-trim  >
+						&ltcanvas id="tutorial" width="150" height="150"
+                style="border:1px solid #000000"&gt&lt/canvas&gt
+					</code></pre>
+
+        <p class="fragment" style="width: 150px;height: 150px;border: solid 1px #ffffff;margin: 0 auto"></p>
+        </section>
+        <!--        slide 3-->
+        <section>
+            <p>getContext</p>
+            <pre><code><script type="text/template">
+            <p>Before canvas.</p>
+            <canvas width="120" height="60"></canvas>
+            <p>After canvas.</p>
+            &ltscript&gt
+                let canvas = document.querySelector("canvas");
+                let context = canvas.getContext("2d");
+                context.fillStyle = "red";
+                context.fillRect(10, 10, 100, 50);
+            &lt/script&gt
+            </script></code></pre>
+            <img class="fragment" src="puliccreenshot-2.png" alt="">
+        </section>
+        <!--        slide 4-->
+        <section>
+            <p>fillRect  |  fillStyle  |  strokeStyle  |  strokeRect  |  lineWidth </p>
+            <pre><code><script type="text/template">
+
+  let cx = document.querySelector("canvas").getContext("2d");
+  cx.strokeStyle = "blue";
+  cx.strokeRect(5, 5, 50, 50);
+  cx.lineWidth = 15;
+  cx.strokeRect(70, 5, 50, 50);
+
+            </script></code></pre>
+            <img class="fragment" src="puliccreenshot-3.png" alt="">
+        </section>
+
+        <!--        slide 5-->
+        <section>
+       <section>
+           <p>beginPath() |  closePath()  </p>
+
+           <pre><code><script type="text/template">
+    let cx = document.querySelector("canvas").getContext("2d");
+    cx.beginPath();
+    for (let y = 10; y < 100; y += 10) {
+        cx.moveTo(10, y);
+        cx.lineTo(90, y);
+    }
+    cx.stroke();
+            </script></code></pre>
+           <img class="fragment" src="puliccreenshot_11.png" alt="">
+       </section>
+
+            <section>
+
+                <pre><code><script type="text/template">
+
+  let cx = document.querySelector("canvas").getContext("2d");
+  cx.beginPath();
+  cx.moveTo(50, 10);
+  cx.lineTo(10, 70);
+  cx.lineTo(90, 70);
+  cx.fill();
+
+            </script></code></pre>
+                <img class="fragment" src="puliccreenshot_1.png" alt="">
+            </section>        <!--        slide 6-->
+            <section>
+                <p></p>
+
+                <pre><code><script type="text/template">
+
+  let cx = document.querySelector("canvas").getContext("2d");
+  cx.beginPath();
+  cx.moveTo(10, 90);
+  cx.quadraticCurveTo(60, 10, 90, 90);
+  cx.lineTo(60, 10);
+  cx.closePath();
+  cx.stroke();
+
+            </script></code></pre>
+                <img class="fragment" src="puliccreenshot_2.png" alt="">
+            </section>
+        </section>
+
+
+        <section>
+            <p> Text</p>
+
+            <pre><code><script type="text/template">
+ let cx = document.querySelector("canvas").getContext("2d");
+    cx.font = "28px Georgia";
+    cx.fillStyle = "fuchsia";
+    cx.fillText("I can draw text, too!", 10, 50);
+            </script></code></pre>
+            <img class="fragment" src="puliccreenshot_3.png" alt="">
+        </section>
+        <!--        slide 7-->
+
+        <section>
+            <p>Images  </p>
+
+            <pre><code><script type="text/template">
+                let cx = document.querySelector("canvas").getContext("2d");
+                let img = document.createElement("img");
+                img.src = "./image.png";
+                img.onload = function() {
+                for (let x = 10; x < 300; x += 102) {
+                cx.drawImage(img, x, 10);
+                }
+                };
+
+            </script></code></pre>
+            <img class="fragment" src="puliccreenshot_4.png" alt="">
+        </section>
+
+        <section>
+        <section>
+            <p> Transformation </p>
+
+            <pre><code><script type="text/template">
+    let cx = document.querySelector("canvas").getContext("2d");
+    cx.scale(3, .5);
+    cx.beginPath();
+    cx.arc(50, 50, 40, 0, 7);
+    cx.lineWidth = 3;
+    cx.stroke();
+            </script></code></pre>
+            <img class="fragment" src="puliccreenshot_5.png" alt="">
+        </section>
+
+        <section>
+            <p>  </p>
+
+            <pre><code><script type="text/template">
+    let cx = document.querySelector("canvas").getContext("2d");
+    function branch(length, angle, scale) {
+    cx.fillRect(0, 0, 1, length);
+    if (length < 8) return;
+    cx.save();
+    cx.translate(0, length);
+    cx.rotate(-angle);
+    branch(length * scale, angle, scale);
+    cx.rotate(2 * angle);
+    branch(length * scale, angle, scale);
+    cx.restore();
+    }
+    cx.translate(300, 0);
+    branch(60, 0.5, 0.8);
+            </script></code></pre>
+            <img class="fragment" src="puliccreenshot_6.png" alt="">
+        </section>
+            </section>
+
+
+        <section>
+            <p> Animation </p>
+
+            <pre><code><script type="text/template">
+ function drawFrame() {
+ context.clearRect(0, 0, canvas.width, canvas.height);
+ context.beginPath();
+ context.rect(squarePosition_x, squarePosition_y, 50, 50);
+ context.lineStyle = "#2c77b3";
+ context.lineWidth = 1;
+ context.stroke();
+ squarePosition_x += 1;
+ setTimeout(()=>drawFrame(), 20);
+ }
+            </script></code></pre>
+            <img class="fragment" src="pulicnim.gif" alt="">
+        </section>
+        <section>
+            to be continued
+        </section>
+
+
+    </div>
+</div>
+
+<script src="dist/reveal.js"></script>
+<script src="plugin/notes/notes.js"></script>
+<script src="plugin/markdown/markdown.js"></script>
+<script src="plugin/highlight/highlight.js"></script>
+<script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+    });
+</script>
+</body>
+</html>
