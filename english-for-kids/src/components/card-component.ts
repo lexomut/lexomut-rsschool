@@ -28,11 +28,11 @@ export class CardComponent extends BaseComponent {
     this.img = `./${config.image}`;
     this.word = config.word;
     this.translation = config.translation;
-    this.audioSrc = config.audioSrc;
+    this.audioSrc = `./${config.audioSrc}`;
 
     this.signature = new Signature(this.word, this.translation);
     // this.element.innerHTML = '<div>';
-    this.isFlipped = false;
+    this.isFlipped = true;
     this.card = new BaseComponent('div', ['card']);
 
     this.card.element.style.backgroundImage = `url(${this.img})`;
@@ -40,6 +40,7 @@ export class CardComponent extends BaseComponent {
     this.card.element.append(this.signature.element);
     store.subscribe(() => {
       console.log(store.getState());
+
       if (store.getState().mode) this.showSignature();
       else this.hideSignature();
     });
@@ -63,7 +64,10 @@ export class CardComponent extends BaseComponent {
   }
 
   playSoud() {
-
+    const audio = new Audio();
+    audio.src = this.audioSrc;
+    audio.currentTime = 0;
+    audio.play();
   }
 
   hideSignature() {
@@ -72,5 +76,12 @@ export class CardComponent extends BaseComponent {
 
   showSignature() {
     this.card.element.append(this.signature.element);
+  }
+
+  clickAudioPlayInTrainMode() {
+    if (!store.getState().mode) return;
+    console.log(this.audioSrc);
+    if (!this.isFlipped) return;
+    this.playSoud();
   }
 }

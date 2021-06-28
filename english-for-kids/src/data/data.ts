@@ -1,5 +1,5 @@
-const cards = [
-  // ['Action (set A)', 'Action (set B)', 'Animal (set A)', 'Animal (set B)', 'Clothes', 'Emotions'],
+export const categoryCard = ['Action (set A)', 'Action (set B)', 'Animal (set A)', 'Animal (set B)', 'Clothes', 'Emotions'];
+export const wordCarts = [
   [
     {
       word: 'cry',
@@ -301,5 +301,3 @@ const cards = [
     },
   ],
 ];
-
-export default cards;

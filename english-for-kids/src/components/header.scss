@@ -1,0 +1,43 @@
+.header{
+  display: flex;
+  width: 100vw;
+  height: 40px;
+
+}
+
+.hamburger {
+  display: inline-block;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  z-index: 100;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+
+.hamburger_active {
+  transform: rotate(-90deg);
+
+  background: none;
+}
+
+.hamburger__line, .hamburger__line::before, .hamburger__line::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  background-color: #FF7549;
+  border-radius: 5px;
+  width: 100%;
+  height: 4px;
+}
+.hamburger__line{
+  top: 13px;
+}
+
+.hamburger__line:before {
+  top: 13px;
+}
+
+.hamburger__line:after {
+  top: -13px;
+}

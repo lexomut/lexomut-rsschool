@@ -1,4 +1,4 @@
-import { IS_TRAIN_MODE } from './constants';
+import { IS_TRAIN_MODE, MOUSE_CLICK_ON_MENU } from './constants';
 
 interface ObjState {
   type: string;
@@ -9,10 +9,22 @@ interface NewState {
   mode: boolean;
 }
 
-export function reducer(state: any, action:ObjState): NewState {
+const mode = (state = true, action:any) => {
   switch (action.type) {
-    case IS_TRAIN_MODE: return { mode: action.mode, type: IS_TRAIN_MODE };
-
+    case IS_TRAIN_MODE: return action.mode;
     default: return state;
   }
+};
+const link = (state = '', action:any) => {
+  switch (action.type) {
+    case MOUSE_CLICK_ON_MENU: return action.link;
+    default: return state;
+  }
+};
+
+export function reducer(state: any, action:any) {
+  return {
+    mode: mode(state.mode, action),
+    link: link(state.link, action),
+  };
 }

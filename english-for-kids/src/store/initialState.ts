@@ -1,10 +1,10 @@
 import { IS_TRAIN_MODE } from './constants';
 
 export interface State {
-  type: string;
+  link: string;
   mode: boolean;
 }
 
-const initialState: State = { type: IS_TRAIN_MODE, mode: true };
+const initialState: State = { mode: true, link: '' };
 
 export default initialState;

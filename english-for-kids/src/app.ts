@@ -1,9 +1,7 @@
 import { Game } from './module/game';
-import cards from './data/data';
-import { CardInterface } from './models';
-import {Switcher} from "./components/switcher";
+import { wordCarts } from './data/data';
+import { Header } from './components/header';
 
-// const category:CardInterface = cards[1];
 export class App {
   game: Game;
 
@@ -12,11 +10,11 @@ export class App {
   constructor(rootElement:HTMLBodyElement) {
     this.game = new Game();
     this.element = rootElement;
-    this.element.append(new Switcher().element);
+    this.element.append(new Header().element);
   }
 
   newGame() {
     this.element.append(this.game.cardsField.element);
-    this.game.newGame(cards[2]);
+    this.game.newGame(wordCarts[1]);
   }
 }

@@ -1,0 +1,49 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 0;
+  width: 300px;
+  height: 100vh;
+  padding: 50px 30px;
+  box-shadow: 5px 0 30px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease-in;
+  background: linear-gradient(60deg, #4DADF7 0%, #ffe082 100%);
+  z-index: 50;
+}
+
+.element-menu {
+  list-style: none;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.6rem;
+  padding: 10px 10px;
+  color: #fff;
+  cursor: pointer;
+  max-width: fit-content;
+  background-image: linear-gradient(rgba(255, 224, 130, 0.5) 0%, rgba(255, 224, 130, 0.5) 100%);
+  background-repeat: repeat-y;
+  background-size: 0% 0em;
+  background-position: 0 65%;
+  transition: 0.4s ease;
+}
+
+.element-menu:hover {
+  color: #4e4528;
+  background-image: linear-gradient(#ffe082 0%, #ffe082 100%);
+  background-size: 100% 1em;
+  transition: 0.4s ease;
+}
+
+.element-menu_active {
+  color: #382455;
+  font-weight: 600;
+}
+
+.hide-menu {
+  left: -400px;
+  box-shadow: none;
+}
+
+/*# sourceMappingURL=nenu.css.map */

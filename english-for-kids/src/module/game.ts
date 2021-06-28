@@ -4,7 +4,7 @@ import { CardInterface } from '../models';
 
 const i = 1;
 
-function addClickListener(card: CardComponent) {
+function addClickFlipper(card: CardComponent) {
   card.signature.flipBtn.element.onclick = function f() {
     card.element.onclick = null;
     card.signature.flipBtnRemove();
@@ -14,7 +14,7 @@ function addClickListener(card: CardComponent) {
         card.signature.flipBtnAdd();
         await card.flipToFront();
         console.log('обратно');
-        addClickListener(card);
+        addClickFlipper(card);
       });
     }, { once: true });
   };
@@ -33,7 +33,8 @@ export class Game {
       .sort(() => Math.random() - 0.5);
 
     cards.forEach((card) => {
-      addClickListener(card);
+      addClickFlipper(card);
+      card.element.addEventListener('click', card.clickAudioPlayInTrainMode.bind(card));
     });
     await this.cardsField.addCards(cards);
   }
