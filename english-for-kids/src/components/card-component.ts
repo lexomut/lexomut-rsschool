@@ -37,9 +37,9 @@ export class CardComponent extends BaseComponent {
 
     this.card.element.style.backgroundImage = `url(${this.img})`;
     this.element.append(this.card.element);
-    this.card.element.append(this.signature.element);
+    if (store.getState().mode) this.card.element.append(this.signature.element);
     store.subscribe(() => {
-      console.log(store.getState());
+      // console.log(store.getState());
 
       if (store.getState().mode) this.showSignature();
       else this.hideSignature();
@@ -80,7 +80,7 @@ export class CardComponent extends BaseComponent {
 
   clickAudioPlayInTrainMode() {
     if (!store.getState().mode) return;
-    console.log(this.audioSrc);
+    // console.log(this.audioSrc);
     if (!this.isFlipped) return;
     this.playSoud();
   }

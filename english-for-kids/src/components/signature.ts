@@ -1,4 +1,5 @@
 import { BaseComponent } from './base-component';
+import { IT_IS_CATEGORY } from '../data/constants';
 
 export class Signature extends BaseComponent {
   word: string;
@@ -17,7 +18,7 @@ export class Signature extends BaseComponent {
     this.element.innerText = word;
     this.flipBtn = new BaseComponent('a', ['flip-btn']);
     this.flipBtn.element.innerHTML = '&#x21bb';
-    this.flipBtnAdd();
+    if (this.translate !== IT_IS_CATEGORY) this.flipBtnAdd();
   }
 
   flipBtnAdd() {

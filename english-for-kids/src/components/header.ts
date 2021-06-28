@@ -11,7 +11,7 @@ export class Header extends BaseComponent {
     super('div', ['header']);
 
     this.menu = new Menu(categoryCard);
-    console.log('header');
+    // console.log('header');
     this.element.append(this.menu.hamburger);
     this.element.append(this.menu.element);
     this.element.append(new Switcher().element);

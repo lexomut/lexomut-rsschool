@@ -30,7 +30,7 @@ export class Menu extends BaseComponent {
 
   hamburgerAction(e:MouseEvent) {
     e.stopPropagation();
-    console.log(e.target , this.isShowMenu);
+    // console.log(e.target , this.isShowMenu);
     if (this.isShowMenu) {
       this.hideMenu();
       return;
@@ -39,7 +39,7 @@ export class Menu extends BaseComponent {
   }
 
   showMenu() {
-    console.log('showMenu');
+    // console.log('showMenu');
     this.isShowMenu = true;
     this.element.classList.remove('hide-menu');
     this.hamburger.classList.add('hamburger_active');
@@ -47,14 +47,14 @@ export class Menu extends BaseComponent {
   }
 
   hideMenu() {
-    console.log('hideMenu');
+    // console.log('hideMenu');
     this.element.classList.add('hide-menu');
     this.hamburger.classList.remove('hamburger_active');
     this.isShowMenu = false;
   }
 
   addMenuHandler = () => {
-    console.log('add func');
+    // console.log('add func');
     window.addEventListener('click', func);
   };
 
