@@ -3,6 +3,8 @@ import store from '../store/store';
 import { BaseComponent } from './base-component';
 import './card.scss';
 import { Signature } from './signature';
+import { IS_TRAIN_MODE } from '../store/constants';
+import { IT_IS_CATEGORY } from '../data/constants';
 
 const FLIP_CLASS = 'flipped';
 
@@ -42,7 +44,10 @@ export class CardComponent extends BaseComponent {
       // console.log(store.getState());
 
       if (store.getState().mode) this.showSignature();
-      else this.hideSignature();
+      else {
+        if (this.translation === IT_IS_CATEGORY) return;
+        this.hideSignature();
+      }
     });
   }
 
