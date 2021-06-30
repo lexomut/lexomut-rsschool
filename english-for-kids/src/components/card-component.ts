@@ -21,7 +21,7 @@ export class CardComponent extends BaseComponent {
 
   private isFlipped: boolean;
 
-  private card: BaseComponent;
+  card: BaseComponent;
 
   signature: Signature;
 
@@ -68,12 +68,12 @@ export class CardComponent extends BaseComponent {
     }));
   }
 
-  playSoud() {
+  playSound = (src:string) => {
     const audio = new Audio();
-    audio.src = this.audioSrc;
+    audio.src = src;
     audio.currentTime = 0;
-    audio.play();
-  }
+    return audio.play();
+  };
 
   hideSignature() {
     this.card.element.innerHTML = '';
@@ -87,6 +87,6 @@ export class CardComponent extends BaseComponent {
     if (!store.getState().mode) return;
     // console.log(this.audioSrc);
     if (!this.isFlipped) return;
-    this.playSoud();
+  this.playSound(this.audioSrc);
   }
 }

@@ -80,4 +80,8 @@
   transform: rotateY(180deg);
 }
 
+.opacity {
+  opacity: 0.4;
+}
+
 /*# sourceMappingURL=card.css.map */

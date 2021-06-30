@@ -25,6 +25,8 @@ function addClickFlipper(card: CardComponent) {
 export class Game {
   cardsField: CardsField;
 
+  cards: CardComponent[] | undefined;
+
   constructor() {
     this.cardsField = new CardsField();
   }
@@ -33,7 +35,7 @@ export class Game {
     const cards = config
       .map((card) => new CardComponent(card))
       .sort(() => Math.random() - 0.5);
-
+    this.cards = cards;
     cards.forEach((card) => {
       if (card.translation === IT_IS_CATEGORY) {
         this.addEwentsHomePage(card);
@@ -49,7 +51,7 @@ export class Game {
     card.element.addEventListener('click', card.clickAudioPlayInTrainMode.bind(card));
   };
 
-  addEwentsHomePage(card: CardComponent) {
+  addEwentsHomePage = (card: CardComponent) => {
     card.element.addEventListener('click', () => dispatchMouseClickOnMenu(card.word));
-  }
+  };
 }

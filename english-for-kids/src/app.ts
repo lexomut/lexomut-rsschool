@@ -6,12 +6,11 @@ import store from './store/store';
 import { CartInterface } from './models/CartInterface';
 import { BaseComponent } from './components/base-component';
 import './components/app.scss';
+import { LogicGame } from './module/logic-game';
 
 let eventFunc:()=>void;
 
 export class App {
-  game: Game;
-
   private element: HTMLBodyElement;
 
   private currentLink: string;
@@ -24,10 +23,14 @@ export class App {
 
   private gameBegin: boolean|undefined;
 
+  private logicGame: LogicGame|undefined;
+
+  private game: Game|undefined;
+
   constructor(rootElement: HTMLBodyElement) {
     eventFunc = this.tempMethod.bind(this);
     this.startGameBtn = new BaseComponent('div', ['start-game-btn']).element;
-    this.game = new Game();
+
     this.element = rootElement;
     this.element.append(new Header().element);
     this.currentLink = '';
@@ -39,12 +42,15 @@ export class App {
       this.gameBegin = false;
     });
     this.gameBegin = false;
-    this.element.append(this.game.cardsField.element);
-    this.addRemoveStartGameBtn();
+    this.newGame();
   }
 
   newGame() {
+    console.log('новое поле');
+    this.game = new Game();
+    this.element.append(this.game.cardsField.element);
     this.game.newGame(this.currentCards);
+    this.addRemoveStartGameBtn();
   }
 
   makeCategoryObj = () => {
@@ -56,6 +62,7 @@ export class App {
 
   stateHandler(link: string) {
     if (link === this.currentLink) return;
+    if (!this.game) return;
     this.currentLink = link;
     // console.log('new game',this.currentLink, );
     this.game.cardsField.element.innerHTML = '';
@@ -86,20 +93,23 @@ export class App {
   }
 
   startGameBtnHandter() {
-    // console.log('startGameBtnHandter');
-    // if (this.gameBegin) {
-    //
-    //   return;
-    // }
+    if (!this.game) return;
+    if (!this.game.cards) return;
 
+    this.logicGame = new LogicGame(this.game.cards, this.game.cardsField.element);
     this.gameBegin = true;
 
     this.startGameBtn.addEventListener('click', eventFunc);
     this.startGameBtn.classList.add('repeat');
     this.startGameBtn.innerHTML = '&#x21bb';
+    this.startGame();
   }
 
-  tempMethod() {
-    console.log('нужно повторить слово', this);
+  tempMethod = () => {
+    console.log('нужно повторить слово');
+  };
+
+  startGame() {
+    this.logicGame?.startGame();
   }
 }
