@@ -39,7 +39,7 @@ export class CardComponent extends BaseComponent {
 
     this.card.element.style.backgroundImage = `url(${this.img})`;
     this.element.append(this.card.element);
-    if (store.getState().mode) this.card.element.append(this.signature.element);
+    if (store.getState().mode || this.translation === IT_IS_CATEGORY) this.card.element.append(this.signature.element);
     store.subscribe(() => {
       // console.log(store.getState());
 
@@ -68,11 +68,11 @@ export class CardComponent extends BaseComponent {
     }));
   }
 
-  playSound = (src:string) => {
+ playSound = async (src:string) => {
     const audio = new Audio();
     audio.src = src;
     audio.currentTime = 0;
-    return audio.play();
+   await audio.play();
   };
 
   hideSignature() {
@@ -83,10 +83,10 @@ export class CardComponent extends BaseComponent {
     this.card.element.append(this.signature.element);
   }
 
-  clickAudioPlayInTrainMode() {
+async clickAudioPlayInTrainMode() {
     if (!store.getState().mode) return;
     // console.log(this.audioSrc);
     if (!this.isFlipped) return;
-  this.playSound(this.audioSrc);
+  await this.playSound(this.audioSrc);
   }
 }

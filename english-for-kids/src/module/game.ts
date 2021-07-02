@@ -4,8 +4,6 @@ import { IT_IS_CATEGORY } from '../data/constants';
 import { CardInterface } from '../models';
 import { dispatchMouseClickOnMenu } from '../store/actions';
 
-const i = 1;
-
 function addClickFlipper(card: CardComponent) {
   card.signature.flipBtn.element.onclick = function f() {
     card.element.onclick = null;
@@ -15,7 +13,6 @@ function addClickFlipper(card: CardComponent) {
       flipToBackComplete.then(async () => {
         card.signature.flipBtnAdd();
         await card.flipToFront();
-        // console.log('обратно');
         addClickFlipper(card);
       });
     }, { once: true });
@@ -33,8 +30,8 @@ export class Game {
 
   async newGame(config: CardInterface[]) {
     const cards = config
-      .map((card) => new CardComponent(card))
-      .sort(() => Math.random() - 0.5);
+      .map((card) => new CardComponent(card));
+      // .sort(() => Math.random() - 0.5);
     this.cards = cards;
     cards.forEach((card) => {
       if (card.translation === IT_IS_CATEGORY) {
@@ -43,12 +40,19 @@ export class Game {
         this.addEwentsInTrainMode(card);
       }
     });
+
     await this.cardsField.addCards(cards);
   }
 
-  addEwentsInTrainMode = (card: CardComponent) => {
+  addEwentsInTrainMode = async (card: CardComponent) => {
     addClickFlipper(card);
-    card.element.addEventListener('click', card.clickAudioPlayInTrainMode.bind(card));
+    const prom = () => new Promise(((resolve) => {
+      card.element.addEventListener('click', async () => {
+        await card.clickAudioPlayInTrainMode.call(card);
+        resolve('');
+      }, { once: true });
+    }));
+    prom().then(() => setTimeout(() => { this.addEwentsInTrainMode(card); }, 500));
   };
 
   addEwentsHomePage = (card: CardComponent) => {

@@ -7,6 +7,7 @@ import { CartInterface } from './models/CartInterface';
 import { BaseComponent } from './components/base-component';
 import './components/app.scss';
 import { LogicGame } from './module/logic-game';
+import { dispatchMouseClickOnMenu } from './store/actions';
 
 let eventFunc:()=>void;
 
@@ -38,19 +39,19 @@ export class App {
     this.currentCards = this.makeCategoryObj();
     store.subscribe(() => {
       this.stateHandler(store.getState().link);
-      this.addRemoveStartGameBtn(store.getState().mode);
       this.gameBegin = false;
+      this.modeChangeHandler(store.getState().mode);
     });
     this.gameBegin = false;
+
     this.newGame();
   }
 
-  newGame() {
-    console.log('новое поле');
+  async newGame() {
     this.game = new Game();
     this.element.append(this.game.cardsField.element);
-    this.game.newGame(this.currentCards);
-    this.addRemoveStartGameBtn();
+    await this.game.newGame(this.currentCards);
+    this.addRemoveStartGameBtn(this.currentMode);
   }
 
   makeCategoryObj = () => {
@@ -60,11 +61,23 @@ export class App {
     }));
   };
 
+  modeChangeHandler(mode:boolean) {
+    if (mode === this.currentMode) { return; }
+    this.addRemoveStartGameBtn(mode);
+    // if (this.game) {
+    //   this.element.removeChild(this.game.cardsField.element);
+
+    // }
+    // this.newGame();
+    this.addRemoveStartGameBtn(mode);
+    this.currentMode = mode;
+  }
+
   stateHandler(link: string) {
     if (link === this.currentLink) return;
     if (!this.game) return;
     this.currentLink = link;
-    // console.log('new game',this.currentLink, );
+
     this.game.cardsField.element.innerHTML = '';
     const index = categoryCard.findIndex((item) => item === link);
     if (index === 0) {
@@ -74,21 +87,16 @@ export class App {
       this.currentCards = wordCarts[index - 1];
       this.newGame();
     }
-
-    this.addRemoveStartGameBtn(true);
   }
 
   addRemoveStartGameBtn(mode = true) {
-    if (mode === this.currentMode) return;
-    if (this.currentCards[1].translation !== IT_IS_CATEGORY) {
-      this.startGameBtn.innerText = 'Start';
-      this.startGameBtn.classList.remove('repeat');
-      this.startGameBtn.removeEventListener('click', eventFunc);
-      this.startGameBtn.addEventListener('click', this.startGameBtnHandter.bind(this), { once: true });
-      this.currentMode = mode;
-    }
-    if (!mode) {
+    this.startGameBtn.innerText = 'Start';
+    this.startGameBtn.classList.remove('repeat');
+    this.startGameBtn.removeEventListener('click', eventFunc);
+
+    if (!mode && this.currentCards[1].translation !== IT_IS_CATEGORY) {
       this.element.append(this.startGameBtn);
+      this.startGameBtn.onclick = this.startGameBtnHandter.bind(this);
     } else if (this.startGameBtn.parentNode) this.startGameBtn.parentNode.removeChild(this.startGameBtn);
   }
 
@@ -96,20 +104,24 @@ export class App {
     if (!this.game) return;
     if (!this.game.cards) return;
 
-    this.logicGame = new LogicGame(this.game.cards, this.game.cardsField.element);
     this.gameBegin = true;
 
     this.startGameBtn.addEventListener('click', eventFunc);
     this.startGameBtn.classList.add('repeat');
     this.startGameBtn.innerHTML = '&#x21bb';
+    this.logicGame = new LogicGame(this.game.cards, this.game.cardsField);
     this.startGame();
   }
 
   tempMethod = () => {
-    console.log('нужно повторить слово');
+    if (this.logicGame) this.logicGame.currentCard.playSound(this.logicGame.currentCard.audioSrc);
   };
 
-  startGame() {
-    this.logicGame?.startGame();
+  async startGame() {
+    this.startGameBtn.onclick = null;
+
+    await this.logicGame?.startGame().then(() => {
+      dispatchMouseClickOnMenu('Home');
+    });
   }
 }
