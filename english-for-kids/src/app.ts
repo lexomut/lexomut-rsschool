@@ -8,6 +8,7 @@ import { BaseComponent } from './components/base-component';
 import './components/app.scss';
 import { LogicGame } from './module/logic-game';
 import { dispatchMouseClickOnMenu } from './store/actions';
+import {StatisticComponent} from "./components/statistic-component/statistic-component";
 
 let eventFunc:()=>void;
 
@@ -83,6 +84,8 @@ export class App {
     if (index === 0) {
       this.currentCards = this.makeCategoryObj();
       this.newGame();
+    } else if (index === categoryCard.length - 1) {
+      this.game.cardsField.element.append(new StatisticComponent().element);
     } else {
       this.currentCards = wordCarts[index - 1];
       this.newGame();

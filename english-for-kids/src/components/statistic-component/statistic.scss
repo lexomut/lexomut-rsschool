@@ -1,0 +1,25 @@
+.statistic-row{
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.statistic__header{
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.statistic-field{
+  width: 100%;
+}
+.statistic{
+  width: 100%;
+}
+.statistic__elem{
+  width: 20%;
+  list-style-type: none;
+}
+.statistic__header-name{
+  cursor: pointer;
+}

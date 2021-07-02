@@ -12,16 +12,24 @@ export class Menu extends BaseComponent {
 
   private isShowMenu = false;
 
+  private curentElementMenu: HTMLElement;
+
   constructor(categories:string[]) {
     super('div', ['menu', 'hide-menu']);
     this.categories = categories;
     this.categories.unshift('Home');
     this.categories.push('statistic');
+    this.curentElementMenu = new ElementMenu(categories[0]).element;
 
-    categories.forEach((elementMenuConfig) => {
+    categories.forEach((elementMenuConfig, index) => {
       const elementMenu = new ElementMenu(elementMenuConfig);
+      if (!index) {
+        elementMenu.element.classList.add('active');
+        this.curentElementMenu = elementMenu.element;
+      }
       this.element.append(elementMenu.element);
     });
+
     this.hamburger = new BaseComponent('div', ['hamburger']).element;
     this.hamburger.innerHTML = '<div><span class="hamburger__line"></span></div>';
     func = this.menuHandler.bind(this);
@@ -68,7 +76,12 @@ export class Menu extends BaseComponent {
     if (e.target === this.element) return;
     if (e.target) {
       if ((e.target instanceof HTMLElement)) {
-        if (e.target.classList.contains('element-menu')) dispatchMouseClickOnMenu(e.target.innerText);
+        if (e.target.classList.contains('element-menu')) {
+          this.curentElementMenu.classList.remove('active');
+          e.target.classList.add('active');
+          this.curentElementMenu = e.target;
+          dispatchMouseClickOnMenu(e.target.innerText);
+        }
       }
     }
     this.isShowMenu = false;

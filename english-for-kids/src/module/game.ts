@@ -3,6 +3,7 @@ import { CardsField } from '../components/cards-field';
 import { IT_IS_CATEGORY } from '../data/constants';
 import { CardInterface } from '../models';
 import { dispatchMouseClickOnMenu } from '../store/actions';
+import { statistic } from './statistic';
 
 function addClickFlipper(card: CardComponent) {
   card.signature.flipBtn.element.onclick = function f() {
@@ -49,9 +50,11 @@ export class Game {
     const prom = () => new Promise(((resolve) => {
       card.element.addEventListener('click', async () => {
         await card.clickAudioPlayInTrainMode.call(card);
+        statistic.trainClick(card.word);
         resolve('');
       }, { once: true });
     }));
+
     prom().then(() => setTimeout(() => { this.addEwentsInTrainMode(card); }, 500));
   };
 

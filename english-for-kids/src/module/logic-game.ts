@@ -1,6 +1,7 @@
 import { CardComponent } from '../components/card-component';
 import store from '../store/store';
 import { CardsField } from '../components/cards-field';
+import {statistic} from "./statistic";
 
 export class LogicGame {
   readonly cards: CardComponent[];
@@ -45,6 +46,7 @@ export class LogicGame {
       setTimeout(() => this.currentCard.playSound(this.currentCard.audioSrc), 1000);
       this.currentCardIndex--;
       this.next();
+
       this.cardsField.element.addEventListener('end', () => resolve(''));
     });
   }
@@ -65,7 +67,7 @@ export class LogicGame {
     this.cardsField.addStar(true);
     this.currentCard.playSound('./audio/correct.mp3');
     this.currentCard.card.element.classList.add('opacity');
-
+    statistic.rightClick(this.currentCard.word);
     this.next();
   }
 
@@ -73,6 +75,7 @@ export class LogicGame {
     this.withError = true;
     this.cardsField.addStar(false);
     this.currentCard.playSound('./audio/error.mp3');
+    statistic.incorrectClick(this.currentCard.word);
   }
 
   async next() {
