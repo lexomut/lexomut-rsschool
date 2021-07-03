@@ -48,14 +48,17 @@ export class Statistic {
   }
 
   trainClick(word:string) {
+    if (!this.words[this.find(word)]) this.reset();
     this.words[this.find(word)].trainClickCounterInTrainmode++;
   }
 
   incorrectClick(word:string) {
+    if (!this.words[this.find(word)]) this.reset();
     this.words[this.find(word)].incorrectClickCounter++;
   }
 
   rightClick(word:string) {
+    if (!this.words[this.find(word)]) this.reset();
     this.words[this.find(word)].rightClickCounter++;
   }
 

@@ -1,7 +1,7 @@
 import { CardComponent } from '../components/card-component';
 import store from '../store/store';
 import { CardsField } from '../components/cards-field';
-import {statistic} from "./statistic";
+import { statistic } from './statistic';
 
 export class LogicGame {
   readonly cards: CardComponent[];
@@ -47,6 +47,7 @@ export class LogicGame {
       this.currentCardIndex--;
       this.next();
 
+      console.log(this.currentCards);
       this.cardsField.element.addEventListener('end', () => resolve(''));
     });
   }
@@ -124,6 +125,4 @@ export class LogicGame {
       }, 3000);
     }));
   }
-
-
 }

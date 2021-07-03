@@ -1,4 +1,4 @@
-export const categoryCard = ['Action (set A)', 'Action (set B)', 'Animal (set A)', 'Animal (set B)', 'Clothes', 'Emotions','Places'];
+export const categoryCard = ['Action (set A)', 'Action (set B)', 'Animal (set A)', 'Animal (set B)', 'Clothes', 'Emotions','Places','Fruits and vegetables'];
 export const wordCarts = [
   [
     {
@@ -351,5 +351,57 @@ export const wordCarts = [
       image: 'img/sea.jpg',
       audioSrc: 'audio/sea.mp3',
     },
+  ],
+  [
+    {
+    word: 'cabbage',
+    translation: 'капуста',
+    image: 'img/cabbage.jpg',
+    audioSrc: 'audio/cabbage.mp3',
+  },
+
+    {
+      word: 'carrot',
+      translation: 'морковь',
+      image: 'img/carrot.jpg',
+      audioSrc: 'audio/carrot.mp3',
+    },
+    {
+      word: 'tomato',
+      translation: 'tomato',
+      image: 'img/tomato.jpg',
+      audioSrc: 'audio/tomato.mp3',
+    },
+    {
+      word: 'cucumber',
+      translation: 'огурец',
+      image: 'img/cucumber.jpg',
+      audioSrc: 'audio/cucumber.mp3',
+    },
+    {
+      word: 'pear',
+      translation: 'груша',
+      image: 'img/pear.jpg',
+      audioSrc: 'audio/pear.mp3',
+    },
+    {
+      word: 'orange',
+      translation: 'апельсин',
+      image: 'img/orange.jpg',
+      audioSrc: 'audio/orange.mp3',
+    },
+    {
+      word: 'apple',
+      translation: 'яблоко',
+      image: 'img/apple.jpg',
+      audioSrc: 'audio/apple.mp3',
+    },
+    {
+      word: 'strawberry',
+      translation: 'клубника',
+      image: 'img/strawberry.jpg',
+      audioSrc: 'audio/strawberry.mp3',
+    },
+
   ],
 ];
