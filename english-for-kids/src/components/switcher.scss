@@ -6,6 +6,12 @@ right: 100px;
   height: 34px;
 }
 
+.on{
+  left: 30px;
+}
+.off{
+  right: -18px;
+}
 .switch input {display:none;}
 
 .slider {
@@ -46,10 +52,12 @@ input:checked + .slider:before {
   transform: translateX(55px);
 }
 
-/*------ ADDED CSS ---------*/
+
 .on
 {
-  display: none;
+  display: none
+
+;
 }
 
 .on, .off
@@ -58,8 +66,8 @@ input:checked + .slider:before {
   position: absolute;
   transform: translate(-50%,-50%);
   top: 50%;
-  left: 50%;
-  font-size: 10px;
+
+  font-size: 18px;
   font-family: Verdana, sans-serif;
 }
 
@@ -69,9 +77,7 @@ input:checked+ .slider .on
 input:checked + .slider .off
 {display: none;}
 
-/*--------- END --------*/
 
-/* Rounded sliders */
 .slider.round {
   border-radius: 34px;
 }

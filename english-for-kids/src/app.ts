@@ -8,7 +8,8 @@ import { BaseComponent } from './components/base-component';
 import './components/app.scss';
 import { LogicGame } from './module/logic-game';
 import { dispatchMouseClickOnMenu } from './store/actions';
-import {StatisticComponent} from "./components/statistic-component/statistic-component";
+import { StatisticComponent } from './components/statistic-component/statistic-component';
+import { statistic } from './module/statistic';
 
 let eventFunc:()=>void;
 
@@ -80,12 +81,18 @@ export class App {
     this.currentLink = link;
 
     this.game.cardsField.element.innerHTML = '';
+    if (link === 'listHigthPercentError') {
+      this.currentCards = statistic.makelistHigthPercentError();
+      this.newGame();
+      return;
+    }
     const index = categoryCard.findIndex((item) => item === link);
     if (index === 0) {
       this.currentCards = this.makeCategoryObj();
       this.newGame();
     } else if (index === categoryCard.length - 1) {
       this.game.cardsField.element.append(new StatisticComponent().element);
+      this.addRemoveStartGameBtn(false);
     } else {
       this.currentCards = wordCarts[index - 1];
       this.newGame();
@@ -97,7 +104,7 @@ export class App {
     this.startGameBtn.classList.remove('repeat');
     this.startGameBtn.removeEventListener('click', eventFunc);
 
-    if (!mode && this.currentCards[1].translation !== IT_IS_CATEGORY) {
+    if (!mode && this.currentCards[1].translation !== IT_IS_CATEGORY && this.currentLink !== 'statistic') {
       this.element.append(this.startGameBtn);
       this.startGameBtn.onclick = this.startGameBtnHandter.bind(this);
     } else if (this.startGameBtn.parentNode) this.startGameBtn.parentNode.removeChild(this.startGameBtn);

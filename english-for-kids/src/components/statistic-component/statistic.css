@@ -21,6 +21,9 @@
 .statistic__elem {
   width: 20%;
   list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .statistic__header-name {

@@ -3,14 +3,20 @@ import { StatisticHeaderComponent } from './statistic-header-component';
 import { statistic } from '../../module/statistic';
 import { StatisticRowComponent } from './statistic-row-component';
 import './statistic.scss';
+import { StatisticBtn } from './statistic-btn-component';
 
 export class StatisticComponent extends BaseComponent {
   private header: HTMLElement;
 
   private statisticField: HTMLElement;
 
+  private statisticBtn: StatisticBtn;
+
   constructor() {
     super('div', ['statistic']);
+    this.statisticBtn = new StatisticBtn();
+    this.element.append(this.statisticBtn.element);
+    this.statisticBtn.reset.addEventListener('click', () => { statistic.reset(); this.newStatistic(); });
     this.header = new StatisticHeaderComponent().element;
     this.header.addEventListener('click', (e) => this.headerHandler(e));
     this.element.append(this.header);
@@ -23,9 +29,10 @@ export class StatisticComponent extends BaseComponent {
     if (event.target) {
       if (event.target instanceof HTMLElement) {
         if (event.target.classList.contains('statistic__header-name')) {
-          if (event.target.dataset.sort) {
-            if (event.target.dataset.isNuber) statistic.sort(event.target.dataset.sort, true);
-            else statistic.sort(event.target.dataset.sort, false);
+          if (event.target.dataset.sort && event.target.dataset.arrow) {
+            if (event.target.dataset.isNuber) statistic.sort(event.target.dataset.sort, true, +event.target.dataset.arrow);
+            else statistic.sort(event.target.dataset.sort, false, +event.target.dataset.arrow);
+            event.target.dataset.arrow = `${(+event.target.dataset.arrow) * -1}`;
           }
         }
       }
@@ -35,6 +42,9 @@ export class StatisticComponent extends BaseComponent {
 
   newStatistic() {
     this.statisticField.innerHTML = '';
-    statistic.words.forEach((word) => { this.statisticField.append(new StatisticRowComponent(word).element); });
+    statistic.words.forEach((word) => {
+      word.ratio = Math.floor((word.incorrectClickCounter / (word.rightClickCounter + word.incorrectClickCounter)) * 100) || 0;
+      this.statisticField.append(new StatisticRowComponent(word).element);
+    });
   }
 }
