@@ -1,4 +1,4 @@
-export const categoryCard = ['Action (set A)', 'Action (set B)', 'Animal (set A)', 'Animal (set B)', 'Clothes', 'Emotions'];
+export const categoryCard = ['Action (set A)', 'Action (set B)', 'Animal (set A)', 'Animal (set B)', 'Clothes', 'Emotions','Places'];
 export const wordCarts = [
   [
     {
@@ -298,6 +298,58 @@ export const wordCarts = [
       translation: 'смех',
       image: 'img/laugh.jpg',
       audioSrc: 'audio/laugh.mp3',
+    },
+  ],
+  [
+    {
+      word: 'road',
+      translation: 'дорога',
+      image: 'img/road.jpg',
+      audioSrc: 'audio/road.mp3',
+    },
+    {
+      word: 'desert',
+      translation: 'пустыня',
+      image: 'img/desert.jpg',
+      audioSrc: 'audio/desert.mp3',
+    },
+
+    {
+      word: 'mountain',
+      translation: 'гора',
+      image: 'img/mountain.jpg',
+      audioSrc: 'audio/mountain.mp3',
+    },
+
+    {
+      word: 'river',
+      translation: 'река',
+      image: 'img/river.jpg',
+      audioSrc: 'audio/river.mp3',
+    },
+    {
+      word: 'village',
+      translation: 'деревня',
+      image: 'img/village.jpg',
+      audioSrc: 'audio/village.mp3',
+    },
+    {
+      word: 'city',
+      translation: 'город',
+      image: 'img/city.jpg',
+      audioSrc: 'audio/city.mp3',
+    },
+    {
+      word: 'forest',
+      translation: 'лес',
+      image: 'img/forest.jpg',
+      audioSrc: 'audio/forest.mp3',
+    },
+    {
+      word: 'sea',
+      translation: 'море',
+      image: 'img/sea.jpg',
+      audioSrc: 'audio/sea.mp3',
     },
   ],
 ];

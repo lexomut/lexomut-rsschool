@@ -4,15 +4,15 @@ import './statistic.scss';
 
 export class StatisticRowComponent extends BaseComponent {
   constructor(config:Word) {
-    super('ul', ['statistic-row']);
+    super('div', ['statistic-row']);
     this.element.innerHTML = `
-    <li class="statistic__elem word">${config.word}</li>
-    <li class="statistic__elem translate" >${config.translate}</li>
-    <li class="statistic__elem category" >${config.category}</li>
-    <li class="statistic__elem train-click " >${config.trainClickCounterInTrainmode}</li>
-    <li class="statistic__elem right-Click" >${config.rightClickCounter}</li>
-    <li class="statistic__elem incorrect-click" >${config.incorrectClickCounter}</li>
-    <li class="statistic__elem  ratio">${config.ratio}</li>
+    <div class="statistic__elem word">${config.word}</div>
+    <div class="statistic__elem translate" >${config.translate}</div>
+    <div class="statistic__elem category" >${config.category}</div>
+    <div class="statistic__elem train-click "data-is-nuber="true"  >${config.trainClickCounterInTrainmode}</div>
+    <div class="statistic__elem right-Click" data-is-nuber="true" >${config.rightClickCounter}</div>
+    <div class="statistic__elem incorrect-click"data-is-nuber="true"  >${config.incorrectClickCounter}</div>
+    <div class="statistic__elem  ratio" data-is-nuber="true" >${config.ratio}</div>
     `;
   }
 }
