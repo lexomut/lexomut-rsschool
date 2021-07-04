@@ -14,7 +14,7 @@ import { statistic } from './module/statistic';
 let eventFunc:()=>void;
 
 export class App {
-  private element: HTMLBodyElement;
+  element: HTMLBodyElement;
 
   private currentLink: string;
 
