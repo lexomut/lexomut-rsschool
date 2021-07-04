@@ -29,7 +29,7 @@ export class LogicGame {
     });
   }
 
-  check() {
+  check():void {
     this.handler().then(() => {
       this.rightChoice();
     }, () => {
@@ -38,7 +38,7 @@ export class LogicGame {
     });
   }
 
-  startGame() {
+  startGame():Promise<void> {
     return new Promise((resolve) => {
       this.currentCards = this.cards.map((item) => item).sort(() => Math.random() - 0.5);
       this.currentCardIndex = 0;
@@ -46,25 +46,23 @@ export class LogicGame {
       setTimeout(() => this.currentCard.playSound(this.currentCard.audioSrc), 1000);
       this.currentCardIndex--;
       this.next();
-
-      console.log(this.currentCards);
-      this.cardsField.element.addEventListener('end', () => resolve(''));
+      this.cardsField.element.addEventListener('end', () => resolve());
     });
   }
 
-  handler() {
+  handler():Promise<void> {
     return new Promise((resolve, reject) => {
       this.cardsField.element.onclick = (e) => {
         if (!(e.target instanceof HTMLElement)) return;
         if (!(e.target.classList.contains('card'))) return;
         if ((e.target.classList.contains('opacity'))) return;
-        if (e.target === this.currentCard.element.firstChild) resolve('совпало');
+        if (e.target === this.currentCard.element.firstChild) resolve();
         reject();
       };
     });
   }
 
-  rightChoice() {
+  rightChoice():void {
     this.cardsField.addStar(true);
     this.currentCard.playSound('./audio/correct.mp3');
     this.currentCard.card.element.classList.add('opacity');
@@ -72,14 +70,14 @@ export class LogicGame {
     this.next();
   }
 
-  incorrectChoice() {
+  incorrectChoice():void {
     this.withError = true;
     this.cardsField.addStar(false);
     this.currentCard.playSound('./audio/error.mp3');
     statistic.incorrectClick(this.currentCard.word);
   }
 
-  async next() {
+  async next():Promise<void> {
     this.currentCardIndex++;
     if (this.currentCardIndex < this.currentCards.length) {
       this.currentCard = this.currentCards[this.currentCardIndex];
@@ -98,15 +96,19 @@ export class LogicGame {
     }
   }
 
-  breack() {
+  breack():void {
     this.cardsField.element.onclick = null;
     this.currentCards.forEach((card) => card.card.element.classList.remove('opacity'));
     this.cardsField.clearRating();
   }
 
-  result() {
+  result():Promise<void> {
     return new Promise(((resolve) => {
-      if (this.cardsField.element.nextElementSibling) if (this.cardsField.element.nextElementSibling.parentNode) this.cardsField.element.nextElementSibling.parentNode.removeChild(this.cardsField.element.nextElementSibling);
+      if (this.cardsField.element.nextElementSibling) {
+        if (this.cardsField.element.nextElementSibling.parentNode) {
+          this.cardsField.element.nextElementSibling.parentNode.removeChild(this.cardsField.element.nextElementSibling);
+        }
+      }
       if (!this.withError) {
         setTimeout(() => {
           this.currentCard.playSound('./audio/success.mp3');
@@ -121,7 +123,7 @@ export class LogicGame {
 
       setTimeout(() => {
         this.cardsField.element.innerHTML = '';
-        resolve('done');
+        resolve();
       }, 3000);
     }));
   }

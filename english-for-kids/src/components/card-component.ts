@@ -3,7 +3,6 @@ import store from '../store/store';
 import { BaseComponent } from './base-component';
 import './card.scss';
 import { Signature } from './signature';
-import { IS_TRAIN_MODE } from '../store/constants';
 import { IT_IS_CATEGORY } from '../data/constants';
 
 const FLIP_CLASS = 'flipped';
@@ -51,12 +50,12 @@ export class CardComponent extends BaseComponent {
     });
   }
 
-  flipToBack() {
+  flipToBack():Promise<void> {
     this.isFlipped = false;
     return this.flip(true);
   }
 
-  flipToFront() {
+  flipToFront():Promise<void> {
     this.isFlipped = true;
     return this.flip();
   }
@@ -68,25 +67,25 @@ export class CardComponent extends BaseComponent {
     }));
   }
 
- playSound = async (src:string) => {
+  playSound = async (src:string):Promise<void> => {
     const audio = new Audio();
     audio.src = src;
     audio.currentTime = 0;
-   await audio.play();
+    await audio.play();
   };
 
-  hideSignature() {
+  hideSignature():void {
     this.card.element.innerHTML = '';
   }
 
-  showSignature() {
+  showSignature():void {
     this.card.element.append(this.signature.element);
   }
 
-async clickAudioPlayInTrainMode() {
+  async clickAudioPlayInTrainMode():Promise<void> {
     if (!store.getState().mode) return;
     // console.log(this.audioSrc);
     if (!this.isFlipped) return;
-  await this.playSound(this.audioSrc);
+    await this.playSound(this.audioSrc);
   }
 }

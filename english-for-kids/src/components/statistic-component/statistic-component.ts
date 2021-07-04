@@ -6,9 +6,9 @@ import './statistic.scss';
 import { StatisticBtn } from './statistic-btn-component';
 
 export class StatisticComponent extends BaseComponent {
-  private header: HTMLElement;
+  private readonly header: HTMLElement;
 
-  private statisticField: HTMLElement;
+  private readonly statisticField: HTMLElement;
 
   private statisticBtn: StatisticBtn;
 
@@ -25,13 +25,14 @@ export class StatisticComponent extends BaseComponent {
     this.element.append(this.statisticField);
   }
 
-  headerHandler(event:MouseEvent) {
+  headerHandler(event:MouseEvent):void {
     if (event.target) {
       if (event.target instanceof HTMLElement) {
         if (event.target.classList.contains('statistic__header-name')) {
           if (event.target.dataset.sort && event.target.dataset.arrow) {
-            if (event.target.dataset.isNuber) statistic.sort(event.target.dataset.sort, true, +event.target.dataset.arrow);
-            else statistic.sort(event.target.dataset.sort, false, +event.target.dataset.arrow);
+            if (event.target.dataset.isNuber) {
+              statistic.sort(event.target.dataset.sort, true, +event.target.dataset.arrow);
+            } else statistic.sort(event.target.dataset.sort, false, +event.target.dataset.arrow);
             event.target.dataset.arrow = `${(+event.target.dataset.arrow) * -1}`;
           }
         }
@@ -40,10 +41,11 @@ export class StatisticComponent extends BaseComponent {
     this.newStatistic();
   }
 
-  newStatistic() {
+  newStatistic():void {
     this.statisticField.innerHTML = '';
     statistic.words.forEach((word) => {
-      word.ratio = Math.floor((word.incorrectClickCounter / (word.rightClickCounter + word.incorrectClickCounter)) * 100) || 0;
+      word.ratio = Math.floor((word.incorrectClickCounter / (word.rightClickCounter + word.incorrectClickCounter))
+        * 100) || 0;
       this.statisticField.append(new StatisticRowComponent(word).element);
     });
   }

@@ -6,7 +6,7 @@ export class Signature extends BaseComponent {
 
   flipBtn: BaseComponent;
 
-  private translate: string | undefined;
+  private readonly translate: string | undefined;
 
   constructor(word: string, translate: string | undefined) {
     super('div', ['signature']);
@@ -21,26 +21,26 @@ export class Signature extends BaseComponent {
     if (this.translate !== IT_IS_CATEGORY) this.flipBtnAdd();
   }
 
-  flipBtnAdd() {
+  flipBtnAdd():void {
     setTimeout(() => {
       this.element.append(this.flipBtn.element);
       this.showWord();
     }, 100);
   }
 
-  flipBtnRemove() {
+  flipBtnRemove():void {
     this.flipBtn.element.remove();
     this.showTranslate();
   }
 
-  showWord() {
+  showWord():void {
     this.element.innerText = this.word;
     this.element.append(this.flipBtn.element);
 
     this.element.classList.remove('reverse');
   }
 
-  showTranslate() {
+  showTranslate():void {
     this.element.innerText = this.translate || '';
     this.element.classList.add('reverse');
   }

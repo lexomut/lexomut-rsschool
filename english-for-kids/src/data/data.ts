@@ -1,4 +1,5 @@
-export const categoryCard = ['Action (set A)', 'Action (set B)', 'Animal (set A)', 'Animal (set B)', 'Clothes', 'Emotions','Places','Fruits and vegetables'];
+export const categoryCard = ['Action (set A)', 'Action (set B)', 'Animal (set A)',
+  'Animal (set B)', 'Clothes', 'Emotions', 'Places', 'Fruits and vegetables'];
 export const wordCarts = [
   [
     {
@@ -354,11 +355,11 @@ export const wordCarts = [
   ],
   [
     {
-    word: 'cabbage',
-    translation: 'капуста',
-    image: 'img/cabbage.jpg',
-    audioSrc: 'audio/cabbage.mp3',
-  },
+      word: 'cabbage',
+      translation: 'капуста',
+      image: 'img/cabbage.jpg',
+      audioSrc: 'audio/cabbage.mp3',
+    },
 
     {
       word: 'carrot',

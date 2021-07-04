@@ -1,18 +1,18 @@
 import { dispatchMouseClickOnMenu } from '../../store/actions';
 import { BaseComponent } from '../base-component';
 import { ElementMenu } from './element-menu-component';
-import './nenu.scss';
+import './menu.scss';
 
 let func:(arg:MouseEvent)=>void;
 
 export class Menu extends BaseComponent {
-  private categories:string [];
-
   hamburger: HTMLElement;
 
   private isShowMenu = false;
 
   private curentElementMenu: HTMLElement;
+
+  private categories: string[];
 
   constructor(categories:string[]) {
     super('div', ['menu', 'hide-menu']);
@@ -36,7 +36,7 @@ export class Menu extends BaseComponent {
     this.hamburger.addEventListener('click', this.hamburgerAction.bind(this));
   }
 
-  hamburgerAction(e:MouseEvent) {
+  hamburgerAction(e:MouseEvent):void {
     e.stopPropagation();
     // console.log(e.target , this.isShowMenu);
     if (this.isShowMenu) {
@@ -46,7 +46,7 @@ export class Menu extends BaseComponent {
     this.showMenu();
   }
 
-  showMenu() {
+  showMenu():void {
     // console.log('showMenu');
     this.isShowMenu = true;
     this.element.classList.remove('hide-menu');
@@ -54,23 +54,23 @@ export class Menu extends BaseComponent {
     this.addMenuHandler();
   }
 
-  hideMenu() {
+  hideMenu():void {
     // console.log('hideMenu');
     this.element.classList.add('hide-menu');
     this.hamburger.classList.remove('hamburger_active');
     this.isShowMenu = false;
   }
 
-  addMenuHandler = () => {
+  addMenuHandler = ():void => {
     // console.log('add func');
     window.addEventListener('click', func);
   };
 
-  removeMenuHandler = () => {
+  removeMenuHandler = ():void => {
     window.removeEventListener('click', func);
   };
 
-  menuHandler(e:MouseEvent) {
+  menuHandler(e:MouseEvent):void {
     // console.log('func');
     if (!this.isShowMenu) return;
     if (e.target === this.element) return;

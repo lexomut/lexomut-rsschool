@@ -5,7 +5,7 @@ import { CardComponent } from './card-component';
 export class CardsField extends BaseComponent {
   private cards: CardComponent[];
 
-  private rating: HTMLElement;
+  private readonly rating: HTMLElement;
 
   constructor() {
     super('div', ['cards-field']);
@@ -14,25 +14,25 @@ export class CardsField extends BaseComponent {
     this.element.append(this.rating);
   }
 
-  clear() {
-    this.cards = [];
-    this.element.innerHTML = '';
-  }
+  // clear() {
+  //   this.cards = [];
+  //   this.element.innerHTML = '';
+  // }
 
-  addCards(cards:CardComponent[]) {
+  addCards(cards:CardComponent[]):Promise<void> {
     return new Promise((resolve) => {
       this.cards = cards;
       this.cards.forEach((card) => this.element.appendChild(card.element));
-      resolve('done');
+      resolve();
     });
   }
 
-  addStar(status:boolean) {
+  addStar(status:boolean):void {
     if (status) this.rating.append(new BaseComponent('div', ['star_filled']).element);
     else this.rating.append(new BaseComponent('div', ['star']).element);
   }
 
-  clearRating() {
+  clearRating():void {
     this.rating.innerHTML = '';
   }
 }

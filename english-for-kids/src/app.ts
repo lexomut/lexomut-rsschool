@@ -20,7 +20,7 @@ export class App {
 
   private currentCards: CartInterface[];
 
-  private startGameBtn: HTMLElement = new BaseComponent('div', ['start-game-btn']).element;
+  private readonly startGameBtn: HTMLElement = new BaseComponent('div', ['start-game-btn']).element;
 
   private currentMode: boolean;
 
@@ -49,21 +49,21 @@ export class App {
     this.newGame();
   }
 
-  async newGame() {
+  async newGame():Promise<void> {
     this.game = new Game();
     this.element.append(this.game.cardsField.element);
     await this.game.newGame(this.currentCards);
     this.addRemoveStartGameBtn(this.currentMode);
   }
 
-  makeCategoryObj = () => {
+  makeCategoryObj = ():CartInterface[] => {
     const tempCategoryCard = categoryCard.filter((item, index, arr) => index !== 0 && index !== arr.length - 1);
     return tempCategoryCard.map((item, index) => ({
       word: item, translation: IT_IS_CATEGORY, image: wordCarts[index][1].image, audioSrc: '',
     }));
   };
 
-  modeChangeHandler(mode:boolean) {
+  modeChangeHandler(mode:boolean):void {
     if (mode === this.currentMode) { return; }
     this.addRemoveStartGameBtn(mode);
     // if (this.game) {
@@ -75,7 +75,7 @@ export class App {
     this.currentMode = mode;
   }
 
-  stateHandler(link: string) {
+  stateHandler(link: string):void {
     if (link === this.currentLink) return;
     if (!this.game) return;
     this.currentLink = link;
@@ -99,7 +99,7 @@ export class App {
     }
   }
 
-  addRemoveStartGameBtn(mode = true) {
+  addRemoveStartGameBtn(mode = true):void {
     this.startGameBtn.innerText = 'Start';
     this.startGameBtn.classList.remove('repeat');
     this.startGameBtn.removeEventListener('click', eventFunc);
@@ -110,7 +110,7 @@ export class App {
     } else if (this.startGameBtn.parentNode) this.startGameBtn.parentNode.removeChild(this.startGameBtn);
   }
 
-  startGameBtnHandter() {
+  startGameBtnHandter():void {
     if (!this.game) return;
     if (!this.game.cards) return;
 
@@ -123,11 +123,11 @@ export class App {
     this.startGame();
   }
 
-  tempMethod = () => {
+  tempMethod = ():void => {
     if (this.logicGame) this.logicGame.currentCard.playSound(this.logicGame.currentCard.audioSrc);
   };
 
-  async startGame() {
+  async startGame():Promise<void> {
     this.startGameBtn.onclick = null;
 
     await this.logicGame?.startGame().then(() => {

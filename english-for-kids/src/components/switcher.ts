@@ -3,7 +3,7 @@ import { BaseComponent } from './base-component';
 import './switcher.scss';
 
 export class Switcher extends BaseComponent {
-  private input: HTMLInputElement;
+  private readonly input: HTMLInputElement;
 
   constructor() {
     super('label', ['switch']);
@@ -17,7 +17,7 @@ export class Switcher extends BaseComponent {
   <span class="off">game</span>
  </div>`);
     this.input.checked = true;
-    this.input.addEventListener('change', (e) => {
+    this.input.addEventListener('change', () => {
       dispatchChangeSwitch(this.input.checked);
     });
   }

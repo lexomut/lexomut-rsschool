@@ -29,7 +29,7 @@ export class Game {
     this.cardsField = new CardsField();
   }
 
-  async newGame(config: CardInterface[]) {
+  async newGame(config: CardInterface[]):Promise<void> {
     const cards = config
       .map((card) => new CardComponent(card));
       // .sort(() => Math.random() - 0.5);
@@ -45,7 +45,7 @@ export class Game {
     await this.cardsField.addCards(cards);
   }
 
-  addEwentsInTrainMode = async (card: CardComponent) => {
+  addEwentsInTrainMode = async (card: CardComponent):Promise<void> => {
     addClickFlipper(card);
     const prom = () => new Promise(((resolve) => {
       card.element.addEventListener('click', async () => {
@@ -58,7 +58,7 @@ export class Game {
     prom().then(() => setTimeout(() => { this.addEwentsInTrainMode(card); }, 500));
   };
 
-  addEwentsHomePage = (card: CardComponent) => {
+  addEwentsHomePage = (card: CardComponent):void => {
     card.element.addEventListener('click', () => dispatchMouseClickOnMenu(card.word));
   };
 }
