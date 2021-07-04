@@ -58,7 +58,7 @@ export class Statistic {
   makelistHigthPercentError():CartInterface[] {
     this.sort('ratio', true, -1);
     const words:string[] = [];
-    this.words.forEach((word, index) => { if (index < 7) words.push(word.word); });
+    this.words.forEach((word, index) => { if (index < 7 && word.ratio > 0) words.push(word.word); });
     const cards:CartInterface[] = [];
     wordCarts.forEach((arr :CartInterface[]) => arr.forEach((card:CartInterface) => {
       if (words.find((item) => item === card.word)) { cards.push(card); }
