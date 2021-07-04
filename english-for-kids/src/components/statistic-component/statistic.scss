@@ -1,0 +1,128 @@
+.statistic-row {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  height: 25px;
+}
+
+.statistic__header-name:hover {
+  font-size: 22px;
+  transition: all 0.4s;
+
+}
+
+.statistic__header {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  background-color: #ffc107;
+  color: white;
+  height: 46px;
+}
+
+.statistic-field {
+  width: 100%;
+}
+
+.statistic {
+  width: 100%;
+  min-width: 400px;
+}
+
+.statistic__elem {
+  font-size: 18px;
+  width: 28%;
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.statistic__header-name {
+  cursor: pointer;
+}
+
+.statistic__elem[data-is-nuber="true"] {
+  width: 12%;
+}
+
+.statistic-row:nth-child(even) {
+  background-color: #8fbc8f66;
+}
+
+
+.statistic-btn-block {
+  display: flex;
+  justify-content: space-evenly;
+  height: 50px;
+  margin: 0 0 20px;
+}
+
+.statistic-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 255px;
+  height: 50px;
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1.4rem;
+  color: #fff;
+  margin-top: 10px;
+  margin-left: 20px;
+  border: none;
+  outline: none;
+  background-color: #ff7d49;
+  border-radius: 6px;
+  transition: all 0.4s;
+  box-shadow: 3px 3px 15px 2px rgb(138 83 0 / 25%), -3px -3px 15px 2px rgb(138 83 0 / 22%);
+}
+
+.statistic-btn:hover {
+  background-color: rgba(219, 170, 28, 0.88);
+  cursor: pointer;
+  transform: scale(0.97, 0.97);
+  transition: all 0.4s;
+  box-shadow: 3px 3px 15px 6px rgb(138 83 0 / 25%), -3px -3px 15px 6px rgb(138 83 0 / 22%);
+}
+
+@media (max-width: 500px) {
+
+  .statistic__header-name:hover {
+    font-size: 15px;
+
+
+  }
+  .statistic-field , .statistic__header {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .statistic {
+    width: 100%;
+    min-width: 320px;
+  }
+  .statistic__elem {
+    font-size: 12px;
+  }
+
+  .statistic-btn-block {
+    display: flex;
+    justify-content: space-evenly;
+    height: 50px;
+    margin: 0 0 20px;
+  }
+
+  .statistic-btn {
+
+    width: 30%;
+    height: 50px;
+    font-size: 13px;
+
+
+  }
+}
+
+
+
