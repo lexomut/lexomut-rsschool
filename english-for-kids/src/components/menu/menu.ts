@@ -33,6 +33,7 @@ export class Menu extends BaseComponent {
       }
       this.element.append(elementMenu.element);
     });
+    this.addLogin();
 
     this.hamburger = new BaseComponent('div', ['hamburger']).element;
     this.hamburger.innerHTML = '<div><span class="hamburger__line"></span></div>';
@@ -100,5 +101,11 @@ export class Menu extends BaseComponent {
     this.curentElementMenu.classList.remove('active');
     elementMenu.classList.add('active');
     this.curentElementMenu = elementMenu;
+  }
+
+  addLogin() {
+    const login = new ElementMenu('Login').element;
+    login.classList.add('login');
+    this.element.append(login);
   }
 }
