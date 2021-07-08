@@ -39,7 +39,9 @@ export class App {
     this.currentLink = '';
     this.currentMode = true;
     this.currentCards = this.makeCategoryObj();
+
     store.subscribe(() => {
+      if (store.getState().link === 'Login') return;
       this.stateHandler(store.getState().link);
       this.gameBegin = false;
       this.modeChangeHandler(store.getState().mode);
@@ -57,10 +59,13 @@ export class App {
   }
 
   makeCategoryObj = ():CartInterface[] => {
-    const tempCategoryCard = categoryCard.filter((item, index, arr) => index !== 0 && index !== arr.length - 1);
-    return tempCategoryCard.map((item, index) => ({
+    const tempCategoryCard = categoryCard.filter((item:string) => !('Home statistic Login'.includes(item)));
+
+    const CategoryCard = tempCategoryCard.map((item, index) => ({
       word: item, translation: IT_IS_CATEGORY, image: wordCarts[index][1].image, audioSrc: '',
     }));
+
+    return CategoryCard;
   };
 
   modeChangeHandler(mode:boolean):void {
@@ -78,7 +83,8 @@ export class App {
   stateHandler(link: string):void {
     if (link === this.currentLink) return;
     if (!this.game) return;
-    this.currentLink = link;
+    if (link === 'Login') this.currentLink = 'Home';
+    else this.currentLink = link;
 
     this.game.cardsField.element.innerHTML = '';
     if (link === 'listHigthPercentError') {

@@ -25,6 +25,7 @@ export class LogicGame {
 
     this.withError = false;
     store.subscribe(() => {
+      if (store.getState().link === 'Login') return;
       this.breack();
     });
   }

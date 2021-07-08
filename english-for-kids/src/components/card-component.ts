@@ -41,7 +41,7 @@ export class CardComponent extends BaseComponent {
     if (store.getState().mode || this.translation === IT_IS_CATEGORY) this.card.element.append(this.signature.element);
     store.subscribe(() => {
       // console.log(store.getState());
-
+      if (store.getState().link === 'Login') return;
       if (store.getState().mode) this.showSignature();
       else {
         if (this.translation === IT_IS_CATEGORY) return;

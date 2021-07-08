@@ -20,18 +20,21 @@ export class Menu extends BaseComponent {
   constructor(categories: string[]) {
     super('div', ['menu', 'hide-menu']);
     this.categories = categories;
-    this.categories.unshift('Home');
-    this.categories.push('statistic');
+    if (!categories.includes('Home')) {
+      this.categories.unshift('Home');
+      this.categories.push('statistic');
+    }
     this.curentElementMenu = new ElementMenu(categories[0]).element;
     this.elements = [];
     categories.forEach((elementMenuConfig, index) => {
       const elementMenu = new ElementMenu(elementMenuConfig);
+      this.element.append(elementMenu.element);
       this.elements.push(elementMenu);
+
       if (!index) {
         elementMenu.element.classList.add('active');
         this.curentElementMenu = elementMenu.element;
       }
-      this.element.append(elementMenu.element);
     });
     this.addLogin();
 
@@ -40,6 +43,7 @@ export class Menu extends BaseComponent {
     func = this.menuHandler.bind(this);
     this.hamburger.addEventListener('click', this.hamburgerAction.bind(this));
     store.subscribe(() => {
+      if (store.getState().link === 'Login') return;
       const currentCategory = this.elements.find((elem) => (elem.element.innerText === store.getState().link)) || this.elements[0];
       this.changeCurrentElementMenu(currentCategory.element);
     });
