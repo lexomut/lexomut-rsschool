@@ -1,5 +1,4 @@
 import { Game } from './module/game';
-import { categoryCard, wordCarts } from './data/data';
 import { Header } from './components/header';
 import { IT_IS_CATEGORY } from './data/constants';
 import store from './store/store';
@@ -10,11 +9,13 @@ import { LogicGame } from './module/logic-game';
 import { dispatchMouseClickOnMenu } from './store/actions';
 import { StatisticComponent } from './components/statistic-component/statistic-component';
 import { statistic } from './module/statistic';
+import { getCategories, getWords } from './module/request';
+import state from './state';
 
 let eventFunc:()=>void;
 
 export class App {
-  element: HTMLBodyElement;
+  element: HTMLElement;
 
   private currentLink: string;
 
@@ -30,25 +31,28 @@ export class App {
 
   private game: Game|undefined;
 
-  constructor(rootElement: HTMLBodyElement) {
+  categoryCard: string[];
+
+  wordCarts: CartInterface[][];
+
+  constructor(rootElement: HTMLElement) {
+    this.categoryCard = [];
+    this.wordCarts = [];
+
     eventFunc = this.tempMethod.bind(this);
     this.startGameBtn = new BaseComponent('div', ['start-game-btn']).element;
-
     this.element = rootElement;
-    this.element.append(new Header().element);
+    this.gameBegin = false;
     this.currentLink = '';
     this.currentMode = true;
-    this.currentCards = this.makeCategoryObj();
-
     store.subscribe(() => {
       if (store.getState().link === 'Login') return;
       this.stateHandler(store.getState().link);
       this.gameBegin = false;
       this.modeChangeHandler(store.getState().mode);
     });
-    this.gameBegin = false;
-
-    this.newGame();
+    this.currentCards = [];
+    this.getDataFromPromise();
   }
 
   async newGame():Promise<void> {
@@ -59,10 +63,10 @@ export class App {
   }
 
   makeCategoryObj = ():CartInterface[] => {
-    const tempCategoryCard = categoryCard.filter((item:string) => !('Home statistic Login'.includes(item)));
+    const tempCategoryCard = this.categoryCard.filter((item:string) => !('Home statistic Login'.includes(item)));
 
     const CategoryCard = tempCategoryCard.map((item, index) => ({
-      word: item, translation: IT_IS_CATEGORY, image: wordCarts[index][1].image, audioSrc: '',
+      word: item, translation: IT_IS_CATEGORY, image: this.wordCarts[index][1].image, audioSrc: '',
     }));
 
     return CategoryCard;
@@ -92,15 +96,15 @@ export class App {
       this.newGame();
       return;
     }
-    const index = categoryCard.findIndex((item) => item === link);
+    const index = this.categoryCard.findIndex((item) => item === link);
     if (index === 0) {
       this.currentCards = this.makeCategoryObj();
       this.newGame();
-    } else if (index === categoryCard.length - 1) {
+    } else if (index === this.categoryCard.length - 1) {
       this.game.cardsField.element.append(new StatisticComponent().element);
       this.addRemoveStartGameBtn(false);
     } else {
-      this.currentCards = wordCarts[index - 1];
+      this.currentCards = this.wordCarts[index - 1];
       this.newGame();
     }
   }
@@ -139,5 +143,17 @@ export class App {
     await this.logicGame?.startGame().then(() => {
       dispatchMouseClickOnMenu('Home');
     });
+  }
+
+  async getDataFromPromise() {
+    const check = await getCategories();
+    if (check) this.categoryCard = check;
+    this.wordCarts = await getWords();
+    state.categoryCard = this.categoryCard;
+    state.wordCarts = this.wordCarts;
+    this.currentCards = this.makeCategoryObj();
+    this.element.append(new Header().element);
+    this.newGame();
+    // this.categoryCard.forEach(console.log);
   }
 }

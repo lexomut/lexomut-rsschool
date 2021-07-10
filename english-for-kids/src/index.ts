@@ -4,6 +4,7 @@ import store from './store/store';
 import { Login } from './components/login/login';
 import { AdminPage } from './components/admin-page/admin-page';
 import { dispatchMouseClickOnMenu } from './store/actions';
+import { deleteEmptyCategoryRequest } from './module/request';
 
 function login(rootElement:HTMLElement) {
   const loginForm = new Login(rootElement);
@@ -11,15 +12,20 @@ function login(rootElement:HTMLElement) {
   loginForm.authorization().then(() => adminPage(rootElement), () => {});
 }
 
-function mainPage() {
+async function mainPage() {
+await deleteEmptyCategoryRequest();
   const appElement = document.querySelector('body');
   if (!appElement) throw Error('App root element not found');
+  if (appElement.nextElementSibling) appElement.nextElementSibling.innerHTML = '';
   const app = new App(appElement);
   app.element.insertAdjacentHTML('afterend', ''
     + '<div class="footer" ><a href="https://rs.school/js/"> '
     + '<img src="svg/rs_school_js.svg" alt="rs.school"> </a></div>');
-  store.subscribe(() => {
-    if (store.getState().link === 'Login') login(appElement);
+  const unsubscribe = store.subscribe(() => {
+    if (store.getState().link === 'Login') {
+      unsubscribe();
+      login(appElement);
+    }
   });
 }
 async function adminPage(rootElement:HTMLElement) {

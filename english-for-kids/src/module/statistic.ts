@@ -1,5 +1,5 @@
-import { categoryCard, wordCarts } from '../data/data';
 import { CartInterface } from '../models/CartInterface';
+import state from '../state';
 import store from '../store/store';
 import { Word } from './word';
 
@@ -8,7 +8,7 @@ export class Statistic {
 
   constructor() {
     this.words = [];
-    wordCarts.forEach((arr, index) => arr.forEach((item) => this.words.push(new Word(item, categoryCard[index + 1]))));
+    state.wordCarts.forEach((arr, index) => arr.forEach((item) => this.words.push(new Word(item, state.categoryCard[index + 1]))));
     if (localStorage.getItem('statistic')) {
       const json = localStorage.getItem('statistic');
       if (json) this.words = JSON.parse(json);
@@ -38,7 +38,7 @@ export class Statistic {
   reset():void {
     localStorage.setItem('statistic', '');
     this.words = [];
-    wordCarts.forEach((arr, index) => arr.forEach((item) => this.words.push(new Word(item, categoryCard[index + 1]))));
+    state.wordCarts.forEach((arr, index) => arr.forEach((item) => this.words.push(new Word(item, state.categoryCard[index + 1]))));
     localStorage.setItem('statistic', JSON.stringify(this.words));
   }
 
@@ -60,7 +60,7 @@ export class Statistic {
     const words:string[] = [];
     this.words.forEach((word, index) => { if (index < 7 && word.ratio > 0) words.push(word.word); });
     const cards:CartInterface[] = [];
-    wordCarts.forEach((arr :CartInterface[]) => arr.forEach((card:CartInterface) => {
+    state.wordCarts.forEach((arr :CartInterface[]) => arr.forEach((card:CartInterface) => {
       if (words.find((item) => item === card.word)) { cards.push(card); }
     }));
     return cards;

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "ts-node ./src/app.ts",
-    "watch": "nodemon",
+    "watch": "nodemon  --delay 700ms ",
     "lint": "eslint src --ext .ts,.js"
   },
   "author": "",

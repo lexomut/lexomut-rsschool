@@ -18,6 +18,7 @@ export class BaseInputComponent {
     this.label.append(this.input);
     this.input.setAttribute('type', type);
     this.value = this.input.value;
+    this.input.addEventListener('change', () => { this.value = this.input.value; });
     this.element.append(this.label);
   }
 }

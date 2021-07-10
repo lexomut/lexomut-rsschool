@@ -8,4 +8,8 @@
   height: auto;
 }
 
+body {
+  min-height: 90vh;
+}
+
 /*# sourceMappingURL=footer.css.map */

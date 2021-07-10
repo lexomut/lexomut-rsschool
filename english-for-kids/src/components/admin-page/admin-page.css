@@ -1,0 +1,63 @@
+.admin-page__header {
+  width: 100%;
+  max-width: 1400px;
+  padding: 10px 30px;
+  display: flex;
+  justify-content: left;
+  background: #2196F3;
+}
+
+.nav_element {
+  margin: 0 20px;
+  cursor: pointer;
+  color: white;
+}
+
+.log-out {
+  margin-left: auto;
+  margin-right: 50px;
+}
+
+.admin-card {
+  width: 200px;
+  height: 225px;
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: solid 1px black;
+  border-radius: 5px;
+  position: relative;
+}
+
+.close-btn {
+  background-image: url("../../assets/cross.svg");
+  background-size: cover;
+  width: 43px;
+  height: 43px;
+  position: absolute;
+  right: -4px;
+  top: -9px;
+  cursor: pointer;
+}
+
+.admin-category-card__name {
+  margin: 30px 0;
+}
+
+.admin-category-card__amount {
+  margin-top: 30px;
+}
+
+.plus {
+  background-image: url("../../assets/cross.svg");
+  background-size: cover;
+  border-radius: 50%;
+  border: solid 1px black;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  transform: rotate(45deg);
+}
+
+/*# sourceMappingURL=admin-page.css.map */

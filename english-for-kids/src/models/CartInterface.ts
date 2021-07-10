@@ -5,3 +5,7 @@ export interface CartInterface {
   audioSrc: string;
 
 }
+export interface AdminCategoryCardInterface {
+  index:number
+  edit:boolean
+}
