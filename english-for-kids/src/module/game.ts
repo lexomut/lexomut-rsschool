@@ -59,6 +59,6 @@ export class Game {
   };
 
   addEwentsHomePage = (card: CardComponent):void => {
-    card.element.addEventListener('click', () => dispatchMouseClickOnMenu(card.word));
+    card.element.addEventListener('click', () => { if (card.img !== './img/undefined.jpg') dispatchMouseClickOnMenu(card.word); });
   };
 }

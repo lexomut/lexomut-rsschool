@@ -1,3 +1,5 @@
+import { BaseComponent } from "./base-component";
+
 export class BaseInputComponent {
   readonly element: HTMLElement;
 
@@ -6,6 +8,8 @@ export class BaseInputComponent {
   readonly input: HTMLInputElement;
 
   value: string;
+
+   message: HTMLElement;
 
   constructor(labelText:string, styles: string[] = [], type = 'text') {
     this.element = document.createElement('form');
@@ -20,5 +24,7 @@ export class BaseInputComponent {
     this.value = this.input.value;
     this.input.addEventListener('change', () => { this.value = this.input.value; });
     this.element.append(this.label);
+    this.message = new BaseComponent('div', ['message']).element;
+    this.element.append(this.message);
   }
 }

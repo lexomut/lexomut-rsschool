@@ -1,10 +1,9 @@
 import { Router } from 'express';
 import {
   createCategory,
-  deleteCategory, deleteEmptyCategory, getAllWords, getCategories, getWordsByIndex,
+  deleteCategory, deleteEmptyCategory, getAllWords, getCategories, getWordsByIndex, renameCategory,
 } from './repository';
 import { StatusCodes } from './status-codes';
-
 
 const router = Router();
 
@@ -52,13 +51,24 @@ router.post('/', async (req, res) => {
   }
 });
 
-
 router.delete('/', async (req, res) => {
   try {
     await deleteEmptyCategory().catch(console.log);
     return res.sendStatus(StatusCodes.Ok);
   } catch (e) {
     return res.status(StatusCodes.BadRequest).send(e);
+  }
+});
+
+router.post('/categories/:index', async (req, res) => {
+  const index = Number(req.params.index);
+  const data = req.body;
+  if (!data) return res.sendStatus(StatusCodes.BadRequest);
+  try {
+    const result = await renameCategory(data, index);
+    return res.json(result);
+  } catch (e) {
+    return res.status(StatusCodes.BadRequest).send(e.message);
   }
 });
 

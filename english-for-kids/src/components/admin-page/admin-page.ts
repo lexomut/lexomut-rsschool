@@ -1,7 +1,7 @@
 import { BaseComponent } from '../base-component';
 import { AdminPageHeader } from './admin-page___header';
 import './admin-page.scss';
-import {AdminFieldCategories} from "./admin-field";
+import { AdminFieldCategories } from './admin-field';
 
 export class AdminPage extends BaseComponent {
   private rootElement: HTMLElement;

@@ -22,7 +22,7 @@ export class AdminFieldCategories extends BaseComponent {
     this.cardNewItem = new BaseComponent('div', ['admin-card']).element;
     this.fill();
     store.subscribe(() => {
-      console.log(store.getState());
+      store.getState();
       if (store.getState().actionOfChange === 'delete') {
         setTimeout(() => this.fill(), 200);
       }
@@ -36,6 +36,7 @@ export class AdminFieldCategories extends BaseComponent {
       this.categories.push({
         index,
         edit: item === 'empty',
+        isNew: false,
       });
     });
   }
@@ -57,12 +58,13 @@ export class AdminFieldCategories extends BaseComponent {
   }
 
   async addNewCard() {
-    await console.log(await createCategory('empty'));
+    await createCategory('empty');
     const categories = await getCategories();
     const index = categories.length - 1;
     const configNewCard:AdminCategoryCardInterface = {
       index,
       edit: true,
+      isNew: true,
     };
     const newCard = new AdminCategoryCard(configNewCard);
     this.cardNewItem.before(newCard.element);

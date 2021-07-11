@@ -4,7 +4,7 @@ import '../../assets/cross.svg';
 import { AdminCategoryCardInterface } from '../../models/CartInterface';
 import { CardFooterBtn } from '../login/card-footer-btn';
 import {
-  createCategory, deleteCategory, getCategories, getWordsOfCategoryByIndex,
+  createCategory, deleteCategory, getCategories, getWordsOfCategoryByIndex, renameCategory,
 } from '../../module/request';
 import { dispatchChangeInAdminPage } from '../../store/actions';
 import { BaseInputComponent } from '../Base-Input-Component';
@@ -22,10 +22,13 @@ export class AdminCategoryCard extends BaseComponent {
 
   private input: BaseInputComponent;
 
+  private isNew: boolean;
+
   constructor(config:AdminCategoryCardInterface) {
     super('div', ['admin-card']);
     this.index = config.index;
     this.editMode = config.edit;
+    this.isNew = config.isNew;
     this.closeBtn = new BaseComponent('div', ['close-btn']).element;
     this.closeBtn.addEventListener('click', () => this.deleteThisCard());
     const configEditFooterCard = {
@@ -41,54 +44,60 @@ export class AdminCategoryCard extends BaseComponent {
     };
     this.footerCard = new CardFooterBtn(configFooterCard);
     this.input = new BaseInputComponent('Category name', ['input_admin-card']);
-    console.log(this.editMode);
-    if (this.editMode) this.fillCardEditMode();
-    else this.fillCard();
+
+    this.fillCard();
   }
 
   async deleteThisCard() {
     const response = await deleteCategory(this.index);
     dispatchChangeInAdminPage('delete');
-    console.log(this.index);
-    console.log(response);
   }
 
   updateThisCard() {
-    console.log('update', this);
+    this.editMode = true;
+    this.fillCard();
   }
 
   async fillCard() {
+    this.element.innerHTML = '';
     this.element.innerText = `${this.index}`;
-    this.element.append(this.closeBtn);
-    await this.element.append(await this.getNameElementByIndex());
-    await this.element.append(await this.getElementAmount());
-    this.element.append(this.footerCard.element);
-  }
-
-  fillCardEditMode() {
-    this.element.innerText = `${this.index}`;
-    this.element.append(this.input.element);
-    this.element.append(this.editFooterCard.element);
+    if (!this.editMode) {
+      this.element.append(this.closeBtn);
+      await this.element.append(await this.getNameElementByIndex());
+      await this.element.append(await this.getElementAmount());
+      this.element.append(this.footerCard.element);
+    } else {
+      this.element.innerText = `${this.index}`;
+      this.element.append(this.input.element);
+      this.element.append(this.editFooterCard.element);
+    }
   }
 
   async cancel() {
-    await this.deleteThisCard();
-    if (this.element.parentNode) {
-      this.element.parentNode.removeChild(this.element);
-    }
-    console.log('cancel', this);
+    if (this.isNew) {
+      await this.deleteThisCard();
+      if (this.element.parentNode) {
+        this.element.parentNode.removeChild(this.element);
+      }
+    } else this.editMode = false;
+    this.fillCard();
   }
 
   async create() {
-    console.log('записать карточку в базу', this.input.value);
-    await createCategory(this.input.value);
-    this.element.innerHTML = '';
-    this.editMode = false;
-    console.log(await this.fillCard());
+    if (this.input.value) {
+      await renameCategory(this.input.value, this.index).then(async () => {
+        this.element.innerHTML = '';
+        this.editMode = false;
+        this.isNew = false;
+        await this.fillCard();
+      }, (e) => {
+        this.input.message.innerText = e;
+      });
+    } else this.input.message.innerText = 'fill in this field';
   }
 
   addWord() {
-    console.log('addWord', this);
+    dispatchChangeInAdminPage(`add,${this.index}`);
   }
 
   async getNameElementByIndex() {

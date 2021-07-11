@@ -65,9 +65,23 @@ export class App {
   makeCategoryObj = ():CartInterface[] => {
     const tempCategoryCard = this.categoryCard.filter((item:string) => !('Home statistic Login'.includes(item)));
 
-    const CategoryCard = tempCategoryCard.map((item, index) => ({
-      word: item, translation: IT_IS_CATEGORY, image: this.wordCarts[index][1].image, audioSrc: '',
-    }));
+    const CategoryCard = tempCategoryCard.map((item, index) => {
+      if (this.wordCarts[index]) {
+        return {
+          word: item,
+          translation: IT_IS_CATEGORY,
+          image: this.wordCarts[index][0] ? this.wordCarts[index][1].image || 'img/undefined.jpg' : 'img/undefined.jpg',
+          audioSrc: '',
+        };
+      }
+
+      return {
+        word: item,
+        translation: IT_IS_CATEGORY,
+        image: 'img/undefined.jpg',
+        audioSrc: '',
+      };
+    });
 
     return CategoryCard;
   };

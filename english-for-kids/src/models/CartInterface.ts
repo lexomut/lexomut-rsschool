@@ -8,4 +8,5 @@ export interface CartInterface {
 export interface AdminCategoryCardInterface {
   index:number
   edit:boolean
+  isNew:boolean
 }
