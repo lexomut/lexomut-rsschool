@@ -8,6 +8,8 @@ import { AdminCategoryCardInterface, AdminWordCardInterface, Interfaces } from '
 import { AdminCardWord } from './admin-card_word';
 import { getIndexByName } from './functions';
 import store from '../../store/store';
+import { AdminCategoryCard } from './admin-card';
+import { WIDTH_CARD } from './admin-field';
 
 export class WordsField extends BaseComponent {
   private name: string;
@@ -20,10 +22,13 @@ export class WordsField extends BaseComponent {
 
   private cardNewItem: HTMLElement;
 
+  private elementsArr: HTMLElement[];
+
   constructor(word:string) {
     super('div', ['admin-field', 'cards-field']);
     this.name = word;
     this.words = [];
+    this.elementsArr = [];
     this.cardConfigs = [];
     this.cardNewItem = new BaseComponent('div', ['admin-card']).element;
     this.element.innerText = this.name;
@@ -32,6 +37,7 @@ export class WordsField extends BaseComponent {
     store.subscribe(() => {
       if (store.getState().actionOfChange === 'delete item') {
         this.fill();
+        this.elementsArr = [];
       }
     });
   }
@@ -60,8 +66,40 @@ export class WordsField extends BaseComponent {
     await this.getWordsFromServer();
     await this.getItem();
     this.element.innerHTML = '';
-    this.cardConfigs.forEach((card) => this.element.append(new AdminCardWord(card).element));
-    this.addCardNewItem();
+
+    this.elementsArr = this.cardConfigs.map((card) => new AdminCardWord(card).element);
+    // this.addCardNewItem();
+    this.push();
+  }
+
+  push() {
+    const body = document.getElementsByTagName('body')[0];
+    const width = body.offsetWidth < 1100 ? body.offsetWidth : 1100;
+    const row = (width - (width % WIDTH_CARD)) / WIDTH_CARD;
+    console.log(row, 'row');
+    const height = window.innerHeight;
+    const column = (height - (height % WIDTH_CARD)) / WIDTH_CARD;
+    let begin = 0;
+    let end = row * column;
+    const add = () => {
+      for (let i = begin; i < end; i++) {
+        if (this.elementsArr[i]) {
+          this.element.append(this.elementsArr[i]);
+          if (i === this.elementsArr.length - 1) this.addCardNewItem();
+        }
+      }
+      begin = end;
+      end = end + row > this.elementsArr.length ? this.elementsArr.length : end + row;
+    };
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset + height - 50 >= this.element.clientHeight) {
+        add();
+      }
+    });
+    add();
+    if (window.pageYOffset + height - 50 >= this.element.clientHeight) {
+      add();
+    }
   }
 
   addCardNewItem() {

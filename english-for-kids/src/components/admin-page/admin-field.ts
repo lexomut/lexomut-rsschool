@@ -5,7 +5,7 @@ import { BaseComponent } from '../base-component';
 import { AdminCategoryCard } from './admin-card';
 import store from '../../store/store';
 
-const WIDTH_CARD = 260;
+export const WIDTH_CARD = 260;
 
 export class AdminFieldCategories extends BaseComponent {
   private nameCategories: string[];
