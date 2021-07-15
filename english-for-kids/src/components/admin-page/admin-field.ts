@@ -5,6 +5,8 @@ import { BaseComponent } from '../base-component';
 import { AdminCategoryCard } from './admin-card';
 import store from '../../store/store';
 
+const WIDTH_CARD = 260;
+
 export class AdminFieldCategories extends BaseComponent {
   private nameCategories: string[];
 
@@ -14,11 +16,14 @@ export class AdminFieldCategories extends BaseComponent {
 
   private cardNewItem: HTMLElement;
 
+  private elementsArr: HTMLElement[];
+
   constructor() {
     super('div', ['admin-field', 'cards-field']);
     this.nameCategories = [''];
     this.words = state.wordCarts;
     this.categories = [];
+    this.elementsArr = [];
     this.cardNewItem = new BaseComponent('div', ['admin-card']).element;
     this.fill();
     store.subscribe(() => {
@@ -45,14 +50,40 @@ export class AdminFieldCategories extends BaseComponent {
     this.categories = [];
     await this.getItem();
     this.element.innerHTML = '';
-    this.categories.forEach((card) => this.element.append(new AdminCategoryCard(card).element));
-    this.addCardNewItem();
+    this.elementsArr = this.categories.map((card) => new AdminCategoryCard(card).element);
+    // this.addCardNewItem();
+    this.push();
   }
 
-  // push(){
-  //
-  // }
-
+  push() {
+    const body = document.getElementsByTagName('body')[0];
+    const width = body.offsetWidth < 1100 ? body.offsetWidth : 1100;
+    const row = (width - (width % WIDTH_CARD)) / WIDTH_CARD;
+    console.log(row, 'row');
+    const height = window.innerHeight;
+    const column = (height - (height % WIDTH_CARD)) / WIDTH_CARD;
+    let begin = 0;
+    let end = row * column;
+    const add = () => {
+      for (let i = begin; i < end; i++) {
+        if (this.elementsArr[i]) {
+          this.element.append(this.elementsArr[i]);
+          if (i === this.elementsArr.length - 1) this.addCardNewItem();
+        }
+      }
+      begin = end;
+      end = end + row > this.elementsArr.length ? this.elementsArr.length : end + row;
+    };
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset + height - 50 >= this.element.clientHeight) {
+        add();
+      }
+    });
+    add();
+    if (window.pageYOffset + height - 50 >= this.element.clientHeight) {
+      add();
+    }
+  }
 
   addCardNewItem() {
     this.cardNewItem.innerHTML = '<h4>Add new category</h4>';
