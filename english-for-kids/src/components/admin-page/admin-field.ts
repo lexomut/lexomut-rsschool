@@ -49,6 +49,11 @@ export class AdminFieldCategories extends BaseComponent {
     this.addCardNewItem();
   }
 
+  // push(){
+  //
+  // }
+
+
   addCardNewItem() {
     this.cardNewItem.innerHTML = '<h4>Add new category</h4>';
     const plus = new BaseComponent('div', ['plus']).element;

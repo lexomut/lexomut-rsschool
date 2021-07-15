@@ -10,11 +10,11 @@ export interface CardFooterBtnInterface {
 }
 
 export class CardFooterBtn extends BaseComponent {
-  firstBtn: HTMLElement ;
+  firstBtn: HTMLElement;
 
   secondBtn: HTMLElement | undefined;
 
-  constructor(config:CardFooterBtnInterface) {
+  constructor(config: CardFooterBtnInterface) {
     super('div', ['footer-btn']);
     this.element.classList.add(config.styles);
     this.firstBtn = new BaseComponent('button', ['card-footer-btn', 'first-btn']).element;
@@ -25,6 +25,20 @@ export class CardFooterBtn extends BaseComponent {
       this.secondBtn = new BaseComponent('button', ['card-footer-btn', 'second-btn']).element;
       this.secondBtn.innerText = `${config.btnNames[1]}`;
       this.secondBtn.addEventListener('click', config.btnFuncs[1]);
+      this.element.append(this.secondBtn);
+    }
+  }
+
+  showOnlyFirstBtn() {
+    console.log('onli first btn');
+    this.element.innerHTML = '';
+    this.element.append(this.firstBtn);
+  }
+
+  showOnlySecondBtn() {
+    console.log('onli second btn');
+    if (this.secondBtn) {
+      this.element.innerHTML = '';
       this.element.append(this.secondBtn);
     }
   }

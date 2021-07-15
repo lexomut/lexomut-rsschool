@@ -8,6 +8,7 @@ import {
 import { FileLoadComponent } from './file-load-component';
 import { dispatchChangeInAdminPage } from '../../store/actions';
 import { getIndexByName, getLocation } from './functions';
+import { CardComponent } from '../card-component';
 
 export class AdminCardWord extends BaseComponent {
   private editFooterCard: CardFooterBtn;
@@ -99,12 +100,11 @@ export class AdminCardWord extends BaseComponent {
       formData.append('photo', this.imageInput.file);
       formData.append('sound', this.soundInput.file);
     }
-    this.loader();
-    upload(this.categoryName, this.index, formData);
 
-    // await replaceWord(this.categoryName, this.index, config);
-    this.editMode = false;
-    await this.init();
+    upload(this.categoryName, this.index, formData).then(async () => {
+      this.editMode = false;
+      await this.init();
+    }, () => alert('карточка не сохранилась'));
   }
 
   updateThisCard() {
@@ -125,13 +125,16 @@ ${this.index}
        <div class="img"  style='background-image: url("../${this.wordObj.image}")'> </div>`;
       this.element.append(this.closeBtn);
       this.element.append(this.footerCard.element);
+      this.element.onclick = (e) => this.playAudio(e);
     } else {
+      this.editFooterCard.showOnlyFirstBtn();
       this.element.innerText = `${this.index}`;
       this.element.append(this.inputWord.element);
       this.element.append(this.inputTranslation.element);
       this.element.append(this.soundInput.element);
       this.element.append(this.imageInput.element);
       this.element.append(this.editFooterCard.element);
+      this.addEvent();
     }
   }
 
@@ -150,7 +153,27 @@ ${this.index}
     this.wordObj = wordsArr[this.index];
   }
 
-  loader() {
-    console.log();
+  addEvent() {
+    this.inputWord.input.onchange = () => this.showBtn();
+    this.inputTranslation.input.onchange = () => this.showBtn();
+    this.soundInput.input.onchange = () => this.showBtn();
+    this.imageInput.input.onchange = () => this.showBtn();
+  }
+
+  showBtn() {
+    console.log('chenge');
+    if (this.inputWord.value && this.inputTranslation.value && this.imageInput.filename && this.soundInput.filename) this.editFooterCard.showOnlySecondBtn();
+  }
+
+  playAudio(e:MouseEvent) {
+    let el;
+    if (e.target instanceof HTMLElement) el = e.target;
+    if (el) {
+      if (el.classList.contains('img')) {
+        new CardComponent({
+          word: '', translation: '', image: '', audioSrc: '',
+        }).playSound(`../${this.wordObj.audioSrc}`);
+      }
+    }
   }
 }

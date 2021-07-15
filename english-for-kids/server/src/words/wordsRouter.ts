@@ -71,7 +71,7 @@ wordsRouter.post('/:name/', async (req, res) => {
 });
 
 wordsRouter.post('/upload/:name/:index', upload.any(), async (req, res) => {
-  const data = JSON.parse(req.body.wordConfig);
+  if (!req.body.wordConfig)return res.sendStatus(400);
   const index = Number(req.params.index);
   const nameCategory = String(req.params.name).replace(/%/g, ' ');
   const indexOfCategory = categories.findIndex((item) => nameCategory === item);
@@ -79,7 +79,7 @@ wordsRouter.post('/upload/:name/:index', upload.any(), async (req, res) => {
   if (Number.isNaN(index) || words[indexOfCategory].length < index || index < 0) { return res.sendStatus(400); }
 
   try {
-    const message = await replaceWord(indexOfCategory, index, data);
+    const message = await replaceWord(indexOfCategory, index, JSON.parse(req.body.wordConfig));
     return res.status(StatusCodes.Ok).json(message);
   } catch (e) {
     console.log(e);
