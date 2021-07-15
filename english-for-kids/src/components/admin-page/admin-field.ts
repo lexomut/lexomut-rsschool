@@ -1,4 +1,4 @@
-import { AdminCategoryCardInterface, CartInterface } from '../../models/CartInterface';
+import { AdminCategoryCardInterface, Interfaces } from '../../models/Interfaces';
 import { createCategory, getCategories, getWords } from '../../module/request';
 import state from '../../state';
 import { BaseComponent } from '../base-component';
@@ -8,7 +8,7 @@ import store from '../../store/store';
 export class AdminFieldCategories extends BaseComponent {
   private nameCategories: string[];
 
-  private words: CartInterface[][];
+  private words: Interfaces[][];
 
   private categories: AdminCategoryCardInterface[];
 
@@ -22,9 +22,9 @@ export class AdminFieldCategories extends BaseComponent {
     this.cardNewItem = new BaseComponent('div', ['admin-card']).element;
     this.fill();
     store.subscribe(() => {
-      store.getState();
       if (store.getState().actionOfChange === 'delete') {
-        setTimeout(() => this.fill(), 200);
+        this.fill();
+        // setTimeout(() =>, 200);
       }
     });
   }

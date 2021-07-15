@@ -14,6 +14,6 @@ export class ElementMenu extends BaseComponent {
     this.icon.src = `svg/${category}.svg`;
     this.icon.classList.add('icon');
     this.icon.onload = () => this.element.prepend(this.icon);
-    this.icon.onerror = () => this.element.style.paddingLeft = '60px';
+    this.icon.onerror = () => { this.element.style.paddingLeft = '60px'; };
   }
 }

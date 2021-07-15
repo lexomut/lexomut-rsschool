@@ -1,4 +1,4 @@
-import { CartInterface } from '../models/CartInterface';
+import { Interfaces } from '../models/Interfaces';
 
 export class Word {
   word: string;
@@ -15,7 +15,7 @@ export class Word {
 
   ratio: number;
 
-  constructor(config:CartInterface, category:string) {
+  constructor(config:Interfaces, category:string) {
     this.word = config.word;
     this.translate = config.translation;
     this.category = category;

@@ -1,6 +1,6 @@
 import ts, { idText } from 'typescript/lib/tsserverlibrary';
-import { categories, words } from './data';
-import { WordInterface } from './models';
+import { categories, words } from '../data';
+import { WordInterface } from '../models';
 import emptyArray = ts.server.emptyArray;
 
 export function getCategories():Promise<string[]> {
@@ -29,11 +29,11 @@ export function getWordByName(nameWord:string):Promise<WordInterface> {
     });
   });
   if (word) return Promise.resolve(word);
-  return Promise.reject(new Error('can not fined word'));
+  return Promise.reject(new Error('can not fined item'));
 }
 
 export function deleteCategory(index: number): Promise<void> {
-  if (index < 0 || index > words.length) return Promise.reject(new Error('can not fined words'));
+  if (index < 0 || index > words.length) return Promise.reject(new Error('can not fined item'));
   if (index < 0 || index >= categories.length) return Promise.reject(new Error('can not fined category'));
   categories.splice(index, 1);
   words.splice(index, 1);
@@ -68,9 +68,9 @@ export function deleteEmptyCategory(): Promise<void> {
 
 export function renameCategory(newNameCategory:string, index:number): Promise<string> {
   const isExist = (typeof categories.find((cat) => cat.toLowerCase() === newNameCategory.toLowerCase())) !== 'undefined';
-    if (isExist) {
-      return Promise.reject(new Error(`Category with name ${newNameCategory} is already exists`));
-    }
+  if (isExist) {
+    return Promise.reject(new Error(`Category with name ${newNameCategory} is already exists`));
+  }
   if (!categories[index]) return Promise.reject(new Error(`Category with index ${index} not exists`));
   categories[index] = newNameCategory;
   words[index] = [{

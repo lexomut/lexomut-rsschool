@@ -2,7 +2,7 @@ import { Game } from './module/game';
 import { Header } from './components/header';
 import { IT_IS_CATEGORY } from './data/constants';
 import store from './store/store';
-import { CartInterface } from './models/CartInterface';
+import { Interfaces } from './models/Interfaces';
 import { BaseComponent } from './components/base-component';
 import './components/app.scss';
 import { LogicGame } from './module/logic-game';
@@ -19,7 +19,7 @@ export class App {
 
   private currentLink: string;
 
-  private currentCards: CartInterface[];
+  private currentCards: Interfaces[];
 
   private readonly startGameBtn: HTMLElement = new BaseComponent('div', ['start-game-btn']).element;
 
@@ -33,7 +33,7 @@ export class App {
 
   categoryCard: string[];
 
-  wordCarts: CartInterface[][];
+  wordCarts: Interfaces[][];
 
   constructor(rootElement: HTMLElement) {
     this.categoryCard = [];
@@ -62,7 +62,7 @@ export class App {
     this.addRemoveStartGameBtn(this.currentMode);
   }
 
-  makeCategoryObj = ():CartInterface[] => {
+  makeCategoryObj = ():Interfaces[] => {
     const tempCategoryCard = this.categoryCard.filter((item:string) => !('Home statistic Login'.includes(item)));
 
     const CategoryCard = tempCategoryCard.map((item, index) => {

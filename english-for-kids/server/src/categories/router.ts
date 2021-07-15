@@ -3,34 +3,34 @@ import {
   createCategory,
   deleteCategory, deleteEmptyCategory, getAllWords, getCategories, getWordsByIndex, renameCategory,
 } from './repository';
-import { StatusCodes } from './status-codes';
+import { StatusCodes } from '../status-codes';
 
 const router = Router();
 
 router.get('/all', async (req, res) => {
-  const categories = await getAllWords();
-  res.json(categories);
+  const allCategories = await getAllWords();
+  res.json(allCategories);
 });
 
-router.get('/categories', async (req, res) => {
-  const categories = await getCategories();
-  res.json(categories);
+router.get('/', async (req, res) => {
+  const allCategories = await getCategories();
+  res.json(allCategories);
 });
 
-router.get('/categories/:index', async (req, res) => {
+router.get('/:index', async (req, res) => {
   const index = Number(req.params.index);
-  const categories = await getAllWords();
-  if (Number.isNaN(index) || categories.length < index || index < 0) { return res.sendStatus(400); }
-  const words = await getWordsByIndex(index);
-  if (!words) { return res.sendStatus(404); }
-  return res.json(words);
+  const allCategories = await getAllWords();
+  if (Number.isNaN(index) || allCategories.length < index || index < 0) { return res.sendStatus(400); }
+  const allWords = await getWordsByIndex(index);
+  if (!allWords) { return res.sendStatus(404); }
+  return res.json(allWords);
 });
 
 // Delete category
-router.delete('/categories/:index', async (req, res) => {
+router.delete('/:index', async (req, res) => {
   const index = Number(req.params.index);
-  const categories = await getAllWords();
-  if (Number.isNaN(index) || categories.length < index || index < 0) { return res.sendStatus(400); }
+  const allCategories = await getAllWords();
+  if (Number.isNaN(index) || allCategories.length < index || index < 0) { return res.sendStatus(400); }
   try {
     await deleteCategory(index).catch(console.log);
     return res.sendStatus(StatusCodes.Ok);
@@ -60,7 +60,7 @@ router.delete('/', async (req, res) => {
   }
 });
 
-router.post('/categories/:index', async (req, res) => {
+router.post('/:index', async (req, res) => {
   const index = Number(req.params.index);
   const data = req.body;
   if (!data) return res.sendStatus(StatusCodes.BadRequest);

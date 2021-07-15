@@ -1,4 +1,4 @@
-import { CartInterface } from '../models/CartInterface';
+import { Interfaces } from '../models/Interfaces';
 import store from '../store/store';
 import { BaseComponent } from './base-component';
 import './card.scss';
@@ -24,7 +24,7 @@ export class CardComponent extends BaseComponent {
 
   signature: Signature;
 
-  constructor(config:CartInterface) {
+  constructor(config:Interfaces) {
     super('a', ['card-container']);
     this.img = `./${config.image}`;
     this.word = config.word;

@@ -11,7 +11,7 @@ export class StatisticBtn extends BaseComponent {
     super('div', ['statistic-btn-block']);
     this.RepeatDifficultWordsBtn = new BaseComponent('button', ['statistic-btn']).element;
     this.reset = new BaseComponent('div', ['statistic-btn']).element;
-    this.RepeatDifficultWordsBtn.innerText = 'Repeat difficult words';
+    this.RepeatDifficultWordsBtn.innerText = 'Repeat difficult item';
     this.reset.innerText = 'Reset';
     this.RepeatDifficultWordsBtn.addEventListener('click', () => {
       dispatchMouseClickOnMenu('listHigthPercentError');

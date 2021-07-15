@@ -35,14 +35,13 @@ export class Login extends BaseComponent {
 
   loginClick = ():void => {
     this.rootElement.removeChild(this.fade);
-    console.log('нажата кнопка login');
-    this.element.dispatchEvent(new Event('ok'));
 
+    this.element.dispatchEvent(new Event('ok'));
   };
 
   cancelClick = ():void => {
     this.rootElement.removeChild(this.fade);
-    console.log('нажата кнопка cancel');
+
     this.element.dispatchEvent(new Event('cancel'));
   };
 

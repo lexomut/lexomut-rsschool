@@ -1,10 +1,23 @@
 .admin-page__header {
-  width: 100%;
+  width: 98%;
   max-width: 1400px;
   padding: 10px 30px;
   display: flex;
   justify-content: left;
   background: #2196F3;
+}
+.admin-page__header .nav_element:first-child {
+  font-weight: bolder;
+  text-decoration: underline;
+}
+
+.word-field-active .nav_element:nth-child(2) {
+  font-weight: bolder;
+  text-decoration: underline;
+}
+.word-field-active .nav_element:first-child {
+  font-weight: 200;
+  text-decoration: none;
 }
 
 .nav_element {
@@ -58,6 +71,27 @@
   height: 100px;
   cursor: pointer;
   transform: rotate(45deg);
+}
+
+.admin-card_word {
+  padding-left: 10px;
+  align-items: start;
+}
+.admin-card_word h5 {
+  margin: 0;
+}
+.admin-card_word h5 span {
+  font-weight: 200;
+}
+.admin-card_word .img {
+  margin-left: -10px;
+  width: 100%;
+  height: 100px;
+  align-self: center;
+  background-size: cover;
+}
+.admin-card_word .adminCard__footer {
+  bottom: 5px;
 }
 
 /*# sourceMappingURL=admin-page.css.map */

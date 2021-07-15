@@ -1,4 +1,4 @@
-import { BaseComponent } from "./base-component";
+import { BaseComponent } from './base-component';
 
 export class BaseInputComponent {
   readonly element: HTMLElement;
@@ -9,7 +9,7 @@ export class BaseInputComponent {
 
   value: string;
 
-   message: HTMLElement;
+  message: HTMLElement;
 
   constructor(labelText:string, styles: string[] = [], type = 'text') {
     this.element = document.createElement('form');

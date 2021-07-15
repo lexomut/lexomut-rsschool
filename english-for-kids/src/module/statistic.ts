@@ -1,4 +1,4 @@
-import { CartInterface } from '../models/CartInterface';
+import { Interfaces } from '../models/Interfaces';
 import state from '../state';
 import store from '../store/store';
 import { Word } from './word';
@@ -55,12 +55,12 @@ export class Statistic {
     }
   }
 
-  makelistHigthPercentError():CartInterface[] {
+  makelistHigthPercentError():Interfaces[] {
     this.sort('ratio', true, -1);
     const words:string[] = [];
     this.words.forEach((word, index) => { if (index < 7 && word.ratio > 0) words.push(word.word); });
-    const cards:CartInterface[] = [];
-    state.wordCarts.forEach((arr :CartInterface[]) => arr.forEach((card:CartInterface) => {
+    const cards:Interfaces[] = [];
+    state.wordCarts.forEach((arr :Interfaces[]) => arr.forEach((card:Interfaces) => {
       if (words.find((item) => item === card.word)) { cards.push(card); }
     }));
     return cards;

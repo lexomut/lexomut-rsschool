@@ -1,7 +1,7 @@
 import { BaseComponent } from '../base-component';
 
 import '../../assets/cross.svg';
-import { AdminCategoryCardInterface } from '../../models/CartInterface';
+import { AdminCategoryCardInterface } from '../../models/Interfaces';
 import { CardFooterBtn } from '../login/card-footer-btn';
 import {
   createCategory, deleteCategory, getCategories, getWordsOfCategoryByIndex, renameCategory,
@@ -39,7 +39,7 @@ export class AdminCategoryCard extends BaseComponent {
     this.editFooterCard = new CardFooterBtn(configEditFooterCard);
     const configFooterCard = {
       styles: 'adminCard__footer',
-      btnNames: ['Update', 'Add word'],
+      btnNames: ['Update', 'Add item'],
       btnFuncs: [this.updateThisCard.bind(this), this.addWord.bind(this)],
     };
     this.footerCard = new CardFooterBtn(configFooterCard);
@@ -96,8 +96,13 @@ export class AdminCategoryCard extends BaseComponent {
     } else this.input.message.innerText = 'fill in this field';
   }
 
-  addWord() {
-    dispatchChangeInAdminPage(`add,${this.index}`);
+  async addWord() {
+    const name = await getCategories();
+    const nameUrl = name[this.index].replace(/ /g, '_');
+    window.history.pushState(null, 'null', `/categories/${nameUrl}`);
+    const popStateEvent = new PopStateEvent('popstate');
+    dispatchEvent(popStateEvent);
+    // dispatchChangeInAdminPage(`addWord,${this.index}`);
   }
 
   async getNameElementByIndex() {
@@ -109,6 +114,7 @@ export class AdminCategoryCard extends BaseComponent {
   }
 
   async getElementAmount() {
+
     const category = await getWordsOfCategoryByIndex(this.index);
     const amountElement = new BaseComponent('div', ['admin-category-card__amount']).element;
     amountElement.innerText = `WORDS: ${category.length}`;

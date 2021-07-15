@@ -3,8 +3,8 @@ import './footer.scss';
 import store from './store/store';
 import { Login } from './components/login/login';
 import { AdminPage } from './components/admin-page/admin-page';
-import { dispatchMouseClickOnMenu } from './store/actions';
 import { deleteEmptyCategoryRequest } from './module/request';
+import { getLocation } from './components/admin-page/functions';
 
 function login(rootElement:HTMLElement) {
   const loginForm = new Login(rootElement);
@@ -13,10 +13,17 @@ function login(rootElement:HTMLElement) {
 }
 
 async function mainPage() {
-await deleteEmptyCategoryRequest();
+  await deleteEmptyCategoryRequest();
   const appElement = document.querySelector('body');
   if (!appElement) throw Error('App root element not found');
   if (appElement.nextElementSibling) appElement.nextElementSibling.innerHTML = '';
+
+  if (getLocation()[0] === 'categories') {
+    // eslint-disable-next-line @typescript-eslint/no-use-before-define
+    adminPage(appElement);
+    return;
+  }
+
   const app = new App(appElement);
   app.element.insertAdjacentHTML('afterend', ''
     + '<div class="footer" ><a href="https://rs.school/js/"> '
