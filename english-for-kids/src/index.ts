@@ -42,4 +42,7 @@ async function adminPage(rootElement:HTMLElement) {
   mainPage();
 }
 
-window.onload = () => mainPage();
+window.onload = () => {
+  mainPage();
+  console.log('index.ts запустился');
+};

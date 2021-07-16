@@ -1,5 +1,6 @@
 import { Interfaces, RequestApiConfig } from '../models/Interfaces';
 
+const BASE_URL = 'http://185.233.2.125';
 export function requestFunction(config:RequestApiConfig):Promise<any> {
   return new Promise((resolve, reject) => {
     fetch(config.url, config.fetchConfig)
@@ -19,7 +20,7 @@ export function requestFunction(config:RequestApiConfig):Promise<any> {
 
 export async function getCategories():Promise<string[]> {
   let json;
-  const response = await fetch('http://localhost:3000/api/categories/');
+  const response = await fetch(`${BASE_URL}/api/categories/`);
   if (response.ok) {
     json = await response.json();
   } else {
@@ -32,7 +33,7 @@ export async function getCategories():Promise<string[]> {
 export async function getWordsOfCategoryByIndex(index:number):Promise<Interfaces[]> {
   if (Number.isNaN(index)) return Promise.reject(new Error('index is NAN'));
   let json;
-  const response = await fetch(`http://localhost:3000/api/categories/${index}`);
+  const response = await fetch(`${BASE_URL}/api/categories/${index}`);
   if (response.ok) {
     json = await response.json();
     // console.log(response);
@@ -45,18 +46,18 @@ export async function getWordsOfCategoryByIndex(index:number):Promise<Interfaces
 
 export async function deleteCategory(index:number):Promise<string> {
   let json;
-  const response = await fetch(`http://localhost:3000/api/categories/${index}`, { method: 'DELETE' });
+  const response = await fetch(`http://127.0.0.1/api/categories/${index}`, { method: 'DELETE' });
   return response.status.toString();
 }
 
 export async function deleteEmptyCategoryRequest():Promise<string> {
   let json;
-  const response = await fetch('http://localhost:3000/api/categories/', { method: 'DELETE' });
+  const response = await fetch(`${BASE_URL}/api/categories/`, { method: 'DELETE' });
   return response.status.toString();
 }
 
 export async function createCategory(categoryName:string):Promise<unknown> {
-  const response = await fetch('http://localhost:3000/api/categories/', {
+  const response = await fetch(`${BASE_URL}/api/categories/`, {
     method: 'POST',
     headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
     body: `${categoryName}`,
@@ -66,7 +67,7 @@ export async function createCategory(categoryName:string):Promise<unknown> {
 
 export async function deleteWord(categoryName:string, index:number) {
   const config = {
-    url: `http://localhost:3000/api/words/${categoryName}/${index}`,
+    url: `${BASE_URL}/api/words/${categoryName}/${index}`,
     fetchConfig: {
       method: 'DELETE',
     },
@@ -76,7 +77,7 @@ export async function deleteWord(categoryName:string, index:number) {
 
 export async function renameCategory(categoryName:string, index:number) {
   const config = {
-    url: `http://localhost:3000/api/categories/${index}`,
+    url: `${BASE_URL}/api/categories/${index}`,
     fetchConfig:
         {
           method: 'POST',
@@ -89,7 +90,7 @@ export async function renameCategory(categoryName:string, index:number) {
 
 export async function getWords():Promise<Interfaces[][]> {
   const config = {
-    url: 'http://localhost:3000/api/categories/all',
+    url: `${BASE_URL}/api/categories/all`,
     fetchConfig:
       {
         method: 'GET',
@@ -101,7 +102,7 @@ export async function getWords():Promise<Interfaces[][]> {
 
 export async function createEmptyWord(categoryName:string) {
   const config = {
-    url: `http://localhost:3000/api/words/${categoryName}`,
+    url: `${BASE_URL}/api/words/${categoryName}`,
     fetchConfig:
       {
         method: 'POST',
@@ -112,7 +113,7 @@ export async function createEmptyWord(categoryName:string) {
 
 export async function replaceWord(categoryName:string, index:number, word:Interfaces) {
   const config = {
-    url: `http://localhost:3000/api/words/rename/${categoryName}/${index}`,
+    url: `${BASE_URL}/api/words/rename/${categoryName}/${index}`,
     fetchConfig: {
       method: 'POST',
       headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
@@ -127,7 +128,7 @@ export async function upload(categoryName:string, index:number, formdata:FormDat
   console.log('upload');
   const ctrl = new AbortController();
   const config = {
-    url: `http://localhost:3000/api/words/upload/${categoryName}/${index}`,
+    url: `${BASE_URL}/api/words/upload/${categoryName}/${index}`,
     fetchConfig: {
       method: 'POST',
       body: formdata,

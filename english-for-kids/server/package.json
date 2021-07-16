@@ -6,7 +6,8 @@
   "scripts": {
     "start": "ts-node ./src/app.ts",
     "watch": "nodemon  --delay 700ms ",
-    "lint": "eslint src --ext .ts,.js"
+    "lint": "eslint src --ext .ts,.js",
+    "build": "tsc"
   },
   "author": "",
   "license": "ISC",
