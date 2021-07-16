@@ -98,7 +98,9 @@ export class AdminCategoryCard extends BaseComponent {
 
   async addWord() {
     const name = await getCategories();
+    console.log(name);
     const nameUrl = name[this.index].replace(/ /g, '_');
+    console.log(nameUrl);
     window.history.pushState(null, 'null', `/categories/${nameUrl}`);
     const popStateEvent = new PopStateEvent('popstate');
     dispatchEvent(popStateEvent);

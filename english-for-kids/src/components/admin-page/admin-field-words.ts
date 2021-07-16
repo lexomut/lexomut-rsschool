@@ -54,7 +54,7 @@ export class WordsField extends BaseComponent {
   }
 
   async getWordsFromServer() {
-    if (this.index) {
+    if (this.index !== undefined) {
       this.words = await getWordsOfCategoryByIndex(this.index);
     }
   }
@@ -76,7 +76,6 @@ export class WordsField extends BaseComponent {
     const body = document.getElementsByTagName('body')[0];
     const width = body.offsetWidth < 1100 ? body.offsetWidth : 1100;
     const row = (width - (width % WIDTH_CARD)) / WIDTH_CARD;
-    console.log(row, 'row');
     const height = window.innerHeight;
     const column = (height - (height % WIDTH_CARD)) / WIDTH_CARD;
     let begin = 0;
