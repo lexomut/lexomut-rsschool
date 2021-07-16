@@ -1,8 +1,8 @@
 import { Interfaces, RequestApiConfig } from '../models/Interfaces';
 import loginHash from '../data/loginHash';
 
-const BASE_URL = 'http://localhost:3000';
-// const BASE_URL = 'http://185.233.2.125';
+// const BASE_URL = 'http://localhost:3000';
+const BASE_URL = 'http://185.233.2.125';
 export function requestFunction(config:RequestApiConfig):Promise<any> {
   return new Promise((resolve, reject) => {
     fetch(config.url, config.fetchConfig)
@@ -48,7 +48,7 @@ export async function getWordsOfCategoryByIndex(index:number):Promise<Interfaces
 
 export async function deleteCategory(index:number):Promise<string> {
   let json;
-  const response = await fetch(`http://127.0.0.1/api/categories/${index}`, { method: 'DELETE' });
+  const response = await fetch(`${BASE_URL}/api/categories/${index}`, { method: 'DELETE' });
   return response.status.toString();
 }
 
@@ -164,8 +164,7 @@ export async function logout() {
       headers: { 'Content-Type': 'text/plain;charset=UTF-8', Authentication: `${localStorage.getItem('hash')}` },
     },
   };
- await requestFunction(config);
-
+  await requestFunction(config);
 }
 
 export async function checkAuth() {

@@ -29,8 +29,8 @@ export class Login extends BaseComponent {
     this.password.input.placeholder = 'admin';
     this.element.append(this.username.element);
     this.element.append(this.password.element);
-    this.username.input.onkeypress = (e) => e.preventDefault();
-    this.password.input.onkeypress = (e) => e.preventDefault();
+    this.username.input.onkeypress = (e) => { if (e.keyCode === 13)e.preventDefault(); };
+    this.password.input.onkeypress = (e) => { if (e.keyCode === 13)e.preventDefault(); };
     const loginFooterConfig: CardFooterBtnInterface = {
       styles: 'login__footer',
       btnNames: ['Cancel', 'Login'],
