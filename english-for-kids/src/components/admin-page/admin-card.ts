@@ -114,7 +114,6 @@ export class AdminCategoryCard extends BaseComponent {
   }
 
   async getElementAmount() {
-
     const category = await getWordsOfCategoryByIndex(this.index);
     const amountElement = new BaseComponent('div', ['admin-category-card__amount']).element;
     amountElement.innerText = `WORDS: ${category.length}`;
