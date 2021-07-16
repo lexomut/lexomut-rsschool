@@ -4,6 +4,7 @@ import path from 'path';
 
 import categories from './categories/router';
 import wordsRouter from './words/wordsRouter';
+import login from './login/login';
 
 const staticFilesPath = path.resolve(__dirname, '../../dist');
 const app = express();
@@ -21,4 +22,5 @@ app.use(/^(?!\/api\/)/, (req, res) => {
 
 app.use('/api/categories', categories);
 app.use('/api/words', wordsRouter);
+app.use('/api/login', login);
 app.listen(3000, () => console.log('server started on port 3000'));

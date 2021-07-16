@@ -1,6 +1,8 @@
 import { Interfaces, RequestApiConfig } from '../models/Interfaces';
+import loginHash from '../data/loginHash';
 
-const BASE_URL = 'http://185.233.2.125';
+const BASE_URL = 'http://localhost:3000';
+// const BASE_URL = 'http://185.233.2.125';
 export function requestFunction(config:RequestApiConfig):Promise<any> {
   return new Promise((resolve, reject) => {
     fetch(config.url, config.fetchConfig)
@@ -139,4 +141,41 @@ export async function upload(categoryName:string, index:number, formdata:FormDat
   setTimeout(() => ctrl.abort(), 5000);
 
   await requestFunction(config);
+}
+
+export async function sendLogin(login:string, pass:string) {
+  const config = {
+    url: `${BASE_URL}/api/login/`,
+    fetchConfig: {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+      body: `${JSON.stringify({ login, pass })}`,
+    },
+  };
+  const result = await requestFunction(config);
+  return result;
+}
+
+export async function logout() {
+  const config = {
+    url: `${BASE_URL}/api/login/`,
+    fetchConfig: {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'text/plain;charset=UTF-8', Authentication: `${localStorage.getItem('hash')}` },
+    },
+  };
+ await requestFunction(config);
+
+}
+
+export async function checkAuth() {
+  const config = {
+    url: `${BASE_URL}/api/login/check`,
+    fetchConfig: {
+      method: 'GET',
+      headers: { 'Content-Type': 'text/plain;charset=UTF-8', Authentication: `${localStorage.getItem('hash')}` },
+    },
+  };
+  const result = await requestFunction(config);
+  return result;
 }

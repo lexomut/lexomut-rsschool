@@ -2,10 +2,11 @@ import { BaseComponent } from '../base-component';
 import { AdminPageHeader } from './admin-page___header';
 import './admin-page.scss';
 import { AdminFieldCategories } from './admin-field';
-import { getCategories } from '../../module/request';
+import { getCategories, logout } from '../../module/request';
 import { WordsField } from './admin-field-words';
 import { getLocation } from './functions';
 import { CardsField } from '../cards-field';
+import loginHash from '../../data/loginHash';
 
 export class AdminPage extends BaseComponent {
   private rootElement: HTMLElement;
@@ -35,8 +36,10 @@ export class AdminPage extends BaseComponent {
       this.rootElement.append(this.element);
       this.element.append(this.header.element);
       if (!getLocation()[0]) window.history.pushState(null, 'null', '/categories');
-      this.header.logOut.addEventListener('click', () => {
+      this.header.logOut.addEventListener('click', async () => {
         window.history.pushState(null, 'null', '/');
+        await logout();
+        localStorage.setItem('hash', '');
         resolve('');
         window.onpopstate = null;
       });
