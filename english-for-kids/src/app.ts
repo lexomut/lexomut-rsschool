@@ -46,6 +46,7 @@ export class App {
     this.currentLink = '';
     this.currentMode = true;
     store.subscribe(() => {
+      if (store.getState().link === 'abracadabra') return;
       if (store.getState().link === 'Login') return;
       this.stateHandler(store.getState().link);
       this.gameBegin = false;

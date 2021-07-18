@@ -17,8 +17,10 @@ export interface AdminWordCardInterface {
 }
 
 interface FetchConfig {
-  method: string
-  headers?: { 'Content-Type': string }
+  method?: string
+  headers?: {
+    'Content-Type'?: string
+    authentication?: string|undefined }
   body?: string|FormData
   signal?:AbortSignal
 }

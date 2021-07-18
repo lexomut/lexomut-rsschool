@@ -20,6 +20,7 @@ const data_1 = require("../data");
 const repository_1 = require("./repository");
 const status_codes_1 = require("../status-codes");
 const Constatnts_1 = require("../Constatnts");
+const login_1 = require("../login/login");
 const storageConfig = multer_1.default.diskStorage({
     destination: (req, file, cb) => {
         if (file.mimetype === 'audio/mpeg')
@@ -36,6 +37,8 @@ const storageConfig = multer_1.default.diskStorage({
 exports.upload = multer_1.default({ storage: storageConfig });
 const wordsRouter = express_1.Router();
 wordsRouter.delete('/:name/:index', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    if (!login_1.checkAuth(String(req.headers.authentication)) || !req.headers.authentication)
+        return res.status(403).send('user not Authorized');
     const index = Number(req.params.index);
     const nameCategory = String(req.params.name);
     const indexOfCategory = data_1.categories.findIndex((item) => nameCategory === item);
@@ -54,6 +57,8 @@ wordsRouter.delete('/:name/:index', (req, res) => __awaiter(void 0, void 0, void
     }
 }));
 wordsRouter.post('/rename/:name/:index', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    if (!login_1.checkAuth(String(req.headers.authentication)) || !req.headers.authentication)
+        return res.status(403).send('user not Authorized');
     const data = req.body;
     const index = Number(req.params.index);
     const nameCategory = String(req.params.name).replace(/%/g, ' ');
@@ -73,6 +78,8 @@ wordsRouter.post('/rename/:name/:index', (req, res) => __awaiter(void 0, void 0,
     }
 }));
 wordsRouter.post('/:name/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    if (!login_1.checkAuth(String(req.headers.authentication)) || !req.headers.authentication)
+        return res.status(403).send('user not Authorized');
     const nameCategory = String(req.params.name).replace(/%/g, ' ');
     const indexOfCategory = data_1.categories.findIndex((item) => nameCategory === item);
     if (indexOfCategory < 0)
@@ -88,6 +95,8 @@ wordsRouter.post('/:name/', (req, res) => __awaiter(void 0, void 0, void 0, func
     }
 }));
 wordsRouter.post('/upload/:name/:index', exports.upload.any(), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    if (!login_1.checkAuth(String(req.headers.authentication)) || !req.headers.authentication)
+        return res.status(403).send('user not Authorized');
     if (!req.body.wordConfig)
         return res.sendStatus(400);
     const index = Number(req.params.index);

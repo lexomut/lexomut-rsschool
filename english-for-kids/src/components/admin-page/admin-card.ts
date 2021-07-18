@@ -6,7 +6,7 @@ import { CardFooterBtn } from '../login/card-footer-btn';
 import {
   createCategory, deleteCategory, getCategories, getWordsOfCategoryByIndex, renameCategory,
 } from '../../module/request';
-import { dispatchChangeInAdminPage } from '../../store/actions';
+import { dispatchChangeInAdminPage, dispatchMouseClickOnMenu } from '../../store/actions';
 import { BaseInputComponent } from '../Base-Input-Component';
 
 export class AdminCategoryCard extends BaseComponent {

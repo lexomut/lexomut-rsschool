@@ -7,6 +7,7 @@ import {
 } from './repository';
 import { StatusCodes } from '../status-codes';
 import { UPLOAD_FILE_PATH } from '../Constatnts';
+import { checkAuth } from '../login/login';
 
 const storageConfig = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -24,6 +25,7 @@ export const upload = multer({ storage: storageConfig });
 const wordsRouter = Router();
 
 wordsRouter.delete('/:name/:index', async (req, res) => {
+  if (!checkAuth(String(req.headers.authentication)) || !req.headers.authentication) return res.status(403).send('user not Authorized');
   const index = Number(req.params.index);
   const nameCategory = String(req.params.name);
   const indexOfCategory = categories.findIndex((item) => nameCategory === item);
@@ -39,7 +41,7 @@ wordsRouter.delete('/:name/:index', async (req, res) => {
   }
 });
 wordsRouter.post('/rename/:name/:index', async (req, res) => {
-  const data = req.body;
+  if (!checkAuth(String(req.headers.authentication)) || !req.headers.authentication) return res.status(403).send('user not Authorized'); const data = req.body;
   const index = Number(req.params.index);
   const nameCategory = String(req.params.name).replace(/%/g, ' ');
   const indexOfCategory = categories.findIndex((item) => nameCategory === item);
@@ -56,6 +58,7 @@ wordsRouter.post('/rename/:name/:index', async (req, res) => {
 });
 
 wordsRouter.post('/:name/', async (req, res) => {
+  if (!checkAuth(String(req.headers.authentication)) || !req.headers.authentication) return res.status(403).send('user not Authorized');
   const nameCategory = String(req.params.name).replace(/%/g, ' ');
   const indexOfCategory = categories.findIndex((item) => nameCategory === item);
   if (indexOfCategory < 0) return res.status(400).send(`Category with name  ${nameCategory}  not exists`);
@@ -71,7 +74,8 @@ wordsRouter.post('/:name/', async (req, res) => {
 });
 
 wordsRouter.post('/upload/:name/:index', upload.any(), async (req, res) => {
-  if (!req.body.wordConfig)return res.sendStatus(400);
+  if (!checkAuth(String(req.headers.authentication)) || !req.headers.authentication) return res.status(403).send('user not Authorized');
+  if (!req.body.wordConfig) return res.sendStatus(400);
   const index = Number(req.params.index);
   const nameCategory = String(req.params.name).replace(/%/g, ' ');
   const indexOfCategory = categories.findIndex((item) => nameCategory === item);

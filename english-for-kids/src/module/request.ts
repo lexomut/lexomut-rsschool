@@ -5,6 +5,7 @@ import loginHash from '../data/loginHash';
 const BASE_URL = 'http://185.233.2.125';
 export function requestFunction(config:RequestApiConfig):Promise<any> {
   return new Promise((resolve, reject) => {
+    if (config.fetchConfig.headers) config.fetchConfig.headers.authentication = `${localStorage.getItem('hash')}`;
     fetch(config.url, config.fetchConfig)
       .then((response) => {
         console.log(response.status);
@@ -15,56 +16,115 @@ export function requestFunction(config:RequestApiConfig):Promise<any> {
       .then((json) => resolve(json))
       .catch((err) => {
         console.log('принята ошибка', err);
-        err.text().then((errorMessage:string) => reject(errorMessage));
+        if (err.status === 403) {
+          alert('пользователь не авторизован');
+        }
+          err.text().then((errorMessage:string) => reject(errorMessage));
       });
   });
 }
 
-export async function getCategories():Promise<string[]> {
-  let json;
-  const response = await fetch(`${BASE_URL}/api/categories/`);
-  if (response.ok) {
-    json = await response.json();
-  } else {
-    console.log(`Ошибка HTTP: ${response.status}`);
-  }
+// export async function getCategories():Promise<string[]> {
+//   let json;
+//   const response = await fetch(`${BASE_URL}/api/categories/`);
+//   if (response.ok) {
+//     json = await response.json();
+//   } else {
+//     console.log(`Ошибка HTTP: ${response.status}`);
+//   }
+//
+//   return json;
+// }
 
-  return json;
+export async function getCategories():Promise<string[]> {
+  const config = {
+    url: `${BASE_URL}/api/categories/`,
+    fetchConfig: {
+      headers: {},
+    },
+  };
+  const result = await requestFunction(config);
+  return result;
 }
+
+// export async function getWordsOfCategoryByIndex(index:number):Promise<Interfaces[]> {
+//   if (Number.isNaN(index)) return Promise.reject(new Error('index is NAN'));
+//   let json;
+//   const response = await fetch(`${BASE_URL}/api/categories/${index}`);
+//   if (response.ok) {
+//     json = await response.json();
+//     // console.log(response);
+//   } else {
+//     console.log(`Ошибка HTTP: ${response.status}`);
+//   }
+//   // console.log(json);
+//   return json;
+// }
 
 export async function getWordsOfCategoryByIndex(index:number):Promise<Interfaces[]> {
-  if (Number.isNaN(index)) return Promise.reject(new Error('index is NAN'));
-  let json;
-  const response = await fetch(`${BASE_URL}/api/categories/${index}`);
-  if (response.ok) {
-    json = await response.json();
-    // console.log(response);
-  } else {
-    console.log(`Ошибка HTTP: ${response.status}`);
-  }
-  // console.log(json);
-  return json;
+  const config = {
+    url: `${BASE_URL}/api/categories/${index}`,
+    fetchConfig: {
+      headers: {},
+    },
+  };
+  const result = await requestFunction(config);
+  return result;
 }
 
-export async function deleteCategory(index:number):Promise<string> {
-  let json;
-  const response = await fetch(`${BASE_URL}/api/categories/${index}`, { method: 'DELETE' });
-  return response.status.toString();
+// export async function deleteCategory(index:number):Promise<string> {
+//   let json;
+//   const response = await fetch(`${BASE_URL}/api/categories/${index}`, { method: 'DELETE' });
+//   return response.status.toString();
+// }
+
+export async function deleteCategory(index:number) {
+  const config = {
+    url: `${BASE_URL}/api/categories/${index}`,
+    fetchConfig: {
+      method: 'DELETE',
+      headers: {},
+    },
+  };
+  await requestFunction(config);
 }
 
-export async function deleteEmptyCategoryRequest():Promise<string> {
-  let json;
-  const response = await fetch(`${BASE_URL}/api/categories/`, { method: 'DELETE' });
-  return response.status.toString();
+// export async function deleteEmptyCategoryRequest():Promise<string> {
+//   let json;
+//   const response = await fetch(`${BASE_URL}/api/categories/`, { method: 'DELETE' });
+//   return response.status.toString();
+// }
+
+export async function deleteEmptyCategoryRequest() {
+  const config = {
+    url: `${BASE_URL}/api/categories/`,
+    fetchConfig: {
+      method: 'DELETE',
+      headers: {},
+    },
+  };
+  await requestFunction(config);
 }
 
-export async function createCategory(categoryName:string):Promise<unknown> {
-  const response = await fetch(`${BASE_URL}/api/categories/`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
-    body: `${categoryName}`,
-  });
-  return response.json();
+// export async function createCategory(categoryName:string):Promise<unknown> {
+//   const response = await fetch(`${BASE_URL}/api/categories/`, {
+//     method: 'POST',
+//     headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+//     body: `${categoryName}`,
+//   });
+//   return response.json();
+// }
+export async function createCategory(categoryName:string) {
+  const config = {
+    url: `${BASE_URL}/api/categories/`,
+    fetchConfig: {
+      method: 'POST',
+      headers: {},
+      body: `${categoryName}`,
+    },
+  };
+  const result = await requestFunction(config);
+  return result;
 }
 
 export async function deleteWord(categoryName:string, index:number) {
@@ -72,6 +132,7 @@ export async function deleteWord(categoryName:string, index:number) {
     url: `${BASE_URL}/api/words/${categoryName}/${index}`,
     fetchConfig: {
       method: 'DELETE',
+      headers: {},
     },
   };
   await requestFunction(config);
@@ -96,6 +157,7 @@ export async function getWords():Promise<Interfaces[][]> {
     fetchConfig:
       {
         method: 'GET',
+        headers: {},
       },
   };
   const result = await requestFunction(config);
@@ -108,6 +170,7 @@ export async function createEmptyWord(categoryName:string) {
     fetchConfig:
       {
         method: 'POST',
+        headers: {},
       },
   };
   await requestFunction(config);
@@ -135,6 +198,7 @@ export async function upload(categoryName:string, index:number, formdata:FormDat
       method: 'POST',
       body: formdata,
       signal: ctrl.signal,
+      headers: {},
     },
   };
 
@@ -161,7 +225,7 @@ export async function logout() {
     url: `${BASE_URL}/api/login/`,
     fetchConfig: {
       method: 'DELETE',
-      headers: { 'Content-Type': 'text/plain;charset=UTF-8', Authentication: `${localStorage.getItem('hash')}` },
+      headers: { 'Content-Type': 'text/plain;charset=UTF-8', authentication: `${localStorage.getItem('hash')}` },
     },
   };
   await requestFunction(config);
@@ -172,7 +236,7 @@ export async function checkAuth() {
     url: `${BASE_URL}/api/login/check`,
     fetchConfig: {
       method: 'GET',
-      headers: { 'Content-Type': 'text/plain;charset=UTF-8', Authentication: `${localStorage.getItem('hash')}` },
+      headers: { 'Content-Type': 'text/plain;charset=UTF-8', authentication: `${localStorage.getItem('hash')}` },
     },
   };
   const result = await requestFunction(config);

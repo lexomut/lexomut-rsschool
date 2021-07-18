@@ -1,14 +1,14 @@
 import { Router } from 'express';
 
 import { StatusCodes } from '../status-codes';
+import hashes from './hash';
 
 // eslint-disable-next-line no-bitwise,no-param-reassign
 const hashCode = (s:string) => s.split('').reduce((a, b) => { a = ((a << 5) - a) + b.charCodeAt(0); return a & a; }, 0);
 
 const routerLog = Router();
-const hashes:string[] = [];
 
-const checkAuth = (hash:string) => {
+export const checkAuth = (hash:string) => {
   if (hashes.find((item) => item === hash)) return true;
   return false;
 };

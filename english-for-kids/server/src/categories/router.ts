@@ -4,20 +4,22 @@ import {
   deleteCategory, deleteEmptyCategory, getAllWords, getCategories, getWordsByIndex, renameCategory,
 } from './repository';
 import { StatusCodes } from '../status-codes';
+import { checkAuth } from '../login/login';
 
 const router = Router();
 
 router.get('/all', async (req, res) => {
   const allCategories = await getAllWords();
-  res.json(allCategories);
+  return res.json(allCategories);
 });
 
 router.get('/', async (req, res) => {
   const allCategories = await getCategories();
-  res.json(allCategories);
+  return res.json(allCategories);
 });
 
 router.get('/:index', async (req, res) => {
+  // if (!checkAuth(String(req.headers.authentication)) || !req.headers.authentication) return res.status(403).send('user not Authorized');
   const index = Number(req.params.index);
   const allCategories = await getAllWords();
   if (Number.isNaN(index) || allCategories.length < index || index < 0) { return res.sendStatus(400); }
@@ -28,12 +30,13 @@ router.get('/:index', async (req, res) => {
 
 // Delete category
 router.delete('/:index', async (req, res) => {
+  if (!checkAuth(String(req.headers.authentication)) || !req.headers.authentication) return res.status(403).send('user not Authorized');
   const index = Number(req.params.index);
   const allCategories = await getAllWords();
   if (Number.isNaN(index) || allCategories.length < index || index < 0) { return res.sendStatus(400); }
   try {
     await deleteCategory(index).catch(console.log);
-    return res.sendStatus(StatusCodes.Ok);
+    return res.status(StatusCodes.Ok).json('ok');
   } catch (e) {
     return res.status(StatusCodes.BadRequest).send(e);
   }
@@ -41,6 +44,7 @@ router.delete('/:index', async (req, res) => {
 
 // Create new category
 router.post('/', async (req, res) => {
+  if (!checkAuth(String(req.headers.authentication)) || !req.headers.authentication) return res.status(403).send('user not Authorized');
   const data = req.body;
   if (!data) return res.sendStatus(StatusCodes.BadRequest);
   try {
@@ -52,15 +56,12 @@ router.post('/', async (req, res) => {
 });
 
 router.delete('/', async (req, res) => {
-  try {
-    await deleteEmptyCategory().catch(console.log);
-    return res.sendStatus(StatusCodes.Ok);
-  } catch (e) {
-    return res.status(StatusCodes.BadRequest).send(e);
-  }
+  await deleteEmptyCategory().catch(console.log);
+  return res.status(StatusCodes.Ok).json('error category deleted');
 });
 
 router.post('/:index', async (req, res) => {
+  if (!checkAuth(String(req.headers.authentication)) || !req.headers.authentication) return res.status(403).send('user not Authorized');
   const index = Number(req.params.index);
   const data = req.body;
   if (!data) return res.sendStatus(StatusCodes.BadRequest);

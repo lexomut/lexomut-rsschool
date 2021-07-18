@@ -12,16 +12,18 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const repository_1 = require("./repository");
 const status_codes_1 = require("../status-codes");
+const login_1 = require("../login/login");
 const router = express_1.Router();
 router.get('/all', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const allCategories = yield repository_1.getAllWords();
-    res.json(allCategories);
+    return res.json(allCategories);
 }));
 router.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const allCategories = yield repository_1.getCategories();
-    res.json(allCategories);
+    return res.json(allCategories);
 }));
 router.get('/:index', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    // if (!checkAuth(String(req.headers.authentication)) || !req.headers.authentication) return res.status(403).send('user not Authorized');
     const index = Number(req.params.index);
     const allCategories = yield repository_1.getAllWords();
     if (Number.isNaN(index) || allCategories.length < index || index < 0) {
@@ -35,6 +37,8 @@ router.get('/:index', (req, res) => __awaiter(void 0, void 0, void 0, function* 
 }));
 // Delete category
 router.delete('/:index', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    if (!login_1.checkAuth(String(req.headers.authentication)) || !req.headers.authentication)
+        return res.status(403).send('user not Authorized');
     const index = Number(req.params.index);
     const allCategories = yield repository_1.getAllWords();
     if (Number.isNaN(index) || allCategories.length < index || index < 0) {
@@ -42,7 +46,7 @@ router.delete('/:index', (req, res) => __awaiter(void 0, void 0, void 0, functio
     }
     try {
         yield repository_1.deleteCategory(index).catch(console.log);
-        return res.sendStatus(status_codes_1.StatusCodes.Ok);
+        return res.status(status_codes_1.StatusCodes.Ok).json('ok');
     }
     catch (e) {
         return res.status(status_codes_1.StatusCodes.BadRequest).send(e);
@@ -50,6 +54,8 @@ router.delete('/:index', (req, res) => __awaiter(void 0, void 0, void 0, functio
 }));
 // Create new category
 router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    if (!login_1.checkAuth(String(req.headers.authentication)) || !req.headers.authentication)
+        return res.status(403).send('user not Authorized');
     const data = req.body;
     if (!data)
         return res.sendStatus(status_codes_1.StatusCodes.BadRequest);
@@ -62,15 +68,12 @@ router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
 }));
 router.delete('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        yield repository_1.deleteEmptyCategory().catch(console.log);
-        return res.sendStatus(status_codes_1.StatusCodes.Ok);
-    }
-    catch (e) {
-        return res.status(status_codes_1.StatusCodes.BadRequest).send(e);
-    }
+    yield repository_1.deleteEmptyCategory().catch(console.log);
+    return res.status(status_codes_1.StatusCodes.Ok).json('error category deleted');
 }));
 router.post('/:index', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    if (!login_1.checkAuth(String(req.headers.authentication)) || !req.headers.authentication)
+        return res.status(403).send('user not Authorized');
     const index = Number(req.params.index);
     const data = req.body;
     if (!data)
