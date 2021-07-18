@@ -112,7 +112,7 @@ export class WordsField extends BaseComponent {
   async addNewCard() {
     await createEmptyWord(this.name).then(async (message) => {
       let words = [];
-      if (this.index) words = await getWordsOfCategoryByIndex(this.index);
+      if (this.index !== undefined) words = await getWordsOfCategoryByIndex(this.index);
       const index = words.length - 1;
       const configNewCard:AdminCategoryCardInterface = {
         index,

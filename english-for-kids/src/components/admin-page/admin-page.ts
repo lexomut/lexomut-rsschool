@@ -5,8 +5,6 @@ import { AdminFieldCategories } from './admin-field';
 import { getCategories, logout } from '../../module/request';
 import { WordsField } from './admin-field-words';
 import { getLocation } from './functions';
-import { CardsField } from '../cards-field';
-import loginHash from '../../data/loginHash';
 
 export class AdminPage extends BaseComponent {
   private rootElement: HTMLElement;

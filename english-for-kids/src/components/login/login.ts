@@ -1,7 +1,6 @@
 import { BaseComponent } from '../base-component';
 import { BaseInputComponent } from '../Base-Input-Component';
 import { CardFooterBtn, CardFooterBtnInterface } from './card-footer-btn';
-import loginHash from '../../data/loginHash';
 import { sendLogin } from '../../module/request';
 import { dispatchMouseClickOnMenu } from '../../store/actions';
 

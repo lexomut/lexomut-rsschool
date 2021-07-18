@@ -81,13 +81,10 @@ export class AdminCardWord extends BaseComponent {
 
   async deleteThisCard() {
     const response = await deleteWord(this.categoryName, this.index);
-    console.log(response);
     dispatchChangeInAdminPage('delete item');
   }
 
   async saveThisCard() {
-    console.log(this.soundInput.filename);
-
     const config:Interfaces = {
       word: this.inputWord.value,
       translation: this.inputTranslation.value,
@@ -161,7 +158,6 @@ ${this.index}
   }
 
   showBtn() {
-    console.log('chenge');
     if (this.inputWord.value && this.inputTranslation.value && this.imageInput.filename && this.soundInput.filename) this.editFooterCard.showOnlySecondBtn();
   }
 

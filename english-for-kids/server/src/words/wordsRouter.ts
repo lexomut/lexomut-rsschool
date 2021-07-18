@@ -20,6 +20,7 @@ const storageConfig = multer.diskStorage({
   },
 });
 
+
 export const upload = multer({ storage: storageConfig });
 
 const wordsRouter = Router();

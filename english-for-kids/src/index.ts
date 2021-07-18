@@ -30,7 +30,7 @@ async function mainPage() {
       // eslint-disable-next-line @typescript-eslint/no-use-before-define
       adminPage(appElement);
     }, (e) => { window.history.pushState(null, '', '/'); alert(e); isCcontnue = true; });
-   if (!isCcontnue) return;
+    if (!isCcontnue) return;
   }
 
   const app = new App(appElement);

@@ -1,5 +1,4 @@
 import { Interfaces, RequestApiConfig } from '../models/Interfaces';
-import loginHash from '../data/loginHash';
 
 // const BASE_URL = 'http://localhost:3000';
 const BASE_URL = 'http://185.233.2.125';
@@ -19,22 +18,10 @@ export function requestFunction(config:RequestApiConfig):Promise<any> {
         if (err.status === 403) {
           alert('пользователь не авторизован');
         }
-          err.text().then((errorMessage:string) => reject(errorMessage));
+        err.text().then((errorMessage:string) => reject(errorMessage));
       });
   });
 }
-
-// export async function getCategories():Promise<string[]> {
-//   let json;
-//   const response = await fetch(`${BASE_URL}/api/categories/`);
-//   if (response.ok) {
-//     json = await response.json();
-//   } else {
-//     console.log(`Ошибка HTTP: ${response.status}`);
-//   }
-//
-//   return json;
-// }
 
 export async function getCategories():Promise<string[]> {
   const config = {
@@ -47,20 +34,6 @@ export async function getCategories():Promise<string[]> {
   return result;
 }
 
-// export async function getWordsOfCategoryByIndex(index:number):Promise<Interfaces[]> {
-//   if (Number.isNaN(index)) return Promise.reject(new Error('index is NAN'));
-//   let json;
-//   const response = await fetch(`${BASE_URL}/api/categories/${index}`);
-//   if (response.ok) {
-//     json = await response.json();
-//     // console.log(response);
-//   } else {
-//     console.log(`Ошибка HTTP: ${response.status}`);
-//   }
-//   // console.log(json);
-//   return json;
-// }
-
 export async function getWordsOfCategoryByIndex(index:number):Promise<Interfaces[]> {
   const config = {
     url: `${BASE_URL}/api/categories/${index}`,
@@ -71,12 +44,6 @@ export async function getWordsOfCategoryByIndex(index:number):Promise<Interfaces
   const result = await requestFunction(config);
   return result;
 }
-
-// export async function deleteCategory(index:number):Promise<string> {
-//   let json;
-//   const response = await fetch(`${BASE_URL}/api/categories/${index}`, { method: 'DELETE' });
-//   return response.status.toString();
-// }
 
 export async function deleteCategory(index:number) {
   const config = {
@@ -106,14 +73,6 @@ export async function deleteEmptyCategoryRequest() {
   await requestFunction(config);
 }
 
-// export async function createCategory(categoryName:string):Promise<unknown> {
-//   const response = await fetch(`${BASE_URL}/api/categories/`, {
-//     method: 'POST',
-//     headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
-//     body: `${categoryName}`,
-//   });
-//   return response.json();
-// }
 export async function createCategory(categoryName:string) {
   const config = {
     url: `${BASE_URL}/api/categories/`,

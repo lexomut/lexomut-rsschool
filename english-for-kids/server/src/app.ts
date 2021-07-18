@@ -6,9 +6,9 @@ import categories from './categories/router';
 import wordsRouter from './words/wordsRouter';
 import login from './login/login';
 
-const staticFilesPath = path.resolve(__dirname, '../../dist');
+const staticFilesPath = path.resolve(__dirname, '../dist');
 const app = express();
-const indexPath = path.resolve(__dirname, '../../dist/index.html');
+const indexPath = path.resolve(__dirname, '../dist/index.html');
 
 app.use(express.json());
 app.use(express.text());
@@ -23,4 +23,5 @@ app.use(/^(?!\/api\/)/, (req, res) => {
 app.use('/api/categories', categories);
 app.use('/api/words', wordsRouter);
 app.use('/api/login', login);
-app.listen(3000, () => console.log('server started on port 3000'));
+// app.listen(3000, () => console.log('server started on port 3000'));
+app.listen(80, () => console.log('server started on port 80'));

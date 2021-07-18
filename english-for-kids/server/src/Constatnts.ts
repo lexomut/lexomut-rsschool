@@ -1,2 +1,2 @@
 
-export const UPLOAD_FILE_PATH = 'uploads';
+export const UPLOAD_FILE_PATH = '../dist';
