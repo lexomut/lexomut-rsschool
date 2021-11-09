@@ -1,0 +1,2 @@
+export const IS_TRAIN_MODE = 'IS_TRAIN_MODE';
+export const MOUSE_CLICK_ON_MENU = 'MOUSE_CLICK_ON_MENU';

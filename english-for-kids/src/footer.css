@@ -1,0 +1,11 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.footer a > img {
+  width: 70px;
+  height: auto;
+}
+
+/*# sourceMappingURL=footer.css.map */
