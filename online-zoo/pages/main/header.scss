@@ -1,0 +1,107 @@
+
+.header {
+  max-width: 100%;
+  display: flex;
+  height: 11rem;
+  justify-content: center;
+  background-color: $orange;
+   @media screen and (max-width: $md3+px){
+
+position: fixed;
+     width: 100vw;
+     z-index: 100;
+    }
+
+
+  &__container {
+    width: 100%;
+    //margin: auto 8.4%;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+
+
+
+  }
+
+
+  &__logo {
+    display: flex;
+    font-size: 5rem;
+    color: black;
+  }
+
+  &__nav {
+    flex-basis: 62rem; //48.3rem;
+    margin-left: auto;
+    padding-right: 5%;
+
+    li > a {
+      @include btn-text(#000000);
+      text-transform: uppercase;
+      color: inherit;
+
+    }
+
+
+   .nav-item > a:hover {
+      border-color: inherit;
+
+      border-bottom: 0.2rem solid;
+    }
+
+    @media screen and (max-width: $md2+px) {
+
+      //width: 100%;
+      flex-basis: 50rem; //43.2rem;
+      padding-right: 7%;
+
+    }
+    @media screen and (max-width: $md3+px) {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      left: 200vh;
+      //display: none;
+    }
+    @media screen and (max-width: $md2+px) {
+
+      //width: 100%;
+      flex-basis: 56rem;
+      padding-right: 8%;
+  }
+  }
+
+
+  &__social {
+
+    padding: 0;
+    width: 18rem;
+
+    @media screen and (max-width: $md3+px) {
+      display: none;
+    }
+
+  }
+
+
+  &__hamburger {
+    padding: 1.7rem;
+    display: none;
+    @media screen and (max-width: $md3+px) {
+      display: block;
+    }
+  }
+
+}
+
+
+.active {
+  color: #00A092;
+  a{
+    pointer-events:none;
+  }
+}
+
+

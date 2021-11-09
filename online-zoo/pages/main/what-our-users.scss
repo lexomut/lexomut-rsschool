@@ -1,0 +1,291 @@
+.what-our-users {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 10rem;
+  //background-image:;
+  //background-repeat: ;
+  background: linear-gradient(177.34deg, #20113D 7.26%, rgba(32, 17, 61, 0) 14.89%), linear-gradient(144.77deg, #20113D 18.53%, rgba(32, 17, 61, 0) 46.43%), url(../../assets/images/panda-background.png) right 73% top -9rem no-repeat;
+  @media screen and (max-width: $md2+px) {
+    padding-top: 10.5rem;
+    background: linear-gradient(
+                    177.34deg
+            , #20113D 7.26%, rgba(32, 17, 61, 0) 14.89%), linear-gradient(
+                    144.77deg
+            , #20113D 18.53%, rgba(32, 17, 61, 0) 46.43%),
+    url(../../assets/images/panda-background.png) right 92.8% top 21rem no-repeat;
+
+  }
+  @media screen and (max-width: $md3+px) {
+    background: #20113D url(../../assets/images/panda-background-640.jpg) center bottom  no-repeat;
+    padding-top: 6.5rem;
+    background-size: 100vw;
+  }
+  @media screen and (max-width: $md4+px) {
+    background: #20113D url(../../assets/images/panda-background-320.jpg) center bottom no-repeat;
+    padding-top: 1rem;
+    background-size: 100vw;
+  }
+
+}
+  .what-our-users__wrapper{
+
+    @media screen and (max-width: $md2+px) {
+    margin: 0 0 0 4rem;
+    max-width: 100%;
+    }
+    @media screen and (max-width: $md4+px) {
+      margin-left: 1.7rem;
+    }
+
+  }
+
+
+.what-our-users__content {
+  display: flex;
+  flex-wrap: nowrap;
+  @media screen and (max-width: $md2+px) {
+    flex-wrap:  wrap;
+
+  }
+
+}
+
+
+.what-our-users__text{
+  padding-right: 4.5rem;
+  @media screen and (max-width: $md2+px) {
+  max-width: 62rem;
+  }
+
+  @media screen and (max-width: $md4+px) {
+  padding-right: 1.8rem;
+  }
+
+}
+.what-our-users__title{
+  @include title(#FFFF);
+  margin-bottom: 4.3rem;
+  text-align: start;
+  @media screen and (max-width: $md2+px) {
+    margin-bottom: 1.9rem;
+  }
+
+  @media screen and (max-width: $md4+px) {
+    margin-bottom: 2.5rem;
+    text-align: center;
+  }
+}
+
+.what-our-users__subtitle{
+  @include Subheader(#FFFF);
+  text-align: start;
+  @media screen and (max-width: $md2+px) {
+    margin-bottom: 5.8rem;
+  }
+
+  @media screen and (max-width: $md4+px) {
+
+    text-align: center;
+   letter-spacing:  -0.2px;
+    font-size: 1.8rem;
+    line-height: 150%;
+    max-width: 28.5rem;
+    margin-left: 0.8rem;
+    margin-bottom: 4rem;
+  }
+}
+
+.what-our-users__feed-back-box {
+  transform-style: preserve-3d;
+  perspective:150rem;
+  position: relative;
+  display: grid;
+  width: 80rem;
+  grid-template-columns: 51.5rem 51.5rem;
+  grid-template-rows: 46.3rem 46.3rem;
+  grid-column-gap: 3rem;
+  grid-row-gap: 3rem;
+  @media screen and (max-width: $md2+px) {
+    position: static;
+    width: auto;
+    margin-left: auto;
+  }
+  @media screen and (max-width: $md3+px) {
+    grid-template-columns: repeat(4,52.4rem);
+    grid-template-rows: 37.2rem;
+    grid-column-gap: 2rem;
+  }
+
+  @media screen and (max-width: $md4+px) {
+  grid-template-columns: repeat(4, 30rem);
+  grid-template-rows: 54.9rem;
+  }
+
+}
+
+
+.feed-back-cart{
+  transition: 1.1s;
+
+  position: relative;
+  background: #FFFFFF;
+  padding: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  border-radius: 0.5rem;
+  box-shadow: 0 .4rem 5rem rgba(0, 0, 0, 0.5);
+
+  @media screen and (max-width: $md3+px) {
+    padding: 3.5rem;
+    align-items: center;
+  }
+  @media screen and (max-width: $md4+px) {
+    padding: 3.5rem 0;
+
+  }
+}
+
+.feed-back-cart__icon{
+  font-family: Montserrat Alternates;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 12rem;
+  line-height: 0.7;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: #00A092;
+  @media screen and (max-width: $md3+px) {
+    position: absolute;
+    top: 5rem;
+    left: 3.4rem;
+}
+}
+
+.feed-back-cart__title{
+  @include Subheader(#000000);
+  text-align: start;
+  margin-bottom: 2.4rem;
+  @media screen and (max-width: $md3+px) {
+    width: 20rem;
+    text-align:  center;
+    padding-top: 1.6rem;
+    margin-bottom: 3.2rem;
+  }
+  @media screen and (max-width: $md4+px) {
+    padding-top: 8.1rem;
+    margin-bottom: 2.2rem;
+  }
+}
+
+.feed-back-cart__text{
+  @include body(#000000);
+  text-align: start;
+  @media screen and (max-width: $md3+px) {
+    max-width: 46rem;
+    text-align: center;
+  }
+  @media screen and (max-width: $md4+px) {
+
+    max-width: 26rem;
+  }
+
+}
+
+.feed-back-cart__author{
+  @include btn-text(#000000);
+  justify-self: end;
+  text-align: start;
+  margin-top: auto;
+  margin-bottom: 2.1rem;
+  @media screen and (max-width: $md3+px) {
+  margin-bottom: 1.6rem;
+  }
+}
+.what-our-users__arrows{
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  width: 20.2rem;
+  margin-top: 6rem;
+  padding-left: 0rem;
+  padding-right: 1.3rem;
+
+  @media screen and (max-width: $md2+px) {
+  margin-right: 2.3rem;
+    margin-top: 10.3rem;
+  padding-left: 0rem;
+    margin-left: auto;
+  }
+  @media screen and (max-width: $md3+px) {
+    display: none;
+  }
+  @media screen and (max-width: $md4+px) {
+    display: flex;
+    width: 10.5rem;
+    height: 0.8rem;
+    margin: 0 auto;
+    margin-top: 2.9rem;
+  }
+
+
+}
+
+.what-our-users__switch{
+  display: none;
+
+  @media screen and (max-width: $md4+px) {
+    display: block;
+    width: 0.8rem;
+    height: 0.8rem;
+    border: 1px solid #FFFFFF;
+    border-radius: 50%;
+  }
+
+}
+.what-our-users__switch:first-child{
+  background-color: #FFFFFF;
+
+}
+
+.what-our-users__arrow-left,
+.what-our-users__arrow-right{
+  height: 6rem;
+  width: 6rem;
+  color: #FFFFFF;
+  border-color: #FFFFFF;
+
+  @media screen and (max-width: $md3+px) {
+    display:none ;
+  }
+}
+.what-our-users__button{
+  color: #FFFFFF;
+  border-color: #FFFFFF;
+  margin-top: 37.8rem;
+  margin-bottom: 15rem;
+  width: 36rem;
+  @media screen and (max-width: $md2+px) {
+    margin-top: 9.6rem;
+    margin-left: 9.6rem;
+  }
+
+  @media screen and (max-width: $md3+px) {
+    margin-top:5rem;
+    margin-bottom: 75.2rem;
+    width: 36.8rem;
+    margin-left: 0;
+
+  }
+  @media screen and (max-width: $md4+px) {
+    width: 94%;
+    margin-bottom: 45rem;
+  }
+}
+
+
+
+
+
+

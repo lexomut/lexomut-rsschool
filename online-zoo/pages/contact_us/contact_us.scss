@@ -1,0 +1,180 @@
+@import "../main/normalize.css";
+@import "../main/reset.css";
+@import "../main/main";
+
+.contact-us{
+  margin-top: 11rem;
+  display: flex;
+  justify-content: center;
+}
+.contact-us__wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+   @media screen and (max-width: $md2+px){
+     max-width: 83.33% ;
+
+    }
+  @media screen and (max-width: $md3+px){
+    max-width: 100%;
+
+  }
+}
+.contact-us__image{
+  margin-bottom: 15rem;
+   @media screen and (max-width: $md2+px){
+margin-bottom: 5rem;
+     margin-left: 20%;
+    }
+  @media screen and (max-width: $md3+px){
+width: 124%;
+    margin-left: 8%;
+  }
+  @media screen and (max-width: $md4+px){
+    margin-bottom: 3rem ;
+  }
+}
+
+.contact-us__content{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+ @media screen and (max-width: $md2+px){
+flex-direction: column;
+   align-items: start;
+   padding-left: 12.3%;
+   padding-right: 4%;
+  }
+  @media screen and (max-width: $md3+px){
+    padding: 0;
+    width: 93.75vw;
+  }
+
+}
+.contact-us__header{
+  @include title(#00A092);
+  margin-bottom: 5rem;
+  text-align: start;
+   @media screen and (max-width: $md2+px){
+text-align: center;
+     margin-left: -11%;
+     margin-bottom: 3.2rem;
+    }
+   @media screen and (max-width: $md3+px){
+     margin-left: 0;
+     margin-bottom: 2rem;
+    }
+}
+.contact-us__subheader{
+  @include body();
+  max-width: 54.5rem;
+  text-align: start;
+   @media screen and (max-width: $md2+px){
+max-width: 100vw;
+     margin-bottom: 4.9rem;
+     text-align: center;
+    }
+  @media screen and (max-width: $md4+px){
+
+    margin-bottom: 4.1rem;
+
+  }
+}
+.form__name-input{
+  @include body();
+
+  text-align: start;
+  margin-bottom: 1rem;
+ @media screen and (max-width: $md4+px){
+margin-bottom: 0.5rem;
+  }
+
+}
+.form__name-input:before{
+  content: "*";
+  color:  #00A092;
+
+}
+//.form__input:required{
+//  background: #d83e33;
+//}
+
+
+.contact-us__form{
+  width: 68rem;
+  margin-bottom: 15rem;
+
+   @media screen and (max-width: $md2+px){
+    width: 100%;
+     padding-right: 10.5%;
+     padding-left: 0.8%;
+     margin-bottom: 10rem;
+    }
+  @media screen and (max-width: $md3+px){
+padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+   @media screen and (max-width: $md4+px) {
+margin-bottom: 8rem;
+
+    }
+}
+.form__input{
+
+  padding-left: 1rem;
+  width: 100%;
+  height: 6rem;
+  border-radius: 0.5rem;
+  @include body();
+
+  text-align: start;
+margin-bottom: 3.1rem;
+   @media screen and (max-width: $md2+px){
+padding-left: 2.4%;
+    }
+   @media screen and (max-width: $md4+px){
+    height: 4.9rem;
+    }
+}
+
+.text-aria{
+  height: 20rem;
+  padding-top: 1.3rem;
+
+
+}
+.form__btm{
+  width: 35.9rem;
+  background: #00A092;
+  margin-top: 3.7rem;
+  span{
+    margin-left: 1rem;
+  }
+   @media screen and (max-width: $md2+px){
+margin-top: 1.6rem;
+    }
+  @media screen and (max-width: $md3+px){
+margin: 0 auto;
+    margin-top: 1.6rem;
+    width: 29rem;
+
+  }
+   @media screen and (max-width: $md4+px){
+     margin-top: -0.2rem;
+     width: 100%;
+     height: 5rem;
+    }
+
+}
+.form__btm:hover{
+  background: #05786E;
+
+}
+
+
+@import "../main/header";
+
+@import "../main/footer";
+

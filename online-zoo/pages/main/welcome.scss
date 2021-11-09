@@ -1,0 +1,143 @@
+.welcome {
+  display: flex;
+  justify-content: center;
+  //margin-bottom: 15rem;
+  padding-top: 15rem;
+
+  @media screen and (max-width: $md2+px) {
+    padding-top: 10rem;
+    margin-bottom: 4.2rem;
+  }
+  @media screen and (max-width: $md3+px) {
+    margin-bottom: 7.3rem;
+  }
+  @media screen and (max-width: $md4+px) {
+    padding-top: 5rem;
+    margin-bottom: 2.3rem;
+  }
+}
+
+
+.welcome__wrapper {
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+.welcome__item:last-child {
+
+  @media screen and (max-width: $md2+px) {
+    align-self: flex-end;
+  }
+  @media screen and (max-width: $md3+px) {
+    align-self: normal;
+  }
+}
+
+
+.welcome__item {
+
+
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15rem;
+
+
+  @media screen and (max-width: $md2+px) {
+    display: block;
+    margin-bottom: 5.7rem;
+
+
+    max-width: 66rem;
+
+
+    .welcome__image, .welcome__title {
+      margin-bottom: 3rem;
+    }
+    div :last-child {
+      margin-bottom: 0;
+    }
+
+  };
+  @media screen and (max-width: $md3+px) {
+    margin-bottom: 2.6rem;
+
+  };
+  @media screen and (max-width: $md4+px) {
+    .welcome__image, .welcome__title {
+      margin-bottom: 2.8rem;
+    }
+  };
+
+
+
+}
+
+.welcome__item:first-child {
+  flex-direction: row-reverse;
+  .welcome__text{
+    padding-bottom: 2rem;
+  }
+
+}
+
+.welcome__image {
+  @media screen and (max-width: $md2+px) {
+    width: 100%;
+    img {
+      width: 100%;
+    }
+  }
+
+  @media screen and (max-width: $md3+px) {
+
+    img {
+      width: 103.2vw;
+      position: relative;
+      left: calc(-51.6vw + 50%);
+      //height: 68.7vw;
+    }
+  }
+
+}
+
+@media screen and (max-width: $md3+px) {
+  article:nth-child(2) > div.welcome__image {
+    margin-bottom: 1.95rem;
+  }
+
+}
+
+.welcome__content {
+  max-width: 56rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  @media screen and (max-width: $md3+px) {
+    max-width: 60rem;
+  }
+  @media screen and (max-width: $md4+px) {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+
+.welcome__title {
+  @include title();
+  text-align: start;
+  margin-bottom: 5rem;
+  @media screen and (max-width: $md4+px) {
+    font-size: 2.6rem;
+  }
+
+
+}
+
+.welcome__text {
+  @include body;
+  text-align: start;
+  line-height: 1.5;
+
+}
+
