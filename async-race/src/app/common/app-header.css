@@ -1,0 +1,21 @@
+.header {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  background: brown;
+  align-items: center;
+}
+
+.header__button {
+  margin: 0 20px;
+}
+
+.app-not-found {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/*# sourceMappingURL=app-header.css.map */
