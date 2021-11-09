@@ -1,0 +1,408 @@
+import { getCategories, getWords } from '../module/request';
+
+//
+// export const wordCarts = [
+//   [
+//     {
+//       item: 'cry',
+//       translation: 'плакать',
+//       image: 'img/cry.jpg',
+//       audioSrc: 'audio/cry.mp3',
+//     },
+//     {
+//       item: 'dance',
+//       translation: 'танцевать',
+//       image: 'img/dance.jpg',
+//       audioSrc: 'audio/dance.mp3',
+//     },
+//     {
+//       item: 'dive',
+//       translation: 'нырять',
+//       image: 'img/dive.jpg',
+//       audioSrc: 'audio/dive.mp3',
+//     },
+//     {
+//       item: 'draw',
+//       translation: 'рисовать',
+//       image: 'img/draw.jpg',
+//       audioSrc: 'audio/draw.mp3',
+//     },
+//     {
+//       item: 'fish',
+//       translation: 'ловить рыбу',
+//       image: 'img/fish.jpg',
+//       audioSrc: 'audio/fish.mp3',
+//     },
+//     {
+//       item: 'fly',
+//       translation: 'летать',
+//       image: 'img/fly.jpg',
+//       audioSrc: 'audio/fly.mp3',
+//     },
+//     {
+//       item: 'hug',
+//       translation: 'обнимать',
+//       image: 'img/hug.jpg',
+//       audioSrc: 'audio/hug.mp3',
+//     },
+//     {
+//       item: 'jump',
+//       translation: 'прыгать',
+//       image: 'img/jump.jpg',
+//       audioSrc: 'audio/jump.mp3',
+//     },
+//   ],
+//   [
+//     {
+//       item: 'open',
+//       translation: 'открывать',
+//       image: 'img/open.jpg',
+//       audioSrc: 'audio/open.mp3',
+//     },
+//     {
+//       item: 'play',
+//       translation: 'играть',
+//       image: 'img/play.jpg',
+//       audioSrc: 'audio/play.mp3',
+//     },
+//     {
+//       item: 'point',
+//       translation: 'указывать',
+//       image: 'img/point.jpg',
+//       audioSrc: 'audio/point.mp3',
+//     },
+//     {
+//       item: 'ride',
+//       translation: 'ездить',
+//       image: 'img/ride.jpg',
+//       audioSrc: 'audio/ride.mp3',
+//     },
+//     {
+//       item: 'run',
+//       translation: 'бегать',
+//       image: 'img/run.jpg',
+//       audioSrc: 'audio/run.mp3',
+//     },
+//     {
+//       item: 'sing',
+//       translation: 'петь',
+//       image: 'img/sing.jpg',
+//       audioSrc: 'audio/sing.mp3',
+//     },
+//     {
+//       item: 'skip',
+//       translation: 'пропускать, прыгать',
+//       image: 'img/skip.jpg',
+//       audioSrc: 'audio/skip.mp3',
+//     },
+//     {
+//       item: 'swim',
+//       translation: 'плавать',
+//       image: 'img/swim.jpg',
+//       audioSrc: 'audio/swim.mp3',
+//     },
+//   ],
+//   [
+//     {
+//       item: 'cat',
+//       translation: 'кот',
+//       image: 'img/cat.jpg',
+//       audioSrc: 'audio/cat.mp3',
+//     },
+//     {
+//       item: 'chick',
+//       translation: 'цыплёнок',
+//       image: 'img/chick.jpg',
+//       audioSrc: 'audio/chick.mp3',
+//     },
+//     {
+//       item: 'chicken',
+//       translation: 'курица',
+//       image: 'img/chicken.jpg',
+//       audioSrc: 'audio/chicken.mp3',
+//     },
+//     {
+//       item: 'dog',
+//       translation: 'собака',
+//       image: 'img/dog.jpg',
+//       audioSrc: 'audio/dog.mp3',
+//     },
+//     {
+//       item: 'horse',
+//       translation: 'лошадь',
+//       image: 'img/horse.jpg',
+//       audioSrc: 'audio/horse.mp3',
+//     },
+//     {
+//       item: 'pig',
+//       translation: 'свинья',
+//       image: 'img/pig.jpg',
+//       audioSrc: 'audio/pig.mp3',
+//     },
+//     {
+//       item: 'rabbit',
+//       translation: 'кролик',
+//       image: 'img/rabbit.jpg',
+//       audioSrc: 'audio/rabbit.mp3',
+//     },
+//     {
+//       item: 'sheep',
+//       translation: 'овца',
+//       image: 'img/sheep.jpg',
+//       audioSrc: 'audio/sheep.mp3',
+//     },
+//   ],
+//   [
+//     {
+//       item: 'bird',
+//       translation: 'птица',
+//       image: 'img/bird.jpg',
+//       audioSrc: 'audio/bird.mp3',
+//     },
+//     {
+//       item: 'fish',
+//       translation: 'рыба',
+//       image: 'img/fish1.jpg',
+//       audioSrc: 'audio/fish.mp3',
+//     },
+//     {
+//       item: 'frog',
+//       translation: 'жаба',
+//       image: 'img/frog.jpg',
+//       audioSrc: 'audio/frog.mp3',
+//     },
+//     {
+//       item: 'giraffe',
+//       translation: 'жирафа',
+//       image: 'img/giraffe.jpg',
+//       audioSrc: 'audio/giraffe.mp3',
+//     },
+//     {
+//       item: 'lion',
+//       translation: 'лев',
+//       image: 'img/lion.jpg',
+//       audioSrc: 'audio/lion.mp3',
+//     },
+//     {
+//       item: 'mouse',
+//       translation: 'мышь',
+//       image: 'img/mouse.jpg',
+//       audioSrc: 'audio/mouse.mp3',
+//     },
+//     {
+//       item: 'turtle',
+//       translation: 'черепаха',
+//       image: 'img/turtle.jpg',
+//       audioSrc: 'audio/turtle.mp3',
+//     },
+//     {
+//       item: 'dolphin',
+//       translation: 'дельфин',
+//       image: 'img/dolphin.jpg',
+//       audioSrc: 'audio/dolphin.mp3',
+//     },
+//   ],
+//   [
+//     {
+//       item: 'skirt',
+//       translation: 'юбка',
+//       image: 'img/skirt.jpg',
+//       audioSrc: 'audio/skirt.mp3',
+//     },
+//     {
+//       item: 'pants',
+//       translation: 'брюки',
+//       image: 'img/pants.jpg',
+//       audioSrc: 'audio/pants.mp3',
+//     },
+//     {
+//       item: 'blouse',
+//       translation: 'блузка',
+//       image: 'img/blouse.jpg',
+//       audioSrc: 'audio/blouse.mp3',
+//     },
+//     {
+//       item: 'dress',
+//       translation: 'платье',
+//       image: 'img/dress.jpg',
+//       audioSrc: 'audio/dress.mp3',
+//     },
+//     {
+//       item: 'boot',
+//       translation: 'ботинок',
+//       image: 'img/boot.jpg',
+//       audioSrc: 'audio/boot.mp3',
+//     },
+//     {
+//       item: 'shirt',
+//       translation: 'рубашка',
+//       image: 'img/shirt.jpg',
+//       audioSrc: 'audio/shirt.mp3',
+//     },
+//     {
+//       item: 'coat',
+//       translation: 'пальто',
+//       image: 'img/coat.jpg',
+//       audioSrc: 'audio/coat.mp3',
+//     },
+//     {
+//       item: 'shoe',
+//       translation: 'туфли',
+//       image: 'img/shoe.jpg',
+//       audioSrc: 'audio/shoe.mp3',
+//     },
+//   ],
+//   [
+//     {
+//       item: 'sad',
+//       translation: 'грустный',
+//       image: 'img/sad.jpg',
+//       audioSrc: 'audio/sad.mp3',
+//     },
+//     {
+//       item: 'angry',
+//       translation: 'сердитый',
+//       image: 'img/angry.jpg',
+//       audioSrc: 'audio/angry.mp3',
+//     },
+//     {
+//       item: 'happy',
+//       translation: 'счастливый',
+//       image: 'img/happy.jpg',
+//       audioSrc: 'audio/happy.mp3',
+//     },
+//     {
+//       item: 'tired',
+//       translation: 'уставший',
+//       image: 'img/tired.jpg',
+//       audioSrc: 'audio/tired.mp3',
+//     },
+//     {
+//       item: 'surprised',
+//       translation: 'удивлённый',
+//       image: 'img/surprised.jpg',
+//       audioSrc: 'audio/surprised.mp3',
+//     },
+//     {
+//       item: 'scared',
+//       translation: 'испуганный',
+//       image: 'img/scared.jpg',
+//       audioSrc: 'audio/scared.mp3',
+//     },
+//     {
+//       item: 'smile',
+//       translation: 'улыбка',
+//       image: 'img/smile.jpg',
+//       audioSrc: 'audio/smile.mp3',
+//     },
+//     {
+//       item: 'laugh',
+//       translation: 'смех',
+//       image: 'img/laugh.jpg',
+//       audioSrc: 'audio/laugh.mp3',
+//     },
+//   ],
+//   [
+//     {
+//       item: 'road',
+//       translation: 'дорога',
+//       image: 'img/road.jpg',
+//       audioSrc: 'audio/road.mp3',
+//     },
+//     {
+//       item: 'desert',
+//       translation: 'пустыня',
+//       image: 'img/desert.jpg',
+//       audioSrc: 'audio/desert.mp3',
+//     },
+//
+//     {
+//       item: 'mountain',
+//       translation: 'гора',
+//       image: 'img/mountain.jpg',
+//       audioSrc: 'audio/mountain.mp3',
+//     },
+//
+//     {
+//       item: 'river',
+//       translation: 'река',
+//       image: 'img/river.jpg',
+//       audioSrc: 'audio/river.mp3',
+//     },
+//     {
+//       item: 'village',
+//       translation: 'деревня',
+//       image: 'img/village.jpg',
+//       audioSrc: 'audio/village.mp3',
+//     },
+//     {
+//       item: 'city',
+//       translation: 'город',
+//       image: 'img/city.jpg',
+//       audioSrc: 'audio/city.mp3',
+//     },
+//     {
+//       item: 'forest',
+//       translation: 'лес',
+//       image: 'img/forest.jpg',
+//       audioSrc: 'audio/forest.mp3',
+//     },
+//     {
+//       item: 'sea',
+//       translation: 'море',
+//       image: 'img/sea.jpg',
+//       audioSrc: 'audio/sea.mp3',
+//     },
+//   ],
+//   [
+//     {
+//       item: 'cabbage',
+//       translation: 'капуста',
+//       image: 'img/cabbage.jpg',
+//       audioSrc: 'audio/cabbage.mp3',
+//     },
+//
+//     {
+//       item: 'carrot',
+//       translation: 'морковь',
+//       image: 'img/carrot.jpg',
+//       audioSrc: 'audio/carrot.mp3',
+//     },
+//     {
+//       item: 'tomato',
+//       translation: 'tomato',
+//       image: 'img/tomato.jpg',
+//       audioSrc: 'audio/tomato.mp3',
+//     },
+//     {
+//       item: 'cucumber',
+//       translation: 'огурец',
+//       image: 'img/cucumber.jpg',
+//       audioSrc: 'audio/cucumber.mp3',
+//     },
+//     {
+//       item: 'pear',
+//       translation: 'груша',
+//       image: 'img/pear.jpg',
+//       audioSrc: 'audio/pear.mp3',
+//     },
+//     {
+//       item: 'orange',
+//       translation: 'апельсин',
+//       image: 'img/orange.jpg',
+//       audioSrc: 'audio/orange.mp3',
+//     },
+//     {
+//       item: 'apple',
+//       translation: 'яблоко',
+//       image: 'img/apple.jpg',
+//       audioSrc: 'audio/apple.mp3',
+//     },
+//     {
+//       item: 'strawberry',
+//       translation: 'клубника',
+//       image: 'img/strawberry.jpg',
+//       audioSrc: 'audio/strawberry.mp3',
+//     },
+//   ],
+// ];
