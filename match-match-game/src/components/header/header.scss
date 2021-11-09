@@ -1,0 +1,42 @@
+.header {
+  display: flex;
+  width: 100%;
+  //max-width: 1920px;
+  height: 70px;
+  background: #2196F3;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.24);
+  padding: 0 10%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-button {
+  width: 110px;
+  left: 96px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+}
+
+.header-button_active {
+  background: #1E88E5;
+}
+.header-button__img{
+  width: 25px;
+  height: 25px;
+}
+.header-button__name{
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: center;
+  letter-spacing: 0.4px;
+  margin-top: 10px;
+  color: #FFFFFF;
+}

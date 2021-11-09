@@ -1,0 +1,17 @@
+[
+  {
+    "label": "First name",
+    "pattern": "^[a-z0-9A-ZА-Яа-я ]{1,30}$",
+    "message": "please enter your name, correct"
+  },
+  {
+    "label": "last name",
+    "pattern": "^[a-z0-9A-ZА-Яа-я ]{1,30}$",
+    "message": "please enter your last name, correct"
+  },
+  {
+    "label": "Email",
+    "pattern": "^([a-z0-9_\\.-]+)@([\\da-z\\.-]+)\\.([a-z\\.]{2,6})$",
+    "message": "please enter your Email, correct"
+  }
+]
